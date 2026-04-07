@@ -6,65 +6,78 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
 
 <style>
+
 body {
   font-family: 'Poppins', sans-serif;
   background: #fffafc;
-  text-align: center;
   margin: 0;
+  text-align: center;
 }
 
 /* TITLE */
 h1 {
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  font-weight: 500;
-  margin: 30px 0 10px;
   color: #e07a9d;
+  margin: 40px 0 20px;
 }
 
-/* GALLERY */
+/* GRID */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 20px;
-  padding: 20px;
-  max-width: 1000px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
   margin: auto;
+  padding: 20px;
 }
 
 /* CARD */
 .card {
   background: #ffffff;
+  border-radius: 18px;
   padding: 15px;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: transform 0.2s;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: 0.25s;
 }
 
 .card:hover {
+  transform: translateY(-5px);
+}
+
+/* IMAGE CONTAINER (KEY FIX) */
+.image-container {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* BIG IMAGE */
+.big .image-container {
+  height: 260px;
+}
+
+/* IMAGE */
+.card img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card img:hover {
   transform: scale(1.05);
-}
-
-/* IMAGES */
-.big img {
-  width: 270px;
-  cursor: pointer;
-  border-radius: 12px;
-}
-
-.small img {
-  width: 120px;
-  cursor: pointer;
-  border-radius: 12px;
 }
 
 /* PRICE */
 .price {
-  margin-top: 10px;
+  margin-top: 12px;
   font-weight: 600;
   color: #ff8fab;
 }
@@ -78,24 +91,32 @@ h1 {
   font-weight: 600;
 }
 
-/* LIGHTBOX */
+/* LIGHTBOX (IMPROVED) */
 .lightbox {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.85);
+  display: none;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 }
 
 .lightbox img {
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 95%;
+  max-height: 95%;
   border-radius: 12px;
+  animation: zoom 0.25s ease;
 }
+
+@keyframes zoom {
+  from {transform: scale(0.8); opacity: 0;}
+  to {transform: scale(1); opacity: 1;}
+}
+
 </style>
 </head>
 
@@ -107,37 +128,51 @@ h1 {
 
   <!-- MAIN -->
   <div class="card big">
-    <img src="images/llavero1.png" onclick="openLightbox(this.src)">
+    <div class="image-container">
+      <img src="images/llavero1.png" onclick="openLightbox(this.src)">
+    </div>
     <div class="price">Precio: L. 150</div>
   </div>
 
-  <div class="card small">
-    <img src="images/llavero2.png" onclick="openLightbox(this.src)">
+  <div class="card">
+    <div class="image-container">
+      <img src="images/llavero2.png" onclick="openLightbox(this.src)">
+    </div>
     <div class="price">Precio: L. 150</div>
   </div>
 
-  <div class="card small">
-    <img src="images/llavero3.png" onclick="openLightbox(this.src)">
+  <div class="card">
+    <div class="image-container">
+      <img src="images/llavero3.png" onclick="openLightbox(this.src)">
+    </div>
     <div class="price">Precio: L. 150</div>
   </div>
 
-  <div class="card small">
-    <img src="images/llavero4.png" onclick="openLightbox(this.src)">
+  <div class="card">
+    <div class="image-container">
+      <img src="images/llavero4.png" onclick="openLightbox(this.src)">
+    </div>
     <div class="price">Precio: L. 150</div>
   </div>
 
-  <div class="card small">
-    <img src="images/llavero5.png" onclick="openLightbox(this.src)">
+  <div class="card">
+    <div class="image-container">
+      <img src="images/llavero5.png" onclick="openLightbox(this.src)">
+    </div>
     <div class="price">Precio: L. 150</div>
   </div>
 
-  <div class="card small">
-    <img src="images/llavero6.png" onclick="openLightbox(this.src)">
+  <div class="card">
+    <div class="image-container">
+      <img src="images/llavero6.png" onclick="openLightbox(this.src)">
+    </div>
     <div class="price">Precio: L. 150</div>
   </div>
 
-  <div class="card small">
-    <img src="images/llavero7.png" onclick="openLightbox(this.src)">
+  <div class="card">
+    <div class="image-container">
+      <img src="images/llavero7.png" onclick="openLightbox(this.src)">
+    </div>
     <div class="price">Precio: L. 150</div>
   </div>
 
