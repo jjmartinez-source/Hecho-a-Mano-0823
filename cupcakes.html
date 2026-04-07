@@ -6,7 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
 
 <style>
 body {
@@ -16,8 +17,13 @@ body {
   margin: 0;
 }
 
+/* TITLE */
 h1 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 500;
   margin: 30px 0 10px;
+  color: #e07a9d;
 }
 
 /* GALLERY */
@@ -32,24 +38,31 @@ h1 {
 
 /* CARD */
 .card {
-  background: white;
+  background: #ffffff;
   padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s;
 }
 
-img {
+.card:hover {
+  transform: scale(1.03);
+}
+
+/* IMAGE */
+.card img {
   width: 100%;
   height: 220px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 12px;
+  cursor: pointer;
 }
 
 /* TEXT */
 .price {
   margin-top: 10px;
   font-weight: 600;
-  color: #e07a9d;
+  color: #ff8fab;
 }
 
 .no-price {
@@ -59,13 +72,32 @@ img {
   font-style: italic;
 }
 
-/* BACK BUTTON */
+/* BACK */
 .back {
   display: inline-block;
   margin: 30px;
   text-decoration: none;
   color: #a67c52;
   font-weight: 600;
+}
+
+/* LIGHTBOX */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
 }
 </style>
 </head>
@@ -78,37 +110,53 @@ img {
 
   <!-- MAIN MODEL (NO PRICE) -->
   <div class="card">
-    <img src="images/cupcake2.png" alt="Cupcake modelo">
+    <img src="images/cupcake2.png" onclick="openLightbox(this.src)">
     <div class="no-price">Modelo de referencia</div>
   </div>
 
   <!-- INDIVIDUAL 1 -->
   <div class="card">
-    <img src="images/cupcake1.png" alt="Cupcake individual">
+    <img src="images/cupcake1.png" onclick="openLightbox(this.src)">
     <div class="price">Precio individual: L. 150</div>
   </div>
 
   <!-- INDIVIDUAL 2 -->
   <div class="card">
-    <img src="images/cupcake4.png" alt="Cupcake individual">
+    <img src="images/cupcake4.png" onclick="openLightbox(this.src)">
     <div class="price">Precio individual: L. 150</div>
   </div>
 
   <!-- SET OF 4 -->
   <div class="card">
-    <img src="images/cupcake3.png" alt="Set de 4 cupcakes">
+    <img src="images/cupcake3.png" onclick="openLightbox(this.src)">
     <div class="price">Set de 4 cupcakes: L. 500</div>
   </div>
 
   <!-- SET OF 2 -->
   <div class="card">
-    <img src="images/cupcake5.png" alt="Set de 2 cupcakes">
+    <img src="images/cupcake5.png" onclick="openLightbox(this.src)">
     <div class="price">Set de 2 cupcakes: L. 250</div>
   </div>
 
 </div>
 
 <a href="index.html" class="back">← Volver al inicio</a>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img">
+</div>
+
+<script>
+function openLightbox(src) {
+  document.getElementById("lightbox").style.display = "flex";
+  document.getElementById("lightbox-img").src = src;
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
+</script>
 
 </body>
 </html>
