@@ -5,7 +5,7 @@
 <title>Hecho a Mano</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Fonts -->
+<!-- FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
 
 <style>
@@ -20,13 +20,7 @@ body {
 /* HEADER */
 header {
   background: linear-gradient(135deg, #ffd6e0, #ffe5b4, #d6f5ff);
-  padding: 30px 20px;
-}
-
-/* LOGO */
-.logo {
-  width: 180px;
-  margin-bottom: 10px;
+  padding: 60px 20px 40px;
 }
 
 /* TITLE */
@@ -34,17 +28,15 @@ h1 {
   font-family: 'Playfair Display', serif;
   font-style: italic;
   font-weight: 500;
-  margin: 10px 0 5px;
+  margin: 0;
   color: #e07a9d;
 }
 
-/* SUBTITLE */
 header p {
-  margin: 0;
-  font-weight: 400;
+  margin-top: 10px;
 }
 
-/* NAVBAR */
+/* NAV */
 nav {
   background: #ffc8dd;
   padding: 14px;
@@ -61,28 +53,37 @@ nav a:hover {
   opacity: 0.7;
 }
 
-/* ABOUT */
+/* ABOUT SECTION */
 .about {
   max-width: 900px;
-  margin: 50px auto;
+  margin: 60px auto;
   padding: 0 20px;
 }
 
 .about h2 {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   color: #ff8fab;
+  font-size: 1.8em;
 }
 
+/* LOGO INSIDE ABOUT */
+.about-logo {
+  width: 180px;
+  margin-bottom: 30px;
+}
+
+/* TEXT */
 .about p {
   text-align: justify;
-  line-height: 1.7;
+  line-height: 1.8;
   font-weight: 500;
   font-style: italic;
+  margin-bottom: 20px;
 }
 
 /* FOOTER */
 footer {
-  margin-top: 40px;
+  margin-top: 60px;
   padding: 20px;
   background: #e0f7fa;
 }
@@ -92,13 +93,8 @@ footer {
 <body>
 
 <header>
-
-  <!-- LOGO -->
-  <img src="images/logo.png" alt="Logo Hecho a Mano" class="logo">
-
   <h1>Hecho a Mano</h1>
   <p>Hecho a mano… es hecho con amor</p>
-
 </header>
 
 <nav>
@@ -111,6 +107,9 @@ footer {
 
 <section class="about">
   <h2>Sobre Nosotros</h2>
+
+  <!-- LOGO MOVED HERE -->
+  <img src="images/logo.png" alt="Logo Hecho a Mano" class="about-logo">
 
   <p>
     Somos un emprendimiento pequeño con grandes ideas, donde cada creación nace desde el corazón y se transforma en algo único a través del arte de tejer. Todo comenzó como un hobby… un momento de calma, de curiosidad, de crear con las manos algo que antes solo existía en la imaginación.
