@@ -29,7 +29,7 @@ h1 {
 /* GALLERY */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 20px;
   padding: 20px;
   max-width: 1000px;
@@ -46,16 +46,20 @@ h1 {
 }
 
 .card:hover {
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
-/* IMAGE */
-.card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 12px;
+/* IMAGES */
+.big img {
+  width: 270px;
   cursor: pointer;
+  border-radius: 12px;
+}
+
+.small img {
+  width: 120px;
+  cursor: pointer;
+  border-radius: 12px;
 }
 
 /* PRICE */
@@ -101,39 +105,40 @@ h1 {
 
 <div class="gallery">
 
-  <div class="card">
+  <!-- MAIN -->
+  <div class="card big">
     <img src="images/llavero1.png" onclick="openLightbox(this.src)">
-    <div class="price">Precio: L. ___</div>
+    <div class="price">Precio: L. 150</div>
   </div>
 
-  <div class="card">
+  <div class="card small">
     <img src="images/llavero2.png" onclick="openLightbox(this.src)">
-    <div class="price">Precio: L. ___</div>
+    <div class="price">Precio: L. 150</div>
   </div>
 
-  <div class="card">
+  <div class="card small">
     <img src="images/llavero3.png" onclick="openLightbox(this.src)">
-    <div class="price">Precio: L. ___</div>
+    <div class="price">Precio: L. 150</div>
   </div>
 
-  <div class="card">
+  <div class="card small">
     <img src="images/llavero4.png" onclick="openLightbox(this.src)">
-    <div class="price">Precio: L. ___</div>
+    <div class="price">Precio: L. 150</div>
   </div>
 
-  <div class="card">
+  <div class="card small">
     <img src="images/llavero5.png" onclick="openLightbox(this.src)">
-    <div class="price">Precio: L. ___</div>
+    <div class="price">Precio: L. 150</div>
   </div>
 
-  <div class="card">
+  <div class="card small">
     <img src="images/llavero6.png" onclick="openLightbox(this.src)">
-    <div class="price">Precio: L. ___</div>
+    <div class="price">Precio: L. 150</div>
   </div>
 
-  <div class="card">
+  <div class="card small">
     <img src="images/llavero7.png" onclick="openLightbox(this.src)">
-    <div class="price">Precio: L. ___</div>
+    <div class="price">Precio: L. 150</div>
   </div>
 
 </div>
