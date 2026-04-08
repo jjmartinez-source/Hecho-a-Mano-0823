@@ -56,7 +56,7 @@ h1 {
 
 .card img {
   width: 100%;
-  height: 240px;
+  height: 250px;
   object-fit: cover;
 }
 
@@ -84,34 +84,31 @@ h1 {
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.85);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow-y: auto;
+  padding: 40px 20px;
 }
 
-/* CONTENEDOR DE IMÁGENES */
+/* CONTENIDO */
 .modal-content {
+  max-width: 600px;
+  margin: auto;
   display: flex;
-  gap: 15px;
-  overflow-x: auto;
-  padding: 20px;
-  max-width: 90%;
+  flex-direction: column;
+  gap: 20px;
 }
 
-/* IMÁGENES DEL MODAL (CONTROLADAS 🔥) */
+/* IMÁGENES */
 .modal-content img {
-  max-height: 70vh;
-  max-width: 300px;
+  width: 100%;
+  max-height: 500px;
   object-fit: contain;
   border-radius: 10px;
   background: white;
-  padding: 5px;
 }
 
 /* CLOSE */
 .close {
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: 30px;
   color: white;
@@ -149,7 +146,7 @@ h1 {
 </div>
 </div>
 
-<!-- BELLA Y BESTIA -->
+<!-- BELLA -->
 <div class="card" onclick="openModal([
 'images/bella2new.png',
 'images/bella1.png',
@@ -211,7 +208,7 @@ h1 {
 </div>
 
 <!-- MODAL -->
-<div id="modal" class="modal" style="display:none;">
+<div id="modal" class="modal">
 <span class="close" onclick="closeModal()">&times;</span>
 <div id="modalContent" class="modal-content"></div>
 </div>
@@ -229,7 +226,7 @@ function openModal(images) {
     content.appendChild(img);
   });
 
-  modal.style.display = "flex";
+  modal.style.display = "block";
 }
 
 function closeModal() {
