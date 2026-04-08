@@ -15,6 +15,7 @@ body {
   background: #fffafc;
   color: #333;
   text-align: center;
+  transition: all 0.3s ease;
 }
 
 /* HEADER */
@@ -23,7 +24,6 @@ header {
   padding: 60px 20px 40px;
 }
 
-/* TITLE */
 h1 {
   font-family: 'Playfair Display', serif;
   font-style: italic;
@@ -49,11 +49,27 @@ nav a {
   font-weight: 500;
 }
 
-nav a:hover {
-  opacity: 0.7;
+/* BUTTONS TOP */
+.top-buttons {
+  margin: 15px;
 }
 
-/* ABOUT SECTION */
+.top-buttons button {
+  margin: 5px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  background: #ff8fab;
+  color: white;
+  font-weight: 500;
+}
+
+.top-buttons button:hover {
+  opacity: 0.8;
+}
+
+/* ABOUT */
 .about {
   max-width: 900px;
   margin: 60px auto;
@@ -63,22 +79,18 @@ nav a:hover {
 .about h2 {
   margin-bottom: 30px;
   color: #ff8fab;
-  font-size: 1.8em;
 }
 
-/* LOGO INSIDE ABOUT */
 .about-logo {
   width: 180px;
   margin-bottom: 30px;
 }
 
-/* TEXT */
 .about p {
   text-align: justify;
   line-height: 1.8;
   font-weight: 500;
   font-style: italic;
-  margin-bottom: 20px;
 }
 
 /* FOOTER */
@@ -87,14 +99,30 @@ footer {
   padding: 20px;
   background: #e0f7fa;
 }
+
+/* RESPONSIVE MODES */
+.mobile {
+  max-width: 375px;
+  margin: auto;
+}
+
+.tablet {
+  max-width: 768px;
+  margin: auto;
+}
+
+.desktop {
+  max-width: 1200px;
+  margin: auto;
+}
 </style>
 </head>
 
-<body>
+<body class="desktop">
 
 <header>
-  <h1>Hecho a Mano</h1>
-  <p>Hecho a mano… es hecho con amor</p>
+  <h1 id="title">Hecho a Mano</h1>
+  <p id="slogan">Hecho a mano… es hecho con amor</p>
 </header>
 
 <nav>
@@ -105,30 +133,38 @@ footer {
   <a href="otros.html">Otros</a>
 </nav>
 
+<!-- BUTTONS -->
+<div class="top-buttons">
+  <button onclick="contact()">Contacto</button>
+  <button onclick="toggleLanguage()">ES / EN</button>
+  <button onclick="setView('mobile')">📱</button>
+  <button onclick="setView('tablet')">💻 Tablet</button>
+  <button onclick="setView('desktop')">🖥️ PC</button>
+</div>
+
 <section class="about">
-  <h2>Sobre Nosotros</h2>
+  <h2 id="aboutTitle">Sobre Nosotros</h2>
 
-  <!-- LOGO MOVED HERE -->
-  <img src="images/logo.png" alt="Logo Hecho a Mano" class="about-logo">
+  <img src="images/logo.png" class="about-logo">
 
-  <p>
-    Somos un emprendimiento pequeño con grandes ideas, donde cada creación nace desde el corazón y se transforma en algo único a través del arte de tejer. Todo comenzó como un hobby… un momento de calma, de curiosidad, de crear con las manos algo que antes solo existía en la imaginación.
+  <p id="p1">
+    Somos un emprendimiento pequeño con grandes ideas, donde cada creación nace desde el corazón...
   </p>
 
-  <p>
-    Poco a poco, ese pasatiempo se convirtió en una pasión, y esa pasión en un deseo más grande: compartir con otros la magia de tejer. Creemos que el crochet no es solo una técnica, sino una forma de expresión. Cada puntada cuenta una historia, cada pieza guarda tiempo, dedicación y cariño.
+  <p id="p2">
+    Poco a poco, ese pasatiempo se convirtió en una pasión...
   </p>
 
-  <p>
-    Por eso, queremos que más personas descubran lo que nosotros sentimos al crear: la satisfacción de ver una idea cobrar vida. Desde amigurumis hasta proyectos completamente personalizados, incluso tus mascotas o ideas más especiales, trabajamos para convertir lo que imaginas en algo tangible, hecho completamente a mano.
+  <p id="p3">
+    Por eso, queremos que más personas descubran lo que nosotros sentimos al crear...
   </p>
 
-  <p>
-    Además, abrimos las puertas a quienes quieran aprender este hermoso arte. Ofrecemos clases de crochet para principiantes y niveles intermedios, donde enseñamos desde lo más básico hasta técnicas más avanzadas, siempre en un ambiente cercano, paciente y creativo.
+  <p id="p4">
+    Además, abrimos las puertas a quienes quieran aprender este hermoso arte...
   </p>
 
-  <p>
-    Aquí no solo creamos, también enseñamos, compartimos y crecemos juntos. ¿Qué esperas para ver cómo tus ideas se tejen? Hecho a mano… es hecho con amor.
+  <p id="p5">
+    Aquí no solo creamos, también enseñamos, compartimos y crecemos juntos...
   </p>
 
 </section>
@@ -136,6 +172,39 @@ footer {
 <footer>
   © 2026 Hecho a Mano
 </footer>
+
+<script>
+// WHATSAPP
+function contact() {
+  window.open("https://wa.link/31vzqd", "_blank");
+}
+
+// LANGUAGE TOGGLE
+let isSpanish = true;
+
+function toggleLanguage() {
+  if (isSpanish) {
+    document.getElementById("title").innerText = "Handmade";
+    document.getElementById("slogan").innerText = "Handmade… made with love";
+    document.getElementById("aboutTitle").innerText = "About Us";
+
+    document.getElementById("p1").innerText = "We are a small business with big ideas...";
+    document.getElementById("p2").innerText = "Little by little, that hobby became a passion...";
+    document.getElementById("p3").innerText = "We want others to discover the joy of creating...";
+    document.getElementById("p4").innerText = "We also offer crochet classes...";
+    document.getElementById("p5").innerText = "Here we don’t just create, we grow together...";
+
+    isSpanish = false;
+  } else {
+    location.reload(); // vuelve al español original
+  }
+}
+
+// VIEW MODES
+function setView(mode) {
+  document.body.className = mode;
+}
+</script>
 
 </body>
 </html>
