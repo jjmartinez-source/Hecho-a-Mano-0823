@@ -6,7 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+<!-- FUENTE CONSISTENTE -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
@@ -14,15 +15,35 @@ body {
   font-family: 'Poppins', sans-serif;
   background: #fffafc;
   margin: 0;
-  text-align: center;
+}
+
+/* HEADER IGUAL */
+.header {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+.back-btn {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  background: white;
+  padding: 8px 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  background: #ffe4ec;
 }
 
 /* TITLE */
 h1 {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  color: #e07a9d;
-  margin: 40px 0 20px;
+  text-align: center;
+  margin: 30px 0 20px;
+  font-weight: 600;
 }
 
 /* GRID */
@@ -40,15 +61,15 @@ h1 {
   background: #ffffff;
   border-radius: 18px;
   padding: 15px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  transition: 0.25s;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  transition: 0.3s;
 }
 
 .card:hover {
   transform: translateY(-5px);
 }
 
-/* IMAGE CONTAINER (KEY FIX) */
+/* IMAGE CONTAINER */
 .image-container {
   width: 100%;
   height: 200px;
@@ -79,48 +100,18 @@ h1 {
 .price {
   margin-top: 12px;
   font-weight: 600;
-  color: #ff8fab;
-}
-
-/* BACK */
-.back {
-  display: inline-block;
-  margin: 30px;
-  text-decoration: none;
-  color: #a67c52;
-  font-weight: 600;
-}
-
-/* LIGHTBOX (IMPROVED) */
-.lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.85);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-
-.lightbox img {
-  max-width: 95%;
-  max-height: 95%;
-  border-radius: 12px;
-  animation: zoom 0.25s ease;
-}
-
-@keyframes zoom {
-  from {transform: scale(0.8); opacity: 0;}
-  to {transform: scale(1); opacity: 1;}
+  color: #333;
 }
 
 </style>
 </head>
 
 <body>
+
+<!-- BOTÓN REGRESO -->
+<div class="header">
+  <a href="index.html" class="back-btn">← Volver al menú</a>
+</div>
 
 <h1>Llaveros</h1>
 
@@ -131,58 +122,71 @@ h1 {
     <div class="image-container">
       <img src="images/llavero1.png" onclick="openLightbox(this.src)">
     </div>
-    <div class="price">Precio: L. 150</div>
+    <div class="price">L 150</div>
   </div>
 
   <div class="card">
     <div class="image-container">
       <img src="images/llavero2.png" onclick="openLightbox(this.src)">
     </div>
-    <div class="price">Precio: L. 150</div>
+    <div class="price">L 150</div>
   </div>
 
   <div class="card">
     <div class="image-container">
       <img src="images/llavero3.png" onclick="openLightbox(this.src)">
     </div>
-    <div class="price">Precio: L. 150</div>
+    <div class="price">L 150</div>
   </div>
 
   <div class="card">
     <div class="image-container">
       <img src="images/llavero4.png" onclick="openLightbox(this.src)">
     </div>
-    <div class="price">Precio: L. 150</div>
+    <div class="price">L 150</div>
   </div>
 
   <div class="card">
     <div class="image-container">
       <img src="images/llavero5.png" onclick="openLightbox(this.src)">
     </div>
-    <div class="price">Precio: L. 150</div>
+    <div class="price">L 150</div>
   </div>
 
   <div class="card">
     <div class="image-container">
       <img src="images/llavero6.png" onclick="openLightbox(this.src)">
     </div>
-    <div class="price">Precio: L. 150</div>
+    <div class="price">L 150</div>
   </div>
 
   <div class="card">
     <div class="image-container">
       <img src="images/llavero7.png" onclick="openLightbox(this.src)">
     </div>
-    <div class="price">Precio: L. 150</div>
+    <div class="price">L 150</div>
   </div>
 
 </div>
 
-<a href="index.html" class="back">← Volver al inicio</a>
-
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <img id="lightbox-img">
+<div class="lightbox" id="lightbox" onclick="closeLightbox()" style="
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.85);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+">
+  <img id="lightbox-img" style="
+    max-width:95%;
+    max-height:95%;
+    border-radius:12px;
+  ">
 </div>
 
 <script>
