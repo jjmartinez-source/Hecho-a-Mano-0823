@@ -5,7 +5,6 @@
 <title>Muñecas</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- FUENTE IGUAL QUE TULIPANES -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -13,11 +12,20 @@ body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   background: #fffafc;
+  display: flex;
+  justify-content: center;
 }
 
-/* HEADER IGUAL */
+/* CONTAINER */
+.container {
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* HEADER */
 .header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
 }
@@ -29,25 +37,31 @@ body {
   background: white;
   padding: 8px 15px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  transition: 0.3s;
 }
 
-.back-btn:hover {
-  background: #ffe4ec;
+.lang-btn {
+  background: #ff8fab;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
-/* CONTENEDOR */
-.container {
-  padding: 20px;
-  max-width: 1200px;
-  margin: auto;
-}
-
+/* TITLE */
 h1 {
   text-align: center;
-  margin-bottom: 30px;
-  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* DESCRIPTION */
+.description {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+  padding: 0 20px;
+  line-height: 1.7;
+  font-style: italic;
 }
 
 /* GRID */
@@ -55,30 +69,24 @@ h1 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 25px;
+  padding: 20px;
 }
 
-/* TARJETAS (IGUAL QUE TULIPANES) */
+/* CARD */
 .card {
   background: white;
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-  transition: 0.3s;
   cursor: pointer;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-}
-
-/* IMAGEN */
 .card img {
   width: 100%;
   height: 250px;
   object-fit: cover;
 }
 
-/* INFO */
 .info {
   padding: 15px;
   text-align: center;
@@ -90,10 +98,9 @@ h1 {
 
 .price {
   margin-top: 5px;
-  font-weight: 500;
 }
 
-/* MODAL (MISMA LÍNEA VISUAL) */
+/* MODAL */
 .modal {
   display: none;
   position: fixed;
@@ -107,7 +114,6 @@ h1 {
   padding: 40px 20px;
 }
 
-/* CONTENIDO */
 .modal-content {
   max-width: 600px;
   margin: auto;
@@ -116,7 +122,6 @@ h1 {
   gap: 20px;
 }
 
-/* IMÁGENES */
 .modal-content img {
   width: 100%;
   max-height: 500px;
@@ -125,7 +130,6 @@ h1 {
   background: white;
 }
 
-/* BOTÓN CERRAR */
 .close {
   position: fixed;
   top: 20px;
@@ -139,97 +143,88 @@ h1 {
 
 <body>
 
-<!-- BOTÓN REGRESO -->
+<div class="container">
+
 <div class="header">
-  <a href="index.html" class="back-btn">← Volver al menú</a>
+  <a href="index.html" class="back-btn" id="backBtn">← Volver al menú</a>
+  <button class="lang-btn" onclick="toggleLanguage()">ES / EN</button>
 </div>
 
-<div class="container">
-<h1>Muñecas</h1>
+<h1 id="title">Muñecas</h1>
+
+<div class="description" id="desc">
+Elegantes, delicadas y llenas de imaginación… nuestras muñecas princesas tejidas están hechas a mano con dedicación y un toque de magia en cada detalle. Cada pieza es única, combinando creatividad y ternura para dar vida a pequeñas reinas que encantan, decoran y se convierten en el regalo perfecto para soñar despierto.
+</div>
 
 <div class="grid">
 
-<!-- RAPUNZEL -->
 <div class="card" onclick="openModal(['images/rapunzel1.png','images/rapunzel2.png','images/rapunzel3.png'])">
 <img src="images/rapunzel1.png">
 <div class="info">
-<div class="name">Rapunzel</div>
-<div class="price">L 1,300</div>
+<div class="name" data-name="Rapunzel"></div>
+<div class="price" data-price="1300"></div>
 </div>
 </div>
 
-<!-- JASMINE -->
 <div class="card" onclick="openModal(['images/jasmine1.png','images/jasmine2.png'])">
 <img src="images/jasmine1.png">
 <div class="info">
-<div class="name">Princesa Jasmine</div>
-<div class="price">L 1,300</div>
+<div class="name" data-name="Princesa Jasmine"></div>
+<div class="price" data-price="1300"></div>
 </div>
 </div>
 
-<!-- BELLA (CORREGIDO) -->
-<div class="card" onclick="openModal([
-'images/bella1.png',
-'images/bella2new.png',
-'images/bella3.png',
-'images/bella4.png'
-])">
+<div class="card" onclick="openModal(['images/bella1.png','images/bella2new.png','images/bella3.png','images/bella4.png'])">
 <img src="images/bella1.png">
 <div class="info">
-<div class="name">Bella y Bestia</div>
-<div class="price">L 2,400</div>
+<div class="name" data-name="Bella y Bestia"></div>
+<div class="price" data-price="2400"></div>
 </div>
 </div>
 
-<!-- GATITA -->
 <div class="card" onclick="openModal(['images/gatita1.png'])">
 <img src="images/gatita1.png">
 <div class="info">
-<div class="name">Gatita</div>
-<div class="price">L 1,300</div>
+<div class="name" data-name="Gatita"></div>
+<div class="price" data-price="1300"></div>
 </div>
 </div>
 
-<!-- CLOSET -->
 <div class="card" onclick="openModal(['images/closet1.png','images/closet2.png'])">
 <img src="images/closet1.png">
 <div class="info">
-<div class="name">Muñequita con Closet</div>
-<div class="price">L 1,500</div>
+<div class="name" data-name="Muñequita con Closet"></div>
+<div class="price" data-price="1500"></div>
 </div>
 </div>
 
-<!-- TINKERBELL -->
 <div class="card" onclick="openModal(['images/tinkerbell1.png'])">
 <img src="images/tinkerbell1.png">
 <div class="info">
-<div class="name">Campanita</div>
-<div class="price">L 1,300</div>
+<div class="name" data-name="Campanita"></div>
+<div class="price" data-price="1300"></div>
 </div>
 </div>
 
-<!-- BAILARINA -->
 <div class="card" onclick="openModal(['images/bailarina1.png'])">
 <img src="images/bailarina1.png">
 <div class="info">
-<div class="name">Bailarina</div>
-<div class="price">L 350</div>
+<div class="name" data-name="Bailarina"></div>
+<div class="price" data-price="350"></div>
 </div>
 </div>
 
-<!-- MR TOMATO -->
 <div class="card" onclick="openModal(['images/tomato1.png'])">
 <img src="images/tomato1.png">
 <div class="info">
-<div class="name">Mr. Tomato</div>
-<div class="price">L 350</div>
+<div class="name" data-name="Mr. Tomato"></div>
+<div class="price" data-price="350"></div>
 </div>
 </div>
 
 </div>
 </div>
 
-<!-- MODAL -->
 <div id="modal" class="modal">
 <span class="close" onclick="closeModal()">&times;</span>
 <div id="modalContent" class="modal-content"></div>
@@ -239,21 +234,68 @@ h1 {
 function openModal(images) {
   const modal = document.getElementById("modal");
   const content = document.getElementById("modalContent");
-
   content.innerHTML = "";
-
   images.forEach(src => {
     const img = document.createElement("img");
     img.src = src;
     content.appendChild(img);
   });
-
   modal.style.display = "block";
 }
 
 function closeModal() {
   document.getElementById("modal").style.display = "none";
 }
+
+let isSpanish = true;
+const rate = 26.5;
+
+const names = {
+  "Rapunzel": "Rapunzel",
+  "Princesa Jasmine": "Princess Jasmine",
+  "Bella y Bestia": "Beauty and the Beast",
+  "Gatita": "Kitten",
+  "Muñequita con Closet": "Doll with Closet",
+  "Campanita": "Tinker Bell",
+  "Bailarina": "Ballerina",
+  "Mr. Tomato": "Mr. Tomato"
+};
+
+function updateContent() {
+  document.querySelectorAll(".name").forEach(el => {
+    let name = el.dataset.name;
+    el.innerText = isSpanish ? name : names[name];
+  });
+
+  document.querySelectorAll(".price").forEach(el => {
+    let base = parseFloat(el.dataset.price);
+    if (isSpanish) {
+      el.innerText = `L. ${base}`;
+    } else {
+      el.innerText = `$${(base / rate).toFixed(2)}`;
+    }
+  });
+}
+
+function toggleLanguage() {
+  isSpanish = !isSpanish;
+
+  if (isSpanish) {
+    document.getElementById("title").innerText = "Muñecas";
+    document.getElementById("backBtn").innerText = "← Volver al menú";
+    document.getElementById("desc").innerText =
+    "Elegantes, delicadas y llenas de imaginación… nuestras muñecas princesas tejidas están hechas a mano con dedicación y un toque de magia en cada detalle. Cada pieza es única, combinando creatividad y ternura para dar vida a pequeñas reinas que encantan, decoran y se convierten en el regalo perfecto para soñar despierto.";
+  } else {
+    document.getElementById("title").innerText = "Dolls";
+    document.getElementById("backBtn").innerText = "← Back to menu";
+    document.getElementById("desc").innerText =
+    "Elegant, delicate, and full of imagination… our crocheted princess dolls are handmade with dedication and a touch of magic in every detail. Each piece is unique, combining creativity and tenderness to bring to life little queens that charm, decorate, and become the perfect gift for dreaming awake.";
+  }
+
+  updateContent();
+}
+
+updateContent();
 </script>
 
 </body>
