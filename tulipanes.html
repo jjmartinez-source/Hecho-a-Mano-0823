@@ -12,11 +12,20 @@ body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   background: #fffafc;
+  display: flex;
+  justify-content: center;
+}
+
+/* CONTAINER */
+.container {
+  width: 100%;
+  max-width: 1200px;
 }
 
 /* HEADER */
 .header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
 }
@@ -28,25 +37,31 @@ body {
   background: white;
   padding: 8px 15px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  transition: 0.3s;
 }
 
-.back-btn:hover {
-  background: #ffe4ec;
+.lang-btn {
+  background: #ff8fab;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
-/* CONTENEDOR */
-.container {
-  padding: 20px;
-  max-width: 1200px;
-  margin: auto;
-}
-
+/* TITLE */
 h1 {
   text-align: center;
-  margin-bottom: 30px;
-  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* DESCRIPTION */
+.description {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+  padding: 0 20px;
+  line-height: 1.7;
+  font-style: italic;
 }
 
 /* GRID */
@@ -54,36 +69,26 @@ h1 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 25px;
+  padding: 20px;
 }
 
-/* TARJETAS */
+/* CARD */
 .card {
   background: white;
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-  transition: 0.3s;
   position: relative;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-}
-
-/* IMÁGENES */
 .card img {
   width: 100%;
   height: 250px;
   object-fit: cover;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-.card img:hover {
-  transform: scale(1.05);
-}
-
-/* TEXTO */
+/* INFO */
 .info {
   padding: 15px;
   text-align: center;
@@ -91,10 +96,9 @@ h1 {
 
 .price {
   font-weight: 600;
-  margin-top: 5px;
 }
 
-/* ETIQUETAS */
+/* TAGS */
 .tag {
   position: absolute;
   top: 10px;
@@ -110,7 +114,7 @@ h1 {
   background: #ff6b81;
 }
 
-/* MODAL GENERAL */
+/* MODAL */
 .modal {
   display: none;
   position: fixed;
@@ -131,151 +135,157 @@ h1 {
   border-radius: 10px;
 }
 
-/* CONTROLES LLAVERO */
 .modal-control {
   position: absolute;
   color: white;
   font-size: 35px;
   cursor: pointer;
-  user-select: none;
 }
 
-.close-btn {
-  top: 20px;
-  right: 30px;
-}
+.close-btn { top: 20px; right: 30px; }
+.prev { top: 50%; left: 20px; }
+.next { top: 50%; right: 20px; }
 
-.prev {
-  top: 50%;
-  left: 20px;
-}
-
-.next {
-  top: 50%;
-  right: 20px;
-}
 </style>
 </head>
 
 <body>
 
-<!-- BOTÓN REGRESO -->
+<div class="container">
+
 <div class="header">
-  <a href="index.html" class="back-btn">← Volver al menú</a>
+  <a href="index.html" class="back-btn" id="backBtn">← Volver al menú</a>
+  <button class="lang-btn" onclick="toggleLanguage()">ES / EN</button>
 </div>
 
-<div class="container">
-<h1>Tulipanes</h1>
+<h1 id="title">Tulipanes</h1>
+
+<div class="description" id="desc">
+Delicados, elegantes y eternos… nuestros tulipanes tejidos están hechos a mano con amor en cada puntada. A diferencia de las flores naturales, nunca se marchitan, convirtiéndose en un detalle perfecto que simboliza cariño, belleza y durabilidad, ideal para regalar o decorar cualquier espacio con un toque suave y especial.
+</div>
 
 <div class="grid">
 
-<!-- MODELO -->
 <div class="card">
-  <img src="images/tulipan-modelo.jpg" onclick="openModal(this.src)">
-  <div class="info">
-    <p>Modelo de tulipanes</p>
-  </div>
+<img src="images/tulipan-modelo.jpg" onclick="openModal(this.src)">
+<div class="info"><p id="modelText"></p></div>
 </div>
 
-<!-- RAMO DE 4 -->
 <div class="card">
-  <img src="images/ramo-4-tulipanes.jpg" onclick="openModal(this.src)">
-  <div class="info">
-    <p>Ramo de 4 tulipanes</p>
-    <p class="price">L 500</p>
-  </div>
+<img src="images/ramo-4-tulipanes.jpg" onclick="openModal(this.src)">
+<div class="info">
+<p id="ramo4"></p>
+<p class="price" data-price="500"></p>
+</div>
 </div>
 
-<!-- PACK DE 3 (CAMBIADO A tulip1.jpg) -->
 <div class="card">
-  <div class="tag">Popular</div>
-  <img src="images/tulip1.jpg" onclick="openModal(this.src)">
-  <div class="info">
-    <p>Pack de 3 tulipanes</p>
-    <p class="price">L 375</p>
-  </div>
+<div class="tag" id="popularTag"></div>
+<img src="images/tulip1.jpg" onclick="openModal(this.src)">
+<div class="info">
+<p id="pack3"></p>
+<p class="price" data-price="375"></p>
+</div>
 </div>
 
-<!-- INDIVIDUALES (CAMBIADO A tulip2.jpg) -->
 <div class="card">
-  <img src="images/tulip2.jpg" onclick="openModal(this.src)">
-  <div class="info">
-    <p>Tulipanes individuales</p>
-    <p class="price">L 140 c/u</p>
-  </div>
+<img src="images/tulip2.jpg" onclick="openModal(this.src)">
+<div class="info">
+<p id="individual"></p>
+<p class="price" data-price="140" data-unit="true"></p>
+</div>
 </div>
 
-<!-- HELLO KITTY -->
 <div class="card">
-  <div class="tag special">Especial</div>
-  <img src="images/tulipan-hello-kitty.jpg" onclick="openModal(this.src)">
-  <div class="info">
-    <p>Tulipán Hello Kitty</p>
-    <p class="price">L 150</p>
-  </div>
+<div class="tag special" id="specialTag"></div>
+<img src="images/tulipan-hello-kitty.jpg" onclick="openModal(this.src)">
+<div class="info">
+<p id="hello"></p>
+<p class="price" data-price="150"></p>
+</div>
 </div>
 
-<!-- LLAVERO (GALERÍA) -->
 <div class="card">
-  <img src="images/llavero-tulipan-1.jpg" onclick="openLlaveroModal()">
-  <div class="info">
-    <p>Llavero de tulipán</p>
-    <p class="price">L 120 c/u</p>
-  </div>
-</div>
-
+<img src="images/llavero-tulipan-1.jpg" onclick="openLlaveroModal()">
+<div class="info">
+<p id="keychain"></p>
+<p class="price" data-price="120" data-unit="true"></p>
 </div>
 </div>
 
-<!-- MODAL NORMAL -->
+</div>
+</div>
+
+<!-- MODALS (SIN CAMBIOS) -->
 <div id="modal" class="modal" onclick="closeModal()">
-  <img id="modalImg">
+<img id="modalImg">
 </div>
 
-<!-- MODAL LLAVERO -->
 <div id="llaveroModal" class="modal">
-  <span class="modal-control close-btn" onclick="closeLlaveroModal()">✕</span>
-  <span class="modal-control prev" onclick="prevImage()">❮</span>
-  <img id="llaveroModalImg">
-  <span class="modal-control next" onclick="nextImage()">❯</span>
+<span class="modal-control close-btn" onclick="closeLlaveroModal()">✕</span>
+<span class="modal-control prev" onclick="prevImage()">❮</span>
+<img id="llaveroModalImg">
+<span class="modal-control next" onclick="nextImage()">❯</span>
 </div>
 
 <script>
-function openModal(src) {
-  document.getElementById("modal").style.display = "block";
-  document.getElementById("modalImg").src = src;
+// MODALS (igual)
+function openModal(src){document.getElementById("modal").style.display="block";document.getElementById("modalImg").src=src;}
+function closeModal(){document.getElementById("modal").style.display="none";}
+
+let llaveroImages=["images/llavero-tulipan-1.jpg","images/llavero-tulipan-2.jpg"];
+let currentIndex=0;
+
+function openLlaveroModal(){document.getElementById("llaveroModal").style.display="block";document.getElementById("llaveroModalImg").src=llaveroImages[currentIndex];}
+function closeLlaveroModal(){document.getElementById("llaveroModal").style.display="none";}
+function nextImage(){currentIndex=(currentIndex+1)%llaveroImages.length;document.getElementById("llaveroModalImg").src=llaveroImages[currentIndex];}
+function prevImage(){currentIndex=(currentIndex-1+llaveroImages.length)%llaveroImages.length;document.getElementById("llaveroModalImg").src=llaveroImages[currentIndex];}
+
+// LANGUAGE + PRICES
+let isSpanish=true;
+const rate=26.5;
+
+function updateContent(){
+document.getElementById("modelText").innerText=isSpanish?"Modelo de tulipanes":"Tulip model";
+document.getElementById("ramo4").innerText=isSpanish?"Ramo de 4 tulipanes":"Bouquet of 4 tulips";
+document.getElementById("pack3").innerText=isSpanish?"Pack de 3 tulipanes":"Pack of 3 tulips";
+document.getElementById("individual").innerText=isSpanish?"Tulipanes individuales":"Individual tulips";
+document.getElementById("hello").innerText=isSpanish?"Tulipán Hello Kitty":"Hello Kitty tulip";
+document.getElementById("keychain").innerText=isSpanish?"Llavero de tulipán":"Tulip keychain";
+
+document.getElementById("popularTag").innerText=isSpanish?"Popular":"Popular";
+document.getElementById("specialTag").innerText=isSpanish?"Especial":"Special";
+
+document.querySelectorAll(".price").forEach(el=>{
+let base=parseFloat(el.dataset.price);
+let unit=el.dataset.unit;
+
+if(isSpanish){
+el.innerText=unit?`L. ${base} c/u`:`L. ${base}`;
+}else{
+let usd=(base/rate).toFixed(2);
+el.innerText=unit?`$${usd} each`:`$${usd}`;
+}
+});
 }
 
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
+function toggleLanguage(){
+isSpanish=!isSpanish;
+
+if(isSpanish){
+document.getElementById("title").innerText="Tulipanes";
+document.getElementById("backBtn").innerText="← Volver al menú";
+document.getElementById("desc").innerText="Delicados, elegantes y eternos… nuestros tulipanes tejidos están hechos a mano con amor en cada puntada. A diferencia de las flores naturales, nunca se marchitan, convirtiéndose en un detalle perfecto que simboliza cariño, belleza y durabilidad, ideal para regalar o decorar cualquier espacio con un toque suave y especial.";
+}else{
+document.getElementById("title").innerText="Tulips";
+document.getElementById("backBtn").innerText="← Back to menu";
+document.getElementById("desc").innerText="Delicate, elegant, and everlasting… our crocheted tulips are handmade with love in every stitch. Unlike natural flowers, they never fade, becoming a perfect detail that symbolizes care, beauty, and durability, ideal for gifting or decorating any space with a soft and special touch.";
 }
 
-/* LLAVERO GALERÍA */
-let llaveroImages = [
-  "images/llavero-tulipan-1.jpg",
-  "images/llavero-tulipan-2.jpg"
-];
-
-let currentIndex = 0;
-
-function openLlaveroModal() {
-  document.getElementById("llaveroModal").style.display = "block";
-  document.getElementById("llaveroModalImg").src = llaveroImages[currentIndex];
+updateContent();
 }
 
-function closeLlaveroModal() {
-  document.getElementById("llaveroModal").style.display = "none";
-}
-
-function nextImage() {
-  currentIndex = (currentIndex + 1) % llaveroImages.length;
-  document.getElementById("llaveroModalImg").src = llaveroImages[currentIndex];
-}
-
-function prevImage() {
-  currentIndex = (currentIndex - 1 + llaveroImages.length) % llaveroImages.length;
-  document.getElementById("llaveroModalImg").src = llaveroImages[currentIndex];
-}
+updateContent();
 </script>
 
 </body>
