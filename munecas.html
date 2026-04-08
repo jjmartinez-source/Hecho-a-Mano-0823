@@ -2,49 +2,32 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Muñecas - Hecho a Mano</title>
+<title>Muñecas</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   background: #fffafc;
+}
+
+/* TITLE */
+h1 {
   text-align: center;
-}
-
-/* HEADER */
-header {
-  background: linear-gradient(135deg, #ffd6e0, #ffe5b4, #d6f5ff);
-  padding: 30px;
-}
-
-header a {
-  text-decoration: none;
-  color: #5a3e36;
-  font-weight: bold;
-}
-
-/* GRID */
-
-.container {
-  padding: 30px;
-}
-
-h2 {
+  margin: 30px 0;
   color: #ff8fab;
 }
 
+/* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
+  padding: 20px;
 }
 
 /* CARD */
-
 .card {
   background: white;
   border-radius: 15px;
@@ -61,12 +44,13 @@ h2 {
 .card img {
   width: 100%;
   height: 250px;
-  object-fit: contain;
-  background: #fff;
+  object-fit: cover;
 }
 
+/* INFO */
 .info {
-  padding: 10px;
+  padding: 15px;
+  text-align: center;
 }
 
 .name {
@@ -74,31 +58,27 @@ h2 {
 }
 
 .price {
-  color: #777;
+  color: gray;
 }
 
 /* MODAL */
-
 .modal {
   display: none;
   position: fixed;
-  z-index: 999;
+  z-index: 1000;
+  padding: 40px;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.85);
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-content {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  background: rgba(0,0,0,0.8);
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 .modal img {
-  max-height: 400px;
+  height: 80%;
+  margin: 0 10px;
   border-radius: 10px;
 }
 
@@ -106,8 +86,8 @@ h2 {
   position: absolute;
   top: 20px;
   right: 30px;
-  font-size: 30px;
   color: white;
+  font-size: 30px;
   cursor: pointer;
 }
 </style>
@@ -115,77 +95,104 @@ h2 {
 
 <body>
 
-<header>
-  <a href="index.html">← Volver al inicio</a>
-</header>
+<h1>Muñecas</h1>
 
-<div class="container">
-  <h2>Muñecas</h2>
+<div class="grid">
 
-  <div class="grid">
-
-    <div class="card" onclick="openModal(['images/rapunzel1.png','images/rapunzel2.png','images/rapunzel3.png'])">
-      <img src="images/rapunzel1.png">
-      <div class="info"><div class="name">Rapunzel</div><div class="price">L 1,300</div></div>
-    </div>
-
-    <div class="card" onclick="openModal(['images/jasmine1.png','images/jasmine2.png'])">
-      <img src="images/jasmine1.png">
-      <div class="info"><div class="name">Princesa Jasmine</div><div class="price">L 1,300</div></div>
-    </div>
-
-    <div class="card" onclick="openModal(['images/bella1.png','images/bella2.png','images/bella3.png','images/bella4.png'])">
-      <img src="images/bella1.png">
-      <div class="info"><div class="name">Bella y Bestia</div><div class="price">L 2,400</div></div>
-    </div>
-
-    <div class="card" onclick="openModal(['images/gatita1.png'])">
-      <img src="images/gatita1.png">
-      <div class="info"><div class="name">Gatita</div><div class="price">L 1,300</div></div>
-    </div>
-
-    <div class="card" onclick="openModal(['images/closet1.png','images/closet2.png'])">
-      <img src="images/closet1.png">
-      <div class="info"><div class="name">Muñequita con Closet</div><div class="price">L 1,500</div></div>
-    </div>
-
-    <div class="card" onclick="openModal(['images/tinkerbell1.png'])">
-      <img src="images/tinkerbell1.png">
-      <div class="info"><div class="name">Campanita</div><div class="price">L 1,300</div></div>
-    </div>
-
-    <div class="card" onclick="openModal(['images/bailarina1.png'])">
-      <img src="images/bailarina1.png">
-      <div class="info"><div class="name">Bailarina</div><div class="price">L 350</div></div>
-    </div>
-
-    <div class="card" onclick="openModal(['images/tomato1.png'])">
-      <img src="images/tomato1.png">
-      <div class="info"><div class="name">Mr. Tomato</div><div class="price">L 350</div></div>
-    </div>
-
-  </div>
+<!-- RAPUNZEL -->
+<div class="card" onclick="openModal(['images/rapunzel1.png','images/rapunzel2.png','images/rapunzel3.png'])">
+<img src="images/rapunzel1.png">
+<div class="info">
+<div class="name">Rapunzel</div>
+<div class="price">L 1,300</div>
+</div>
 </div>
 
-<div id="modal" class="modal" onclick="closeModal()">
-  <span class="close">&times;</span>
-  <div id="modal-content" class="modal-content"></div>
+<!-- JASMINE -->
+<div class="card" onclick="openModal(['images/jasmine1.png','images/jasmine2.png'])">
+<img src="images/jasmine1.png">
+<div class="info">
+<div class="name">Princesa Jasmine</div>
+<div class="price">L 1,300</div>
+</div>
+</div>
+
+<!-- BELLA Y BESTIA (PORTADA CORREGIDA) -->
+<div class="card" onclick="openModal(['images/bella2.png','images/bella1.png','images/bella3.png','images/bella4.png'])">
+<img src="images/bella2.png">
+<div class="info">
+<div class="name">Bella y Bestia</div>
+<div class="price">L 2,400</div>
+</div>
+</div>
+
+<!-- GATITA -->
+<div class="card" onclick="openModal(['images/gatita1.png'])">
+<img src="images/gatita1.png">
+<div class="info">
+<div class="name">Gatita</div>
+<div class="price">L 1,300</div>
+</div>
+</div>
+
+<!-- CLOSET -->
+<div class="card" onclick="openModal(['images/closet1.png','images/closet2.png'])">
+<img src="images/closet1.png">
+<div class="info">
+<div class="name">Muñequita con Closet</div>
+<div class="price">L 1,500</div>
+</div>
+</div>
+
+<!-- TINKERBELL -->
+<div class="card" onclick="openModal(['images/tinkerbell1.png'])">
+<img src="images/tinkerbell1.png">
+<div class="info">
+<div class="name">Campanita</div>
+<div class="price">L 1,300</div>
+</div>
+</div>
+
+<!-- BAILARINA -->
+<div class="card" onclick="openModal(['images/bailarina1.png'])">
+<img src="images/bailarina1.png">
+<div class="info">
+<div class="name">Bailarina</div>
+<div class="price">L 350</div>
+</div>
+</div>
+
+<!-- MR TOMATO -->
+<div class="card" onclick="openModal(['images/tomato1.png'])">
+<img src="images/tomato1.png">
+<div class="info">
+<div class="name">Mr. Tomato</div>
+<div class="price">L 350</div>
+</div>
+</div>
+
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+<span class="close" onclick="closeModal()">&times;</span>
+<div id="modalContent"></div>
 </div>
 
 <script>
 function openModal(images) {
   const modal = document.getElementById("modal");
-  const content = document.getElementById("modal-content");
+  const content = document.getElementById("modalContent");
 
   content.innerHTML = "";
 
-  images.forEach(img => {
-    const image = document.createElement("img");
-    image.src = img;
-    content.appendChild(image);
+  images.forEach(src => {
+    const img = document.createElement("img");
+    img.src = src;
+    content.appendChild(img);
   });
 
-  modal.style.display = "flex";
+  modal.style.display = "block";
 }
 
 function closeModal() {
