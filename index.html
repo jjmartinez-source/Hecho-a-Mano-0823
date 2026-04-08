@@ -34,7 +34,13 @@ header {
 h1 {
   font-family: 'Playfair Display', serif;
   font-style: italic;
+  font-weight: 500;
+  margin: 0;
   color: #e07a9d;
+}
+
+header p {
+  margin-top: 10px;
 }
 
 /* NAV */
@@ -85,21 +91,6 @@ nav a {
   font-style: italic;
 }
 
-/* GRID */
-.image-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 20px;
-  margin-top: 30px;
-}
-
-.image-grid img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
 /* FOOTER */
 footer {
   margin-top: 60px;
@@ -141,7 +132,6 @@ footer {
   <a href="cupcakes.html" id="nav2">Cupcakes</a>
   <a href="munecas.html" id="nav3">Muñecas</a>
   <a href="tulipanes.html" id="nav4">Tulipanes</a>
-  <a href="otros.html" id="nav5">Otros</a>
 </nav>
 
 <div class="top-buttons">
@@ -163,13 +153,6 @@ footer {
   <p id="p4"></p>
   <p id="p5"></p>
 
-  <div class="image-grid">
-    <img src="images/img1.jpg">
-    <img src="images/img2.jpg">
-    <img src="images/img3.jpg">
-    <img src="images/img4.jpg">
-  </div>
-
 </section>
 
 <footer>
@@ -190,7 +173,7 @@ const content = {
     title: "Hecho a Mano",
     slogan: "Hecho a mano… es hecho con amor",
     aboutTitle: "Sobre Nosotros",
-    nav: ["Llaveros", "Cupcakes", "Muñecas", "Tulipanes", "Otros"],
+    nav: ["Llaveros", "Cupcakes", "Muñecas", "Tulipanes"],
     p: [
       "Somos un emprendimiento pequeño con grandes ideas, donde cada creación nace desde el corazón y se transforma en algo único a través del arte de tejer. Todo comenzó como un hobby… un momento de calma, de curiosidad, de crear con las manos algo que antes solo existía en la imaginación.",
       "Poco a poco, ese pasatiempo se convirtió en una pasión, y esa pasión en un deseo más grande: compartir con otros la magia de tejer. Creemos que el crochet no es solo una técnica, sino una forma de expresión. Cada puntada cuenta una historia, cada pieza guarda tiempo, dedicación y cariño.",
@@ -203,7 +186,7 @@ const content = {
     title: "Handmade",
     slogan: "Handmade… made with love",
     aboutTitle: "About Us",
-    nav: ["Keychains", "Cupcakes", "Dolls", "Tulips", "Others"],
+    nav: ["Keychains", "Cupcakes", "Dolls", "Tulips"],
     p: [
       "We are a small business with big ideas, where every creation is born from the heart and transformed into something unique through the art of crochet. It all began as a hobby… a moment of calm, curiosity, and creating with our hands something that once existed only in imagination.",
       "Little by little, that hobby became a passion, and that passion grew into a greater desire: to share with others the magic of crochet. We believe crochet is not just a technique, but a form of expression. Every stitch tells a story, every piece holds time, dedication, and love.",
@@ -216,28 +199,27 @@ const content = {
 
 let currentLang = "es";
 
-// APPLY TEXT
 function applyLanguage(lang) {
   document.getElementById("title").innerText = content[lang].title;
   document.getElementById("slogan").innerText = content[lang].slogan;
   document.getElementById("aboutTitle").innerText = content[lang].aboutTitle;
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 4; i++) {
     document.getElementById("nav" + (i + 1)).innerText = content[lang].nav[i];
+  }
+
+  for (let i = 0; i < 5; i++) {
     document.getElementById("p" + (i + 1)).innerText = content[lang].p[i];
   }
 }
 
-// TOGGLE
 function toggleLanguage() {
   currentLang = currentLang === "es" ? "en" : "es";
   applyLanguage(currentLang);
 }
 
-// VIEW
 function setView(mode) {
-  const container = document.getElementById("container");
-  container.className = "container " + mode;
+  document.getElementById("container").className = "container " + mode;
 }
 
 // INIT
