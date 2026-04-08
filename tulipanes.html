@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tulipanes</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
 body {
   margin: 0;
@@ -12,16 +14,39 @@ body {
   background: #fffafc;
 }
 
+/* HEADER */
+.header {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+.back-btn {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  background: white;
+  padding: 8px 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  background: #ffe4ec;
+}
+
 /* CONTENEDOR */
 .container {
-  padding: 40px 20px;
+  padding: 20px;
   max-width: 1200px;
   margin: auto;
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+  font-weight: 600;
 }
 
 /* GRID */
@@ -65,7 +90,7 @@ h1 {
 }
 
 .price {
-  font-weight: bold;
+  font-weight: 600;
   margin-top: 5px;
 }
 
@@ -85,7 +110,7 @@ h1 {
   background: #ff6b81;
 }
 
-/* MODAL */
+/* MODAL GENERAL */
 .modal {
   display: none;
   position: fixed;
@@ -105,10 +130,39 @@ h1 {
   max-height: 80%;
   border-radius: 10px;
 }
+
+/* CONTROLES LLAVERO */
+.modal-control {
+  position: absolute;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.close-btn {
+  top: 20px;
+  right: 30px;
+}
+
+.prev {
+  top: 50%;
+  left: 20px;
+}
+
+.next {
+  top: 50%;
+  right: 20px;
+}
 </style>
 </head>
 
 <body>
+
+<!-- BOTÓN REGRESO -->
+<div class="header">
+  <a href="index.html" class="back-btn">← Volver al menú</a>
+</div>
 
 <div class="container">
 <h1>Tulipanes</h1>
@@ -161,9 +215,9 @@ h1 {
   </div>
 </div>
 
-<!-- LLAVERO (CAMBIA SOLO) -->
+<!-- LLAVERO (GALERÍA) -->
 <div class="card">
-  <img id="llaveroImg" src="images/llavero-tulipan-1.jpg" onclick="openModal(this.src)">
+  <img src="images/llavero-tulipan-1.jpg" onclick="openLlaveroModal()">
   <div class="info">
     <p>Llavero de tulipán</p>
     <p class="price">L 120 c/u</p>
@@ -173,9 +227,17 @@ h1 {
 </div>
 </div>
 
-<!-- MODAL -->
+<!-- MODAL NORMAL -->
 <div id="modal" class="modal" onclick="closeModal()">
   <img id="modalImg">
+</div>
+
+<!-- MODAL LLAVERO -->
+<div id="llaveroModal" class="modal">
+  <span class="modal-control close-btn" onclick="closeLlaveroModal()">✕</span>
+  <span class="modal-control prev" onclick="prevImage()">❮</span>
+  <img id="llaveroModalImg">
+  <span class="modal-control next" onclick="nextImage()">❯</span>
 </div>
 
 <script>
@@ -188,18 +250,32 @@ function closeModal() {
   document.getElementById("modal").style.display = "none";
 }
 
-/* SLIDER LLAVERO */
+/* LLAVERO GALERÍA */
 let llaveroImages = [
   "images/llavero-tulipan-1.jpg",
   "images/llavero-tulipan-2.jpg"
 ];
 
-let index = 0;
+let currentIndex = 0;
 
-setInterval(() => {
-  index = (index + 1) % llaveroImages.length;
-  document.getElementById("llaveroImg").src = llaveroImages[index];
-}, 2000);
+function openLlaveroModal() {
+  document.getElementById("llaveroModal").style.display = "block";
+  document.getElementById("llaveroModalImg").src = llaveroImages[currentIndex];
+}
+
+function closeLlaveroModal() {
+  document.getElementById("llaveroModal").style.display = "none";
+}
+
+function nextImage() {
+  currentIndex = (currentIndex + 1) % llaveroImages.length;
+  document.getElementById("llaveroModalImg").src = llaveroImages[currentIndex];
+}
+
+function prevImage() {
+  currentIndex = (currentIndex - 1 + llaveroImages.length) % llaveroImages.length;
+  document.getElementById("llaveroModalImg").src = llaveroImages[currentIndex];
+}
 </script>
 
 </body>
