@@ -6,7 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- SOLO POPPINS -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
@@ -14,11 +13,20 @@ body {
   font-family: 'Poppins', sans-serif;
   background: #fffafc;
   margin: 0;
+  display: flex;
+  justify-content: center;
 }
 
-/* HEADER (IGUAL A TODO) */
+/* CONTAINER RESPONSIVE */
+.container {
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* HEADER */
 .header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
 }
@@ -30,19 +38,32 @@ body {
   background: white;
   padding: 8px 15px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  transition: 0.3s;
 }
 
-.back-btn:hover {
-  background: #ffe4ec;
+/* TRANSLATE BUTTON */
+.lang-btn {
+  background: #ff8fab;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 /* TITLE */
 h1 {
   text-align: center;
-  margin: 30px 0 20px;
-  font-weight: 600;
+  margin: 20px 0 10px;
+}
+
+/* DESCRIPTION */
+.description {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+  padding: 0 20px;
+  line-height: 1.7;
+  font-style: italic;
 }
 
 /* GALLERY */
@@ -51,49 +72,28 @@ h1 {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 25px;
   padding: 20px;
-  max-width: 1100px;
-  margin: auto;
 }
 
-/* CARD (CONSISTENTE) */
+/* CARD */
 .card {
   background: #ffffff;
   padding: 15px;
   border-radius: 18px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-  transition: 0.3s;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-}
-
-/* IMAGE */
 .card img {
   width: 100%;
   height: 220px;
   object-fit: cover;
   border-radius: 12px;
   cursor: pointer;
-  transition: 0.3s;
-}
-
-.card img:hover {
-  transform: scale(1.05);
 }
 
 /* TEXT */
-.price {
+.price, .no-price {
   margin-top: 10px;
-  font-weight: 600;
-  color: #333;
-}
-
-.no-price {
-  margin-top: 10px;
-  font-weight: 500;
-  color: #888;
-  font-style: italic;
+  text-align: center;
 }
 
 /* LIGHTBOX */
@@ -107,66 +107,67 @@ h1 {
   background: rgba(0,0,0,0.85);
   justify-content: center;
   align-items: center;
-  padding: 20px;
 }
 
 .lightbox img {
   max-width: 95%;
   max-height: 95%;
-  border-radius: 12px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- BOTÓN REGRESO -->
+<div class="container">
+
 <div class="header">
-  <a href="index.html" class="back-btn">← Volver al menú</a>
+  <a href="index.html" class="back-btn" id="backBtn">← Volver al menú</a>
+  <button class="lang-btn" onclick="toggleLanguage()">ES / EN</button>
 </div>
 
-<h1>Cupcakes</h1>
+<h1 id="title">Cupcakes</h1>
+
+<div class="description" id="desc">
+Pequeños, suaves y llenos de encanto… nuestros cupcakes tejidos están hechos a mano con delicadeza y amor en cada puntada. Son el detalle perfecto para regalar, decorar o simplemente sacar una sonrisa, combinando dulzura y creatividad en una pieza única que nunca se derrite.
+</div>
 
 <div class="gallery">
 
-  <!-- MAIN MODEL -->
-  <div class="card">
-    <img src="images/cupcake2.png" onclick="openLightbox(this.src)">
-    <div class="no-price">Modelo de referencia</div>
-  </div>
+<div class="card">
+<img src="images/cupcake2.png" onclick="openLightbox(this.src)">
+<div class="no-price" id="ref">Modelo de referencia</div>
+</div>
 
-  <!-- INDIVIDUAL 1 -->
-  <div class="card">
-    <img src="images/cupcake1.png" onclick="openLightbox(this.src)">
-    <div class="price">Precio individual: L. 150</div>
-  </div>
+<div class="card">
+<img src="images/cupcake1.png" onclick="openLightbox(this.src)">
+<div class="price" data-price="150"></div>
+</div>
 
-  <!-- INDIVIDUAL 2 -->
-  <div class="card">
-    <img src="images/cupcake4.png" onclick="openLightbox(this.src)">
-    <div class="price">Precio individual: L. 150</div>
-  </div>
+<div class="card">
+<img src="images/cupcake4.png" onclick="openLightbox(this.src)">
+<div class="price" data-price="150"></div>
+</div>
 
-  <!-- SET OF 4 -->
-  <div class="card">
-    <img src="images/cupcake3.png" onclick="openLightbox(this.src)">
-    <div class="price">Set de 4 cupcakes: L. 500</div>
-  </div>
+<div class="card">
+<img src="images/cupcake3.png" onclick="openLightbox(this.src)">
+<div class="price" data-price="500" data-type="set4"></div>
+</div>
 
-  <!-- SET OF 2 -->
-  <div class="card">
-    <img src="images/cupcake5.png" onclick="openLightbox(this.src)">
-    <div class="price">Set de 2 cupcakes: L. 250</div>
-  </div>
+<div class="card">
+<img src="images/cupcake5.png" onclick="openLightbox(this.src)">
+<div class="price" data-price="250" data-type="set2"></div>
+</div>
 
 </div>
 
-<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <img id="lightbox-img">
+<img id="lightbox-img">
+</div>
+
 </div>
 
 <script>
+// LIGHTBOX
 function openLightbox(src) {
   document.getElementById("lightbox").style.display = "flex";
   document.getElementById("lightbox-img").src = src;
@@ -175,6 +176,51 @@ function openLightbox(src) {
 function closeLightbox() {
   document.getElementById("lightbox").style.display = "none";
 }
+
+// LANGUAGE + PRICES
+let isSpanish = true;
+const rate = 26.5;
+
+function updatePrices() {
+  document.querySelectorAll(".price").forEach(el => {
+    let base = parseFloat(el.dataset.price);
+    let type = el.dataset.type;
+
+    if (isSpanish) {
+      if (type === "set4") el.innerText = `Set de 4 cupcakes: L. ${base}`;
+      else if (type === "set2") el.innerText = `Set de 2 cupcakes: L. ${base}`;
+      else el.innerText = `Precio individual: L. ${base}`;
+    } else {
+      let usd = (base / rate).toFixed(2);
+      if (type === "set4") el.innerText = `Set of 4 cupcakes: $${usd}`;
+      else if (type === "set2") el.innerText = `Set of 2 cupcakes: $${usd}`;
+      else el.innerText = `Individual price: $${usd}`;
+    }
+  });
+}
+
+function toggleLanguage() {
+  isSpanish = !isSpanish;
+
+  if (isSpanish) {
+    document.getElementById("title").innerText = "Cupcakes";
+    document.getElementById("backBtn").innerText = "← Volver al menú";
+    document.getElementById("ref").innerText = "Modelo de referencia";
+    document.getElementById("desc").innerText =
+    "Pequeños, suaves y llenos de encanto… nuestros cupcakes tejidos están hechos a mano con delicadeza y amor en cada puntada. Son el detalle perfecto para regalar, decorar o simplemente sacar una sonrisa, combinando dulzura y creatividad en una pieza única que nunca se derrite.";
+  } else {
+    document.getElementById("title").innerText = "Cupcakes";
+    document.getElementById("backBtn").innerText = "← Back to menu";
+    document.getElementById("ref").innerText = "Reference model";
+    document.getElementById("desc").innerText =
+    "Small, soft, and full of charm… our crocheted cupcakes are handmade with delicacy and love in every stitch. They are the perfect detail to gift, decorate, or simply bring a smile, combining sweetness and creativity in a unique piece that never melts.";
+  }
+
+  updatePrices();
+}
+
+// INIT
+updatePrices();
 </script>
 
 </body>
