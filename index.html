@@ -5,7 +5,6 @@
 <title>Hecho a Mano</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
 
 <style>
@@ -15,7 +14,15 @@ body {
   background: #fffafc;
   color: #333;
   text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+/* VIEW CONTAINER */
+.container {
+  width: 100%;
   transition: all 0.3s ease;
+  background: #fffafc;
 }
 
 /* HEADER */
@@ -27,13 +34,7 @@ header {
 h1 {
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  font-weight: 500;
-  margin: 0;
   color: #e07a9d;
-}
-
-header p {
-  margin-top: 10px;
 }
 
 /* NAV */
@@ -49,7 +50,7 @@ nav a {
   font-weight: 500;
 }
 
-/* BUTTONS TOP */
+/* BUTTONS */
 .top-buttons {
   margin: 15px;
 }
@@ -65,20 +66,11 @@ nav a {
   font-weight: 500;
 }
 
-.top-buttons button:hover {
-  opacity: 0.8;
-}
-
 /* ABOUT */
 .about {
   max-width: 900px;
   margin: 60px auto;
   padding: 0 20px;
-}
-
-.about h2 {
-  margin-bottom: 30px;
-  color: #ff8fab;
 }
 
 .about-logo {
@@ -93,6 +85,21 @@ nav a {
   font-style: italic;
 }
 
+/* GRID */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.image-grid img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 /* FOOTER */
 footer {
   margin-top: 60px;
@@ -100,25 +107,29 @@ footer {
   background: #e0f7fa;
 }
 
-/* RESPONSIVE MODES */
+/* DEVICE MODES */
 .mobile {
-  max-width: 375px;
-  margin: auto;
+  width: 375px;
+  min-height: 100vh;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 
 .tablet {
-  max-width: 768px;
-  margin: auto;
+  width: 768px;
+  min-height: 100vh;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 
 .desktop {
-  max-width: 1200px;
-  margin: auto;
+  width: 1200px;
+  min-height: 100vh;
 }
 </style>
 </head>
 
-<body class="desktop">
+<body>
+
+<div id="container" class="container desktop">
 
 <header>
   <h1 id="title">Hecho a Mano</h1>
@@ -126,20 +137,19 @@ footer {
 </header>
 
 <nav>
-  <a href="llaveros.html">Llaveros</a>
-  <a href="cupcakes.html">Cupcakes</a>
-  <a href="munecas.html">Muñecas</a>
-  <a href="tulipanes.html">Tulipanes</a>
-  <a href="otros.html">Otros</a>
+  <a href="llaveros.html" id="nav1">Llaveros</a>
+  <a href="cupcakes.html" id="nav2">Cupcakes</a>
+  <a href="munecas.html" id="nav3">Muñecas</a>
+  <a href="tulipanes.html" id="nav4">Tulipanes</a>
+  <a href="otros.html" id="nav5">Otros</a>
 </nav>
 
-<!-- BUTTONS -->
 <div class="top-buttons">
   <button onclick="contact()">Contacto</button>
   <button onclick="toggleLanguage()">ES / EN</button>
-  <button onclick="setView('mobile')">📱</button>
-  <button onclick="setView('tablet')">💻 Tablet</button>
-  <button onclick="setView('desktop')">🖥️ PC</button>
+  <button onclick="setView('mobile')">Teléfono</button>
+  <button onclick="setView('tablet')">Tablet</button>
+  <button onclick="setView('desktop')">Monitor</button>
 </div>
 
 <section class="about">
@@ -147,25 +157,18 @@ footer {
 
   <img src="images/logo.png" class="about-logo">
 
-  <p id="p1">
-    Somos un emprendimiento pequeño con grandes ideas, donde cada creación nace desde el corazón...
-  </p>
+  <p id="p1"></p>
+  <p id="p2"></p>
+  <p id="p3"></p>
+  <p id="p4"></p>
+  <p id="p5"></p>
 
-  <p id="p2">
-    Poco a poco, ese pasatiempo se convirtió en una pasión...
-  </p>
-
-  <p id="p3">
-    Por eso, queremos que más personas descubran lo que nosotros sentimos al crear...
-  </p>
-
-  <p id="p4">
-    Además, abrimos las puertas a quienes quieran aprender este hermoso arte...
-  </p>
-
-  <p id="p5">
-    Aquí no solo creamos, también enseñamos, compartimos y crecemos juntos...
-  </p>
+  <div class="image-grid">
+    <img src="images/img1.jpg">
+    <img src="images/img2.jpg">
+    <img src="images/img3.jpg">
+    <img src="images/img4.jpg">
+  </div>
 
 </section>
 
@@ -173,37 +176,72 @@ footer {
   © 2026 Hecho a Mano
 </footer>
 
+</div>
+
 <script>
 // WHATSAPP
 function contact() {
   window.open("https://wa.link/31vzqd", "_blank");
 }
 
-// LANGUAGE TOGGLE
-let isSpanish = true;
+// TEXT CONTENT
+const content = {
+  es: {
+    title: "Hecho a Mano",
+    slogan: "Hecho a mano… es hecho con amor",
+    aboutTitle: "Sobre Nosotros",
+    nav: ["Llaveros", "Cupcakes", "Muñecas", "Tulipanes", "Otros"],
+    p: [
+      "Somos un emprendimiento pequeño con grandes ideas, donde cada creación nace desde el corazón y se transforma en algo único a través del arte de tejer. Todo comenzó como un hobby… un momento de calma, de curiosidad, de crear con las manos algo que antes solo existía en la imaginación.",
+      "Poco a poco, ese pasatiempo se convirtió en una pasión, y esa pasión en un deseo más grande: compartir con otros la magia de tejer. Creemos que el crochet no es solo una técnica, sino una forma de expresión. Cada puntada cuenta una historia, cada pieza guarda tiempo, dedicación y cariño.",
+      "Por eso, queremos que más personas descubran lo que nosotros sentimos al crear: la satisfacción de ver una idea cobrar vida. Desde amigurumis hasta proyectos completamente personalizados, incluso tus mascotas o ideas más especiales, trabajamos para convertir lo que imaginas en algo tangible, hecho completamente a mano.",
+      "Además, abrimos las puertas a quienes quieran aprender este hermoso arte. Ofrecemos clases de crochet para principiantes y niveles intermedios, donde enseñamos desde lo más básico hasta técnicas más avanzadas, siempre en un ambiente cercano, paciente y creativo.",
+      "Aquí no solo creamos, también enseñamos, compartimos y crecemos juntos. ¿Qué esperas para ver cómo tus ideas se tejen? Hecho a mano… es hecho con amor."
+    ]
+  },
+  en: {
+    title: "Handmade",
+    slogan: "Handmade… made with love",
+    aboutTitle: "About Us",
+    nav: ["Keychains", "Cupcakes", "Dolls", "Tulips", "Others"],
+    p: [
+      "We are a small business with big ideas, where every creation is born from the heart and transformed into something unique through the art of crochet. It all began as a hobby… a moment of calm, curiosity, and creating with our hands something that once existed only in imagination.",
+      "Little by little, that hobby became a passion, and that passion grew into a greater desire: to share with others the magic of crochet. We believe crochet is not just a technique, but a form of expression. Every stitch tells a story, every piece holds time, dedication, and love.",
+      "That is why we want more people to discover what we feel when we create: the satisfaction of seeing an idea come to life. From amigurumis to fully personalized projects, even your pets or most special ideas, we work to transform what you imagine into something tangible, completely handmade.",
+      "In addition, we open our doors to those who want to learn this beautiful art. We offer crochet classes for beginners and intermediate levels, teaching from the basics to more advanced techniques, always in a warm, patient, and creative environment.",
+      "Here we do not only create, we also teach, share, and grow together. What are you waiting for to see how your ideas come to life? Handmade… is made with love."
+    ]
+  }
+};
 
-function toggleLanguage() {
-  if (isSpanish) {
-    document.getElementById("title").innerText = "Handmade";
-    document.getElementById("slogan").innerText = "Handmade… made with love";
-    document.getElementById("aboutTitle").innerText = "About Us";
+let currentLang = "es";
 
-    document.getElementById("p1").innerText = "We are a small business with big ideas...";
-    document.getElementById("p2").innerText = "Little by little, that hobby became a passion...";
-    document.getElementById("p3").innerText = "We want others to discover the joy of creating...";
-    document.getElementById("p4").innerText = "We also offer crochet classes...";
-    document.getElementById("p5").innerText = "Here we don’t just create, we grow together...";
+// APPLY TEXT
+function applyLanguage(lang) {
+  document.getElementById("title").innerText = content[lang].title;
+  document.getElementById("slogan").innerText = content[lang].slogan;
+  document.getElementById("aboutTitle").innerText = content[lang].aboutTitle;
 
-    isSpanish = false;
-  } else {
-    location.reload(); // vuelve al español original
+  for (let i = 0; i < 5; i++) {
+    document.getElementById("nav" + (i + 1)).innerText = content[lang].nav[i];
+    document.getElementById("p" + (i + 1)).innerText = content[lang].p[i];
   }
 }
 
-// VIEW MODES
-function setView(mode) {
-  document.body.className = mode;
+// TOGGLE
+function toggleLanguage() {
+  currentLang = currentLang === "es" ? "en" : "es";
+  applyLanguage(currentLang);
 }
+
+// VIEW
+function setView(mode) {
+  const container = document.getElementById("container");
+  container.className = "container " + mode;
+}
+
+// INIT
+applyLanguage("es");
 </script>
 
 </body>
