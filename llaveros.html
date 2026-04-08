@@ -6,7 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- FUENTE CONSISTENTE -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
@@ -15,11 +14,20 @@ body {
   font-family: 'Poppins', sans-serif;
   background: #fffafc;
   margin: 0;
+  display: flex;
+  justify-content: center;
 }
 
-/* HEADER IGUAL */
+/* CONTAINER */
+.container {
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* HEADER */
 .header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
 }
@@ -31,19 +39,31 @@ body {
   background: white;
   padding: 8px 15px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  transition: 0.3s;
 }
 
-.back-btn:hover {
-  background: #ffe4ec;
+.lang-btn {
+  background: #ff8fab;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 /* TITLE */
 h1 {
   text-align: center;
-  margin: 30px 0 20px;
-  font-weight: 600;
+  margin: 20px 0 10px;
+}
+
+/* DESCRIPTION */
+.description {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+  padding: 0 20px;
+  line-height: 1.7;
+  font-style: italic;
 }
 
 /* GRID */
@@ -51,8 +71,6 @@ h1 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 25px;
-  max-width: 1100px;
-  margin: auto;
   padding: 20px;
 }
 
@@ -62,14 +80,8 @@ h1 {
   border-radius: 18px;
   padding: 15px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-  transition: 0.3s;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-}
-
-/* IMAGE CONTAINER */
 .image-container {
   width: 100%;
   height: 200px;
@@ -78,29 +90,22 @@ h1 {
   align-items: center;
 }
 
-/* BIG IMAGE */
 .big .image-container {
   height: 260px;
 }
 
-/* IMAGE */
 .card img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
   cursor: pointer;
-  transition: 0.3s;
-}
-
-.card img:hover {
-  transform: scale(1.05);
 }
 
 /* PRICE */
 .price {
   margin-top: 12px;
   font-weight: 600;
-  color: #333;
+  text-align: center;
 }
 
 </style>
@@ -108,88 +113,96 @@ h1 {
 
 <body>
 
-<!-- BOTÓN REGRESO -->
+<div class="container">
+
 <div class="header">
-  <a href="index.html" class="back-btn">← Volver al menú</a>
+  <a href="index.html" class="back-btn" id="backBtn">← Volver al menú</a>
+  <button class="lang-btn" onclick="toggleLanguage()">ES / EN</button>
 </div>
 
-<h1>Llaveros</h1>
+<h1 id="title">Llaveros</h1>
+
+<div class="description" id="desc">
+Pequeños, coloridos y llenos de vida… nuestros llaveros tejidos están hechos a mano con amor y atención a cada detalle. Perfectos para darle un toque único a tus llaves, mochilas o regalos, combinan ternura y creatividad en piezas irresistibles que alegran tu día a donde vayan.
+</div>
 
 <div class="gallery">
 
-  <!-- MAIN (PRECIO ACTUALIZADO) -->
-  <div class="card big">
-    <div class="image-container">
-      <img src="images/llavero1.png" onclick="openLightbox(this.src)">
-    </div>
-    <div class="price">L 220</div>
-  </div>
+<div class="card big">
+<div class="image-container">
+<img src="images/llavero1.png" onclick="openLightbox(this.src)">
+</div>
+<div class="price" data-price="220"></div>
+</div>
 
-  <div class="card">
-    <div class="image-container">
-      <img src="images/llavero2.png" onclick="openLightbox(this.src)">
-    </div>
-    <div class="price">L 150</div>
-  </div>
+<div class="card">
+<div class="image-container">
+<img src="images/llavero2.png" onclick="openLightbox(this.src)">
+</div>
+<div class="price" data-price="150"></div>
+</div>
 
-  <div class="card">
-    <div class="image-container">
-      <img src="images/llavero3.png" onclick="openLightbox(this.src)">
-    </div>
-    <div class="price">L 150</div>
-  </div>
+<div class="card">
+<div class="image-container">
+<img src="images/llavero3.png" onclick="openLightbox(this.src)">
+</div>
+<div class="price" data-price="150"></div>
+</div>
 
-  <div class="card">
-    <div class="image-container">
-      <img src="images/llavero4.png" onclick="openLightbox(this.src)">
-    </div>
-    <div class="price">L 150</div>
-  </div>
+<div class="card">
+<div class="image-container">
+<img src="images/llavero4.png" onclick="openLightbox(this.src)">
+</div>
+<div class="price" data-price="150"></div>
+</div>
 
-  <div class="card">
-    <div class="image-container">
-      <img src="images/llavero5.png" onclick="openLightbox(this.src)">
-    </div>
-    <div class="price">L 150</div>
-  </div>
+<div class="card">
+<div class="image-container">
+<img src="images/llavero5.png" onclick="openLightbox(this.src)">
+</div>
+<div class="price" data-price="150"></div>
+</div>
 
-  <div class="card">
-    <div class="image-container">
-      <img src="images/llavero6.png" onclick="openLightbox(this.src)">
-    </div>
-    <div class="price">L 150</div>
-  </div>
+<div class="card">
+<div class="image-container">
+<img src="images/llavero6.png" onclick="openLightbox(this.src)">
+</div>
+<div class="price" data-price="150"></div>
+</div>
 
-  <div class="card">
-    <div class="image-container">
-      <img src="images/llavero7.png" onclick="openLightbox(this.src)">
-    </div>
-    <div class="price">L 150</div>
-  </div>
+<div class="card">
+<div class="image-container">
+<img src="images/llavero7.png" onclick="openLightbox(this.src)">
+</div>
+<div class="price" data-price="150"></div>
+</div>
 
 </div>
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()" style="
-  position: fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background: rgba(0,0,0,0.85);
-  display:none;
-  justify-content:center;
-  align-items:center;
-  padding:20px;
+position: fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background: rgba(0,0,0,0.85);
+display:none;
+justify-content:center;
+align-items:center;
+padding:20px;
 ">
-  <img id="lightbox-img" style="
-    max-width:95%;
-    max-height:95%;
-    border-radius:12px;
-  ">
+<img id="lightbox-img" style="
+max-width:95%;
+max-height:95%;
+border-radius:12px;
+">
+</div>
+
 </div>
 
 <script>
+// LIGHTBOX
 function openLightbox(src) {
   document.getElementById("lightbox").style.display = "flex";
   document.getElementById("lightbox-img").src = src;
@@ -198,6 +211,44 @@ function openLightbox(src) {
 function closeLightbox() {
   document.getElementById("lightbox").style.display = "none";
 }
+
+// LANGUAGE + PRICES
+let isSpanish = true;
+const rate = 26.5;
+
+function updatePrices() {
+  document.querySelectorAll(".price").forEach(el => {
+    let base = parseFloat(el.dataset.price);
+
+    if (isSpanish) {
+      el.innerText = `L. ${base}`;
+    } else {
+      let usd = (base / rate).toFixed(2);
+      el.innerText = `$${usd}`;
+    }
+  });
+}
+
+function toggleLanguage() {
+  isSpanish = !isSpanish;
+
+  if (isSpanish) {
+    document.getElementById("title").innerText = "Llaveros";
+    document.getElementById("backBtn").innerText = "← Volver al menú";
+    document.getElementById("desc").innerText =
+    "Pequeños, coloridos y llenos de vida… nuestros llaveros tejidos están hechos a mano con amor y atención a cada detalle. Perfectos para darle un toque único a tus llaves, mochilas o regalos, combinan ternura y creatividad en piezas irresistibles que alegran tu día a donde vayan.";
+  } else {
+    document.getElementById("title").innerText = "Keychains";
+    document.getElementById("backBtn").innerText = "← Back to menu";
+    document.getElementById("desc").innerText =
+    "Small, colorful, and full of life… our crocheted keychains are handmade with love and attention to every detail. Perfect for adding a unique touch to your keys, backpacks, or gifts, they combine charm and creativity in irresistible pieces that brighten your day wherever they go.";
+  }
+
+  updatePrices();
+}
+
+// INIT
+updatePrices();
 </script>
 
 </body>
