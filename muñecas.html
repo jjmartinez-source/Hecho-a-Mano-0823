@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muñecas</title>
+
+<style>
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: #fafafa;
+}
+
+.container {
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    background: #fff;
+}
+
+.info {
+    padding: 10px;
+    text-align: center;
+}
+
+.name {
+    font-weight: bold;
+}
+
+.price {
+    color: #888;
+}
+
+/* MODAL */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding: 20px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.modal img {
+    max-height: 400px;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Muñecas</h2>
+
+    <div class="grid">
+
+        <!-- RAPUNZEL -->
+        <div class="card" onclick="openModal(['rapunzel1.png','rapunzel2.png','rapunzel3.png'])">
+            <img src="rapunzel1.png">
+            <div class="info">
+                <div class="name">Rapunzel</div>
+                <div class="price">L 1,300</div>
+            </div>
+        </div>
+
+        <!-- JASMINE -->
+        <div class="card" onclick="openModal(['jasmine1.png','jasmine2.png'])">
+            <img src="jasmine1.png">
+            <div class="info">
+                <div class="name">Princesa Jasmine</div>
+                <div class="price">L 1,300</div>
+            </div>
+        </div>
+
+        <!-- BELLA Y BESTIA -->
+        <div class="card" onclick="openModal(['bella1.png','bella2.png','bella3.png','bella4.png'])">
+            <img src="bella1.png">
+            <div class="info">
+                <div class="name">Bella y Bestia (Set)</div>
+                <div class="price">L 2,400</div>
+            </div>
+        </div>
+
+        <!-- GATITA -->
+        <div class="card" onclick="openModal(['gatita1.png'])">
+            <img src="gatita1.png">
+            <div class="info">
+                <div class="name">Gatita</div>
+                <div class="price">L 1,300</div>
+            </div>
+        </div>
+
+        <!-- MUÑEQUITA CON CLOSET -->
+        <div class="card" onclick="openModal(['closet1.png','closet2.png'])">
+            <img src="closet1.png">
+            <div class="info">
+                <div class="name">Muñequita con Closet</div>
+                <div class="price">L 1,500</div>
+            </div>
+        </div>
+
+        <!-- CAMPANITA -->
+        <div class="card" onclick="openModal(['tinkerbell1.png'])">
+            <img src="tinkerbell1.png">
+            <div class="info">
+                <div class="name">Campanita / TinkerBell</div>
+                <div class="price">L 1,300</div>
+            </div>
+        </div>
+
+        <!-- BAILARINA -->
+        <div class="card" onclick="openModal(['bailarina1.png'])">
+            <img src="bailarina1.png">
+            <div class="info">
+                <div class="name">Bailarina</div>
+                <div class="price">L 350</div>
+            </div>
+        </div>
+
+        <!-- MR TOMATO -->
+        <div class="card" onclick="openModal(['tomato1.png'])">
+            <img src="tomato1.png">
+            <div class="info">
+                <div class="name">Mr. Tomato</div>
+                <div class="price">L 350</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal" onclick="closeModal()">
+    <span class="close">&times;</span>
+    <div class="modal-content" id="modal-content"></div>
+</div>
+
+<script>
+function openModal(images) {
+    const modal = document.getElementById("modal");
+    const content = document.getElementById("modal-content");
+
+    content.innerHTML = "";
+
+    images.forEach(img => {
+        const image = document.createElement("img");
+        image.src = img;
+        content.appendChild(image);
+    });
+
+    modal.style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("modal").style.display = "none";
+}
+</script>
+
+</body>
+</html>
