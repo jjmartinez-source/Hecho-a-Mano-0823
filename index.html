@@ -18,7 +18,6 @@ body {
   justify-content: center;
 }
 
-/* CONTAINER */
 .container {
   width: 100%;
   max-width: 1200px;
@@ -27,7 +26,7 @@ body {
 /* HEADER */
 header {
   background: linear-gradient(135deg, #ffd6e0, #ffe5b4, #d6f5ff);
-  padding: 60px 20px 40px;
+  padding: 50px 20px 30px;
 }
 
 h1 {
@@ -36,72 +35,114 @@ h1 {
   color: #e07a9d;
 }
 
-header p {
-  margin-top: 10px;
+/* SLIDER */
+.slider {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  cursor: pointer;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+/* DOTS */
+.dots {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  text-align: center;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 5px;
+  background: #ffffffaa;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dot.active {
+  background: #ff5c8a;
+  transform: scale(1.2);
 }
 
 /* NAV */
 nav {
   background: #ffc8dd;
-  padding: 14px;
+  padding: 15px;
 }
 
 nav a {
+  padding: 10px 18px;
+  margin: 0 8px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #ff8fab, #ffc8dd);
   color: #5a3e36;
-  margin: 0 15px;
   text-decoration: none;
   font-weight: 500;
+  transition: 0.3s;
 }
 
-/* CTA BUTTON */
-.cta {
-  margin-top: 25px;
+nav a:hover {
+  background: linear-gradient(135deg, #ff5c8a, #ffafcc);
+  color: white;
+  transform: scale(1.1);
 }
 
+/* CTA */
 .cta button {
   padding: 14px 25px;
-  font-size: 16px;
-  border: none;
   border-radius: 25px;
+  border: none;
   background: #ff5c8a;
   color: white;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-/* TOP BUTTONS */
-.top-buttons {
-  margin: 15px;
-}
-
-.top-buttons button {
-  margin: 5px;
-  padding: 10px 15px;
-  border-radius: 20px;
-  border: none;
-  background: #ff8fab;
-  color: white;
-  cursor: pointer;
+.cta button:hover {
+  transform: scale(1.1);
 }
 
 /* ABOUT */
 .about {
-  max-width: 900px;
-  margin: 60px auto;
+  max-width: 800px;
+  margin: 50px auto;
   padding: 0 20px;
 }
 
 .about-logo {
-  width: 180px;
-  margin-bottom: 30px;
+  width: 160px;
+  margin-bottom: 20px;
 }
 
 .about p {
   text-align: justify;
-  line-height: 1.8;
+  line-height: 1.7;
   font-style: italic;
 }
 
-/* FLOATING WHATSAPP */
+/* WHATSAPP */
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
@@ -110,14 +151,12 @@ nav a {
   color: white;
   padding: 15px 20px;
   border-radius: 50px;
-  font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
 /* FOOTER */
 footer {
-  margin-top: 60px;
+  margin-top: 40px;
   padding: 20px;
   background: #e0f7fa;
 }
@@ -132,11 +171,38 @@ footer {
   <h1 id="title">Hecho a Mano</h1>
   <p id="slogan">Hecho a mano… es hecho con amor</p>
 
-  <!-- CTA PRINCIPAL -->
   <div class="cta">
     <button onclick="sendWhatsApp()">Ordenar por WhatsApp</button>
   </div>
 </header>
+
+<!-- SLIDER -->
+<div class="slider">
+
+  <div class="slide active" onclick="goTo('llaveros.html')">
+    <img src="images/llaveros.jpg">
+  </div>
+
+  <div class="slide" onclick="goTo('cupcakes.html')">
+    <img src="images/cupcakes.jpg">
+  </div>
+
+  <div class="slide" onclick="goTo('munecas.html')">
+    <img src="images/munecas.jpg">
+  </div>
+
+  <div class="slide" onclick="goTo('tulipanes.html')">
+    <img src="images/tulipanes.jpg">
+  </div>
+
+  <div class="dots">
+    <span class="dot active" onclick="currentSlide(0)"></span>
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+  </div>
+
+</div>
 
 <nav>
   <a href="llaveros.html">Llaveros</a>
@@ -145,11 +211,6 @@ footer {
   <a href="tulipanes.html">Tulipanes</a>
 </nav>
 
-<div class="top-buttons">
-  <button onclick="sendWhatsApp()">Contacto</button>
-  <button onclick="toggleLanguage()">ES / EN</button>
-</div>
-
 <section class="about">
   <h2 id="aboutTitle">Sobre Nosotros</h2>
 
@@ -157,9 +218,6 @@ footer {
 
   <p id="p1"></p>
   <p id="p2"></p>
-  <p id="p3"></p>
-  <p id="p4"></p>
-  <p id="p5"></p>
 </section>
 
 <footer>
@@ -168,13 +226,11 @@ footer {
 
 </div>
 
-<!-- BOTÓN FLOTANTE -->
 <div class="whatsapp-float" onclick="sendWhatsApp()">
   WhatsApp
 </div>
 
 <script>
-// MENSAJE AUTOMÁTICO
 function sendWhatsApp() {
   let message = currentLang === "es"
     ? "Hola, me gustaría información sobre sus productos tejidos 🧶"
@@ -184,18 +240,14 @@ function sendWhatsApp() {
   window.open(url, "_blank");
 }
 
-// TEXT CONTENT (igual que antes)
 const content = {
   es: {
     title: "Hecho a Mano",
     slogan: "Hecho a mano… es hecho con amor",
     aboutTitle: "Sobre Nosotros",
     p: [
-      "Somos un emprendimiento pequeño con grandes ideas, donde cada creación nace desde el corazón y se transforma en algo único a través del arte de tejer. Todo comenzó como un hobby… un momento de calma, de curiosidad, de crear con las manos algo que antes solo existía en la imaginación.",
-      "Poco a poco, ese pasatiempo se convirtió en una pasión, y esa pasión en un deseo más grande: compartir con otros la magia de tejer. Creemos que el crochet no es solo una técnica, sino una forma de expresión. Cada puntada cuenta una historia, cada pieza guarda tiempo, dedicación y cariño.",
-      "Por eso, queremos que más personas descubran lo que nosotros sentimos al crear: la satisfacción de ver una idea cobrar vida.",
-      "Ofrecemos clases de crochet para principiantes e intermedios en un ambiente creativo.",
-      "Aquí no solo creamos, también enseñamos y crecemos juntos."
+      "Creamos piezas únicas tejidas a mano, donde cada puntada refleja dedicación, creatividad y amor por el detalle.",
+      "Nuestro objetivo es compartir la belleza del crochet a través de productos y experiencias que conectan con las personas."
     ]
   },
   en: {
@@ -203,11 +255,8 @@ const content = {
     slogan: "Handmade… made with love",
     aboutTitle: "About Us",
     p: [
-      "We are a small business with big ideas where every creation is born from the heart.",
-      "Our hobby became a passion and now we share the magic of crochet.",
-      "We want people to feel the joy of creating.",
-      "We offer crochet classes in a creative environment.",
-      "We create, teach, and grow together."
+      "We create unique handmade pieces where every stitch reflects care and creativity.",
+      "Our goal is to share the beauty of crochet through products and meaningful experiences."
     ]
   }
 };
@@ -219,17 +268,42 @@ function applyLanguage(lang) {
   document.getElementById("slogan").innerText = content[lang].slogan;
   document.getElementById("aboutTitle").innerText = content[lang].aboutTitle;
 
-  for (let i = 0; i < 5; i++) {
-    document.getElementById("p" + (i + 1)).innerText = content[lang].p[i];
-  }
-}
-
-function toggleLanguage() {
-  currentLang = currentLang === "es" ? "en" : "es";
-  applyLanguage(currentLang);
+  document.getElementById("p1").innerText = content[lang].p[0];
+  document.getElementById("p2").innerText = content[lang].p[1];
 }
 
 applyLanguage("es");
+
+/* SLIDER LOGIC */
+let slideIndex = 0;
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.remove("active");
+    dots[i].classList.remove("active");
+  });
+
+  slides[index].classList.add("active");
+  dots[index].classList.add("active");
+}
+
+function nextSlide() {
+  slideIndex = (slideIndex + 1) % slides.length;
+  showSlide(slideIndex);
+}
+
+function currentSlide(index) {
+  slideIndex = index;
+  showSlide(slideIndex);
+}
+
+function goTo(page) {
+  window.location.href = page;
+}
+
+setInterval(nextSlide, 3000);
 </script>
 
 </body>
