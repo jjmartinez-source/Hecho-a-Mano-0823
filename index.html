@@ -39,8 +39,10 @@ h1 {
 .slider {
   position: relative;
   width: 100%;
-  height: 320px;
+  height: 240px;
   overflow: hidden;
+  border-radius: 20px;
+  margin-top: 20px;
 }
 
 .slide {
@@ -62,10 +64,21 @@ h1 {
   opacity: 1;
 }
 
+/* OVERLAY */
+.slide::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.2), transparent);
+}
+
 /* DOTS */
 .dots {
   position: absolute;
-  bottom: 15px;
+  bottom: 10px;
   width: 100%;
   text-align: center;
 }
@@ -78,7 +91,6 @@ h1 {
   background: #ffffffaa;
   border-radius: 50%;
   cursor: pointer;
-  transition: 0.3s;
 }
 
 .dot.active {
@@ -172,8 +184,15 @@ footer {
   <h2>Sobre Nosotros</h2>
   <img src="images/logo.png" class="about-logo">
 
-  <p>Creamos piezas únicas tejidas a mano, donde cada puntada refleja dedicación, creatividad y amor.</p>
-  <p>Compartimos la belleza del crochet a través de productos que conectan con las personas.</p>
+  <p>
+    Creamos piezas únicas tejidas a mano, donde cada puntada refleja dedicación, creatividad y amor por el detalle.
+    También realizamos pedidos personalizados por encargo, adaptándonos a ideas especiales para cada cliente.
+  </p>
+
+  <p>
+    Además, ofrecemos clases de crochet para quienes desean aprender y desarrollar su creatividad,
+    compartiendo la belleza de este arte en un ambiente cercano e inspirador.
+  </p>
 </section>
 
 <footer>
@@ -187,7 +206,6 @@ footer {
 </div>
 
 <script>
-// CATEGORY-BASED IMAGES (OPTIMIZED)
 const slidesData = [
   { img: "llavero1.png", link: "llaveros.html" },
   { img: "llavero2.png", link: "llaveros.html" },
@@ -205,22 +223,24 @@ const slidesData = [
 const slider = document.getElementById("slider");
 const dotsContainer = document.getElementById("dots");
 
-// CREATE SLIDES
-slidesData.forEach((item, index) => {
+slidesData.forEach((item, i) => {
   let slide = document.createElement("div");
   slide.className = "slide";
-  if(index === 0) slide.classList.add("active");
+  if(i === 0) slide.classList.add("active");
 
   slide.innerHTML = `<img src="images/${item.img}">`;
-  slide.onclick = () => window.location.href = item.link;
+
+  slide.addEventListener("click", () => {
+    window.location.href = item.link;
+  });
 
   slider.appendChild(slide);
 
   let dot = document.createElement("span");
   dot.className = "dot";
-  if(index === 0) dot.classList.add("active");
+  if(i === 0) dot.classList.add("active");
 
-  dot.onclick = () => showSlide(index);
+  dot.addEventListener("click", () => showSlide(i));
   dotsContainer.appendChild(dot);
 });
 
@@ -247,7 +267,6 @@ function autoSlide(){
 
 setInterval(autoSlide, 3000);
 
-// WHATSAPP
 function sendWhatsApp() {
   window.open("https://wa.link/31vzqd", "_blank");
 }
