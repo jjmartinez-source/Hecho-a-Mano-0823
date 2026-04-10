@@ -39,7 +39,7 @@ h1 {
 .slider {
   position: relative;
   width: 100%;
-  height: 300px;
+  height: 320px;
   overflow: hidden;
 }
 
@@ -72,9 +72,9 @@ h1 {
 
 .dot {
   display: inline-block;
-  width: 10px;
-  height: 10px;
-  margin: 5px;
+  width: 8px;
+  height: 8px;
+  margin: 4px;
   background: #ffffffaa;
   border-radius: 50%;
   cursor: pointer;
@@ -83,7 +83,7 @@ h1 {
 
 .dot.active {
   background: #ff5c8a;
-  transform: scale(1.2);
+  transform: scale(1.3);
 }
 
 /* NAV */
@@ -106,21 +106,6 @@ nav a {
 nav a:hover {
   background: linear-gradient(135deg, #ff5c8a, #ffafcc);
   color: white;
-  transform: scale(1.1);
-}
-
-/* CTA */
-.cta button {
-  padding: 14px 25px;
-  border-radius: 25px;
-  border: none;
-  background: #ff5c8a;
-  color: white;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.cta button:hover {
   transform: scale(1.1);
 }
 
@@ -154,7 +139,6 @@ nav a:hover {
   cursor: pointer;
 }
 
-/* FOOTER */
 footer {
   margin-top: 40px;
   padding: 20px;
@@ -168,40 +152,13 @@ footer {
 <div class="container">
 
 <header>
-  <h1 id="title">Hecho a Mano</h1>
-  <p id="slogan">Hecho a mano… es hecho con amor</p>
-
-  <div class="cta">
-    <button onclick="sendWhatsApp()">Ordenar por WhatsApp</button>
-  </div>
+  <h1>Hecho a Mano</h1>
+  <p>Hecho a mano… es hecho con amor</p>
 </header>
 
 <!-- SLIDER -->
-<div class="slider">
-
-  <div class="slide active" onclick="goTo('llaveros.html')">
-    <img src="images/llaveros.jpg">
-  </div>
-
-  <div class="slide" onclick="goTo('cupcakes.html')">
-    <img src="images/cupcakes.jpg">
-  </div>
-
-  <div class="slide" onclick="goTo('munecas.html')">
-    <img src="images/munecas.jpg">
-  </div>
-
-  <div class="slide" onclick="goTo('tulipanes.html')">
-    <img src="images/tulipanes.jpg">
-  </div>
-
-  <div class="dots">
-    <span class="dot active" onclick="currentSlide(0)"></span>
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-  </div>
-
+<div class="slider" id="slider">
+  <div class="dots" id="dots"></div>
 </div>
 
 <nav>
@@ -212,12 +169,11 @@ footer {
 </nav>
 
 <section class="about">
-  <h2 id="aboutTitle">Sobre Nosotros</h2>
-
+  <h2>Sobre Nosotros</h2>
   <img src="images/logo.png" class="about-logo">
 
-  <p id="p1"></p>
-  <p id="p2"></p>
+  <p>Creamos piezas únicas tejidas a mano, donde cada puntada refleja dedicación, creatividad y amor.</p>
+  <p>Compartimos la belleza del crochet a través de productos que conectan con las personas.</p>
 </section>
 
 <footer>
@@ -231,79 +187,77 @@ footer {
 </div>
 
 <script>
-function sendWhatsApp() {
-  let message = currentLang === "es"
-    ? "Hola, me gustaría información sobre sus productos tejidos 🧶"
-    : "Hello, I would like information about your handmade products 🧶";
+// IMAGES + CATEGORY MAP
+const images = [
+  "bailarina1.png","bella1.png","bella2.png","bella3.png","bella4.png",
+  "closet1.png","closet2.png",
+  "cupcake1.png","cupcake2.png","cupcake3.png","cupcake4.png","cupcake5.png",
+  "gatita1.png","jasmine1.png","jasmine2.png",
+  "llavero-tulipan-1.jpg","llavero-tulipan-2.jpg",
+  "llavero1.png","llavero2.png","llavero3.png","llavero4.png","llavero5.png","llavero6.png","llavero7.png",
+  "ramo-4-tulipanes.jpg","rapunzel1.png","rapunzel2.png","rapunzel3.png",
+  "tinkerbell1.png","tomato1.png",
+  "tulip1.jpg","tulip2.jpg","tulipan-hello-kitty.jpg","tulipan-modelo.jpg"
+];
 
-  let url = "https://wa.link/31vzqd?text=" + encodeURIComponent(message);
-  window.open(url, "_blank");
+// CATEGORY DETECTION
+function getCategory(img){
+  if(img.includes("cupcake")) return "cupcakes.html";
+  if(img.includes("llavero")) return "llaveros.html";
+  if(img.includes("tulip")) return "tulipanes.html";
+  return "munecas.html";
 }
 
-const content = {
-  es: {
-    title: "Hecho a Mano",
-    slogan: "Hecho a mano… es hecho con amor",
-    aboutTitle: "Sobre Nosotros",
-    p: [
-      "Creamos piezas únicas tejidas a mano, donde cada puntada refleja dedicación, creatividad y amor por el detalle.",
-      "Nuestro objetivo es compartir la belleza del crochet a través de productos y experiencias que conectan con las personas."
-    ]
-  },
-  en: {
-    title: "Handmade",
-    slogan: "Handmade… made with love",
-    aboutTitle: "About Us",
-    p: [
-      "We create unique handmade pieces where every stitch reflects care and creativity.",
-      "Our goal is to share the beauty of crochet through products and meaningful experiences."
-    ]
-  }
-};
+const slider = document.getElementById("slider");
+const dotsContainer = document.getElementById("dots");
 
-let currentLang = "es";
+// CREATE SLIDES
+images.forEach((img, index) => {
+  let slide = document.createElement("div");
+  slide.className = "slide";
+  if(index === 0) slide.classList.add("active");
 
-function applyLanguage(lang) {
-  document.getElementById("title").innerText = content[lang].title;
-  document.getElementById("slogan").innerText = content[lang].slogan;
-  document.getElementById("aboutTitle").innerText = content[lang].aboutTitle;
+  slide.innerHTML = `<img src="images/${img}">`;
+  slide.onclick = () => window.location.href = getCategory(img);
 
-  document.getElementById("p1").innerText = content[lang].p[0];
-  document.getElementById("p2").innerText = content[lang].p[1];
-}
+  slider.appendChild(slide);
 
-applyLanguage("es");
+  let dot = document.createElement("span");
+  dot.className = "dot";
+  if(index === 0) dot.classList.add("active");
 
-/* SLIDER LOGIC */
-let slideIndex = 0;
+  dot.onclick = () => showSlide(index);
+  dotsContainer.appendChild(dot);
+});
+
 const slides = document.querySelectorAll(".slide");
 const dots = document.querySelectorAll(".dot");
 
-function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.classList.remove("active");
-    dots[i].classList.remove("active");
+let index = 0;
+
+function showSlide(i){
+  slides.forEach((s, idx)=>{
+    s.classList.remove("active");
+    dots[idx].classList.remove("active");
   });
 
-  slides[index].classList.add("active");
-  dots[index].classList.add("active");
+  slides[i].classList.add("active");
+  dots[i].classList.add("active");
+  index = i;
 }
 
-function nextSlide() {
-  slideIndex = (slideIndex + 1) % slides.length;
-  showSlide(slideIndex);
+function autoSlide(){
+  index = (index + 1) % slides.length;
+  showSlide(index);
 }
 
-function currentSlide(index) {
-  slideIndex = index;
-  showSlide(slideIndex);
-}
+setInterval(autoSlide, 3000);
 
-function goTo(page) {
-  window.location.href = page;
+// WHATSAPP
+function sendWhatsApp() {
+  let url = "https://wa.link/31vzqd";
+  window.open(url, "_blank");
 }
-
-setInterval(nextSlide, 3000);
 </script>
 
 </body>
