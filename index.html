@@ -13,7 +13,6 @@ body {
   font-family: 'Poppins', sans-serif;
   background: #fffafc;
   color: #333;
-  text-align: center;
   display: flex;
   justify-content: center;
 }
@@ -21,6 +20,7 @@ body {
 .container {
   width: 100%;
   max-width: 1200px;
+  text-align: center;
 }
 
 /* HEADER */
@@ -187,38 +187,32 @@ footer {
 </div>
 
 <script>
-// IMAGES + CATEGORY MAP
-const images = [
-  "bailarina1.png","bella1.png","bella2.png","bella3.png","bella4.png",
-  "closet1.png","closet2.png",
-  "cupcake1.png","cupcake2.png","cupcake3.png","cupcake4.png","cupcake5.png",
-  "gatita1.png","jasmine1.png","jasmine2.png",
-  "llavero-tulipan-1.jpg","llavero-tulipan-2.jpg",
-  "llavero1.png","llavero2.png","llavero3.png","llavero4.png","llavero5.png","llavero6.png","llavero7.png",
-  "ramo-4-tulipanes.jpg","rapunzel1.png","rapunzel2.png","rapunzel3.png",
-  "tinkerbell1.png","tomato1.png",
-  "tulip1.jpg","tulip2.jpg","tulipan-hello-kitty.jpg","tulipan-modelo.jpg"
-];
+// CATEGORY-BASED IMAGES (OPTIMIZED)
+const slidesData = [
+  { img: "llavero1.png", link: "llaveros.html" },
+  { img: "llavero2.png", link: "llaveros.html" },
 
-// CATEGORY DETECTION
-function getCategory(img){
-  if(img.includes("cupcake")) return "cupcakes.html";
-  if(img.includes("llavero")) return "llaveros.html";
-  if(img.includes("tulip")) return "tulipanes.html";
-  return "munecas.html";
-}
+  { img: "cupcake1.png", link: "cupcakes.html" },
+  { img: "cupcake2.png", link: "cupcakes.html" },
+
+  { img: "bella1.png", link: "munecas.html" },
+  { img: "rapunzel1.png", link: "munecas.html" },
+
+  { img: "tulip1.jpg", link: "tulipanes.html" },
+  { img: "tulip2.jpg", link: "tulipanes.html" }
+];
 
 const slider = document.getElementById("slider");
 const dotsContainer = document.getElementById("dots");
 
 // CREATE SLIDES
-images.forEach((img, index) => {
+slidesData.forEach((item, index) => {
   let slide = document.createElement("div");
   slide.className = "slide";
   if(index === 0) slide.classList.add("active");
 
-  slide.innerHTML = `<img src="images/${img}">`;
-  slide.onclick = () => window.location.href = getCategory(img);
+  slide.innerHTML = `<img src="images/${item.img}">`;
+  slide.onclick = () => window.location.href = item.link;
 
   slider.appendChild(slide);
 
@@ -255,8 +249,7 @@ setInterval(autoSlide, 3000);
 
 // WHATSAPP
 function sendWhatsApp() {
-  let url = "https://wa.link/31vzqd";
-  window.open(url, "_blank");
+  window.open("https://wa.link/31vzqd", "_blank");
 }
 </script>
 
