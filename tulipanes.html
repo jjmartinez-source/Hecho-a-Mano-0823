@@ -1,292 +1,105 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tulipanes</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-<style>
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: #fffafc;
-  display: flex;
-  justify-content: center;
-}
-
-/* CONTAINER */
-.container {
-  width: 100%;
-  max-width: 1200px;
-}
-
-/* HEADER */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-}
-
-.back-btn {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  background: white;
-  padding: 8px 15px;
-  border-radius: 10px;
-}
-
-.lang-btn {
-  background: #ff8fab;
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-/* TITLE */
-h1 {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-/* DESCRIPTION */
-.description {
-  max-width: 800px;
-  margin: auto;
-  text-align: center;
-  padding: 0 20px;
-  line-height: 1.7;
-  font-style: italic;
-}
-
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-  padding: 20px;
-}
-
-/* CARD */
-.card {
-  background: white;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-  position: relative;
-}
-
-.card img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  cursor: pointer;
-}
-
-/* INFO */
-.info {
-  padding: 15px;
-  text-align: center;
-}
-
-.price {
-  font-weight: 600;
-}
-
-/* TAGS */
-.tag {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: #ff9aa2;
-  color: white;
-  font-size: 12px;
-  padding: 5px 10px;
-  border-radius: 12px;
-}
-
-.tag.special {
-  background: #ff6b81;
-}
-
-/* MODAL */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  padding-top: 60px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.8);
-}
-
-.modal img {
-  display: block;
-  margin: auto;
-  max-width: 90%;
-  max-height: 80%;
-  border-radius: 10px;
-}
-
-.modal-control {
-  position: absolute;
-  color: white;
-  font-size: 35px;
-  cursor: pointer;
-}
-
-.close-btn { top: 20px; right: 30px; }
-.prev { top: 50%; left: 20px; }
-.next { top: 50%; right: 20px; }
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fcf9f5">
+  <title>Tulipanes · Hecho a Mano</title>
+  <meta name="description" content="Flores que nunca se marchitan y siempre dicen algo bonito. Regala un ramo tejido con amor, o llena tu espacio de pequeños colores felices.">
+  <link rel="canonical" href="https://hecho-a-mano-0823.vercel.app/tulipanes.html">
+  <meta property="og:title" content="Tulipanes · Hecho a Mano">
+  <meta property="og:description" content="Flores que nunca se marchitan y siempre dicen algo bonito. Regala un ramo tejido con amor, o llena tu espacio de pequeños colores felices.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_HN">
+  <meta property="og:url" content="https://hecho-a-mano-0823.vercel.app/tulipanes.html">
+  <meta property="og:image" content="https://hecho-a-mano-0823.vercel.app/images/web/tulipan-modelo.webp">
+  <link rel="icon" href="images/web/logo-small.webp" type="image/webp">
+  <link rel="preload" href="fonts/dm-sans-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/dm-serif-display-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
 </head>
+<body data-page="tulipanes">
 
-<body>
+<a class="skip-link" href="#main"><span data-es="Saltar al contenido" data-en="Skip to content" >Saltar al contenido</span></a>
+<div class="announcement"><span data-es="Hecho a mano, elegido con el corazón." data-en="Handmade with care. Chosen with love." >Hecho a mano, elegido con el corazón.</span><span data-es="Piezas únicas · Pedidos personalizados" data-en="Unique pieces · Custom orders" >Piezas únicas · Pedidos personalizados</span></div>
+<header class="site-header" id="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html" aria-label="Hecho a Mano — Inicio">
+      <img src="images/web/logo-small.webp" alt="Logo de Hecho a Mano" width="54" height="54">
+      <span><span class="brand-name">Hecho a Mano</span><span data-es="PUNTADAS QUE CONECTAN" data-en="STITCHES THAT CONNECT" class="brand-note">PUNTADAS QUE CONECTAN</span></span>
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="Navegación principal" data-aria-es="Navegación principal" data-aria-en="Main navigation">
+      <a href="index.html#colecciones"><span data-es="Colecciones" data-en="Collections" >Colecciones</span></a>
+      <a href="index.html#como-pedir"><span data-es="Cómo pedir" data-en="How to order" >Cómo pedir</span></a>
+      <a href="index.html#historia"><span data-es="Nuestra historia" data-en="Our story" >Nuestra historia</span></a>
+    </nav>
+    <div class="header-actions">
+      <button class="language-button" id="language-button" type="button" aria-label="Switch to English"><span class="chosen" lang="es">ES</span><span lang="en">EN</span></button>
+      <a class="button button-outline button-small" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+gustar%C3%ADa+saber+m%C3%A1s+sobre+sus+piezas+tejidas+y+hacer+un+pedido." data-whatsapp-es="¡Hola, Hecho a Mano! Me gustaría saber más sobre sus piezas tejidas y hacer un pedido." data-whatsapp-en="Hello, Hecho a Mano! I&#x27;d like to learn more about your crochet pieces and place an order." target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Hablemos" data-en="Let’s talk" >Hablemos</span></a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menú" data-aria-es="Abrir o cerrar menú" data-aria-en="Open or close menu" aria-expanded="false" aria-controls="main-nav"><svg class="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
 
-<div class="container">
+<main id="main" class="wrap">
+  <nav class="breadcrumb" aria-label="Ubicación" data-aria-es="Ubicación" data-aria-en="Breadcrumb"><a href="index.html"><span data-es="Inicio" data-en="Home" >Inicio</span></a><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg><a href="index.html#colecciones"><span data-es="Colecciones" data-en="Collections" >Colecciones</span></a><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg><span data-es="Tulipanes" data-en="Tulips" >Tulipanes</span></nav>
+  <header class="catalog-heading"><p class="eyebrow"><span data-es="Pequeños detalles, grandes sonrisas" data-en="Little details, big smiles" >Pequeños detalles, grandes sonrisas</span></p><h1><span data-es="Tulipanes" data-en="Tulips" >Tulipanes</span></h1><p data-es="Flores que nunca se marchitan y siempre dicen algo bonito. Regala un ramo tejido con amor, o llena tu espacio de pequeños colores felices." data-en="Flowers that never fade and always say something lovely. Give a bouquet crocheted with love, or fill your space with little happy colors." >Flores que nunca se marchitan y siempre dicen algo bonito. Regala un ramo tejido con amor, o llena tu espacio de pequeños colores felices.</p></header>
+  <nav class="collection-tabs" aria-label="Colecciones" data-aria-es="Colecciones" data-aria-en="Collections"><a href="tulipanes.html" aria-current=page><span data-es="Tulipanes" data-en="Tulips" >Tulipanes</span></a><a href="llaveros.html" ><span data-es="Llaveros" data-en="Keychains" >Llaveros</span></a><a href="munecas.html" ><span data-es="Muñecas" data-en="Dolls" >Muñecas</span></a><a href="cupcakes.html" ><span data-es="Cupcakes" data-en="Cupcakes" >Cupcakes</span></a></nav>
+  <div class="catalog-toolbar"><p data-es="5 diseños + inspiración · Precios en lempiras" data-en="5 designs + inspiration · Prices in HNL" >5 diseños + inspiración · Precios en lempiras</p><label class="sort-label" for="catalog-sort"><span data-es="Ordenar:" data-en="Sort:" >Ordenar:</span><select id="catalog-sort"><option value="featured" data-es="Selección del taller" data-en="Workshop selection">Selección del taller</option><option value="price-asc" data-es="Precio: menor a mayor" data-en="Price: low to high">Precio: menor a mayor</option><option value="price-desc" data-es="Precio: mayor a menor" data-en="Price: high to low">Precio: mayor a menor</option></select></label></div>
+  <div class="product-grid" id="product-grid">
+      <article class="product-card" id="pack-tres" data-price="375" data-original-order="0">
+        <button class="product-image-button photo" type="button" data-product="pack-tres" aria-label="Ver detalles de Pack de 3 tulipanes" data-aria-es="Ver detalles de Pack de 3 tulipanes" data-aria-en="View details of Pack of 3 tulips"><img class="" src="images/web/tulip1.webp" srcset="images/web/tulip1-small.webp 480w, images/web/tulip1.webp 1000w" sizes="(max-width: 640px) 44vw, 30vw" alt="Pack de 3 tulipanes tejido a mano" data-alt-es="Pack de 3 tulipanes tejido a mano" data-alt-en="Pack of 3 tulips crocheted by hand" fetchpriority="high" decoding="async"><span data-es="Popular" data-en="Popular" class="product-tag">Popular</span><span class="view-pill"><svg class="zoom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5M7 10h6m-3-3v6"/></svg><span data-es="Ver detalles" data-en="View details" >Ver detalles</span></span></button>
+        <div class="product-info"><div class="product-title-row"><h2 data-es="Pack de 3 tulipanes" data-en="Pack of 3 tulips" >Pack de 3 tulipanes</h2><p class="product-price">L. 375</p></div><p data-es="Set de 3 piezas · Tejido a mano" data-en="Set of 3 · Handmade" class="product-meta">Set de 3 piezas · Tejido a mano</p><a class="text-link" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+interesa%3A+Pack+de+3+tulipanes+%28L.+375%29.+%C2%BFPodr%C3%ADan+confirmarme+disponibilidad+y+detalles%3F+https%3A%2F%2Fhecho-a-mano-0823.vercel.app%2Ftulipanes.html%23pack-tres" data-whatsapp-es="¡Hola, Hecho a Mano! Me interesa: Pack de 3 tulipanes (L. 375). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/tulipanes.html#pack-tres" data-whatsapp-en="Hello, Hecho a Mano! I’m interested in: Pack of 3 tulips (L. 375). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/tulipanes.html#pack-tres" target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Pedir por WhatsApp" data-en="Order on WhatsApp" >Pedir por WhatsApp</span></a></div>
+      </article>
+      <article class="product-card" id="ramo-cuatro" data-price="500" data-original-order="1">
+        <button class="product-image-button photo" type="button" data-product="ramo-cuatro" aria-label="Ver detalles de Ramo de 4 tulipanes" data-aria-es="Ver detalles de Ramo de 4 tulipanes" data-aria-en="View details of Bouquet of 4 tulips"><img class="" src="images/web/ramo-4-tulipanes.webp" srcset="images/web/ramo-4-tulipanes-small.webp 480w, images/web/ramo-4-tulipanes.webp 1000w" sizes="(max-width: 640px) 44vw, 30vw" alt="Ramo de 4 tulipanes tejido a mano" data-alt-es="Ramo de 4 tulipanes tejido a mano" data-alt-en="Bouquet of 4 tulips crocheted by hand" fetchpriority="high" decoding="async"><span class="view-pill"><svg class="zoom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5M7 10h6m-3-3v6"/></svg><span data-es="Ver detalles" data-en="View details" >Ver detalles</span></span></button>
+        <div class="product-info"><div class="product-title-row"><h2 data-es="Ramo de 4 tulipanes" data-en="Bouquet of 4 tulips" >Ramo de 4 tulipanes</h2><p class="product-price">L. 500</p></div><p data-es="Set de 4 piezas · Tejido a mano" data-en="Set of 4 · Handmade" class="product-meta">Set de 4 piezas · Tejido a mano</p><a class="text-link" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+interesa%3A+Ramo+de+4+tulipanes+%28L.+500%29.+%C2%BFPodr%C3%ADan+confirmarme+disponibilidad+y+detalles%3F+https%3A%2F%2Fhecho-a-mano-0823.vercel.app%2Ftulipanes.html%23ramo-cuatro" data-whatsapp-es="¡Hola, Hecho a Mano! Me interesa: Ramo de 4 tulipanes (L. 500). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/tulipanes.html#ramo-cuatro" data-whatsapp-en="Hello, Hecho a Mano! I’m interested in: Bouquet of 4 tulips (L. 500). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/tulipanes.html#ramo-cuatro" target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Pedir por WhatsApp" data-en="Order on WhatsApp" >Pedir por WhatsApp</span></a></div>
+      </article>
+      <article class="product-card" id="tulipan-individual" data-price="140" data-original-order="2">
+        <button class="product-image-button photo" type="button" data-product="tulipan-individual" aria-label="Ver detalles de Tulipán individual" data-aria-es="Ver detalles de Tulipán individual" data-aria-en="View details of Individual tulip"><img class="" src="images/web/tulip2.webp" srcset="images/web/tulip2-small.webp 480w, images/web/tulip2.webp 1000w" sizes="(max-width: 640px) 44vw, 30vw" alt="Tulipán individual tejido a mano" data-alt-es="Tulipán individual tejido a mano" data-alt-en="Individual tulip crocheted by hand" fetchpriority="high" decoding="async"><span class="view-pill"><svg class="zoom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5M7 10h6m-3-3v6"/></svg><span data-es="Ver detalles" data-en="View details" >Ver detalles</span></span></button>
+        <div class="product-info"><div class="product-title-row"><h2 data-es="Tulipán individual" data-en="Individual tulip" >Tulipán individual</h2><p class="product-price">L. 140<span data-es=" c/u" data-en=" each" class="product-unit"> c/u</span></p></div><p data-es="Hecho a mano · Consulta colores" data-en="Handmade · Ask about colors" class="product-meta">Hecho a mano · Consulta colores</p><a class="text-link" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+interesa%3A+Tulip%C3%A1n+individual+%28L.+140+c%2Fu%29.+%C2%BFPodr%C3%ADan+confirmarme+disponibilidad+y+detalles%3F+https%3A%2F%2Fhecho-a-mano-0823.vercel.app%2Ftulipanes.html%23tulipan-individual" data-whatsapp-es="¡Hola, Hecho a Mano! Me interesa: Tulipán individual (L. 140 c/u). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/tulipanes.html#tulipan-individual" data-whatsapp-en="Hello, Hecho a Mano! I’m interested in: Individual tulip (L. 140 each). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/tulipanes.html#tulipan-individual" target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Pedir por WhatsApp" data-en="Order on WhatsApp" >Pedir por WhatsApp</span></a></div>
+      </article>
+      <article class="product-card" id="hello-kitty" data-price="150" data-original-order="3">
+        <button class="product-image-button photo" type="button" data-product="hello-kitty" aria-label="Ver detalles de Tulipán Hello Kitty" data-aria-es="Ver detalles de Tulipán Hello Kitty" data-aria-en="View details of Hello Kitty tulip"><img class="" src="images/web/tulipan-hello-kitty.webp" srcset="images/web/tulipan-hello-kitty-small.webp 480w, images/web/tulipan-hello-kitty.webp 1000w" sizes="(max-width: 640px) 44vw, 30vw" alt="Tulipán Hello Kitty tejido a mano" data-alt-es="Tulipán Hello Kitty tejido a mano" data-alt-en="Hello Kitty tulip crocheted by hand" loading="lazy" decoding="async"><span data-es="Especial" data-en="Special" class="product-tag">Especial</span><span class="view-pill"><svg class="zoom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5M7 10h6m-3-3v6"/></svg><span data-es="Ver detalles" data-en="View details" >Ver detalles</span></span></button>
+        <div class="product-info"><div class="product-title-row"><h2 data-es="Tulipán Hello Kitty" data-en="Hello Kitty tulip" >Tulipán Hello Kitty</h2><p class="product-price">L. 150</p></div><p data-es="Hecho a mano · Consulta colores" data-en="Handmade · Ask about colors" class="product-meta">Hecho a mano · Consulta colores</p><a class="text-link" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+interesa%3A+Tulip%C3%A1n+Hello+Kitty+%28L.+150%29.+%C2%BFPodr%C3%ADan+confirmarme+disponibilidad+y+detalles%3F+https%3A%2F%2Fhecho-a-mano-0823.vercel.app%2Ftulipanes.html%23hello-kitty" data-whatsapp-es="¡Hola, Hecho a Mano! Me interesa: Tulipán Hello Kitty (L. 150). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/tulipanes.html#hello-kitty" data-whatsapp-en="Hello, Hecho a Mano! I’m interested in: Hello Kitty tulip (L. 150). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/tulipanes.html#hello-kitty" target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Pedir por WhatsApp" data-en="Order on WhatsApp" >Pedir por WhatsApp</span></a></div>
+      </article>
+      <article class="product-card" id="llavero-tulipan" data-price="120" data-original-order="4">
+        <button class="product-image-button " type="button" data-product="llavero-tulipan" aria-label="Ver detalles de Llavero de tulipán" data-aria-es="Ver detalles de Llavero de tulipán" data-aria-en="View details of Tulip keychain"><img class="" src="images/web/llavero-tulipan-1.webp" srcset="images/web/llavero-tulipan-1-small.webp 480w, images/web/llavero-tulipan-1.webp 1000w" sizes="(max-width: 640px) 44vw, 30vw" alt="Llavero de tulipán tejido a mano" data-alt-es="Llavero de tulipán tejido a mano" data-alt-en="Tulip keychain crocheted by hand" loading="lazy" decoding="async"><span class="view-pill"><svg class="zoom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5M7 10h6m-3-3v6"/></svg><span data-es="Ver detalles" data-en="View details" >Ver detalles</span></span></button>
+        <div class="product-info"><div class="product-title-row"><h2 data-es="Llavero de tulipán" data-en="Tulip keychain" >Llavero de tulipán</h2><p class="product-price">L. 120<span data-es=" c/u" data-en=" each" class="product-unit"> c/u</span></p></div><p data-es="Hecho a mano · Consulta colores" data-en="Handmade · Ask about colors" class="product-meta">Hecho a mano · Consulta colores</p><a class="text-link" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+interesa%3A+Llavero+de+tulip%C3%A1n+%28L.+120+c%2Fu%29.+%C2%BFPodr%C3%ADan+confirmarme+disponibilidad+y+detalles%3F+https%3A%2F%2Fhecho-a-mano-0823.vercel.app%2Ftulipanes.html%23llavero-tulipan" data-whatsapp-es="¡Hola, Hecho a Mano! Me interesa: Llavero de tulipán (L. 120 c/u). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/tulipanes.html#llavero-tulipan" data-whatsapp-en="Hello, Hecho a Mano! I’m interested in: Tulip keychain (L. 120 each). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/tulipanes.html#llavero-tulipan" target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Pedir por WhatsApp" data-en="Order on WhatsApp" >Pedir por WhatsApp</span></a></div>
+      </article>
+      <article class="product-card" id="tulipanes-inspiracion" data-price="Infinity" data-original-order="5">
+        <button class="product-image-button photo" type="button" data-product="tulipanes-inspiracion" aria-label="Ver detalles de Un jardín de posibilidades" data-aria-es="Ver detalles de Un jardín de posibilidades" data-aria-en="View details of A garden of possibilities"><img class="" src="images/web/tulipan-modelo.webp" srcset="images/web/tulipan-modelo-small.webp 480w, images/web/tulipan-modelo.webp 1000w" sizes="(max-width: 640px) 44vw, 30vw" alt="Un jardín de posibilidades tejido a mano" data-alt-es="Un jardín de posibilidades tejido a mano" data-alt-en="A garden of possibilities crocheted by hand" loading="lazy" decoding="async"><span data-es="Inspiración" data-en="Inspiration" class="product-tag">Inspiración</span><span class="view-pill"><svg class="zoom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5M7 10h6m-3-3v6"/></svg><span data-es="Ver detalles" data-en="View details" >Ver detalles</span></span></button>
+        <div class="product-info"><div class="product-title-row"><h2 data-es="Un jardín de posibilidades" data-en="A garden of possibilities" >Un jardín de posibilidades</h2></div><p data-es="Modelo de referencia · Consulta tu idea" data-en="Reference model · Ask us about your idea" class="product-meta">Modelo de referencia · Consulta tu idea</p><a class="text-link" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+gustar%C3%ADa+cotizar+una+pieza+inspirada+en%3A+Un+jard%C3%ADn+de+posibilidades.+https%3A%2F%2Fhecho-a-mano-0823.vercel.app%2Ftulipanes.html%23tulipanes-inspiracion" data-whatsapp-es="¡Hola, Hecho a Mano! Me gustaría cotizar una pieza inspirada en: Un jardín de posibilidades. https://hecho-a-mano-0823.vercel.app/tulipanes.html#tulipanes-inspiracion" data-whatsapp-en="Hello, Hecho a Mano! I’d like a quote for a piece inspired by: A garden of possibilities. https://hecho-a-mano-0823.vercel.app/tulipanes.html#tulipanes-inspiracion" target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Consultar por WhatsApp" data-en="Ask on WhatsApp" >Consultar por WhatsApp</span></a></div>
+      </article></div>
+  <section class="catalog-note"><div><h2><span data-es="¿Lo imaginas diferente?" data-en="Imagining something different?" >¿Lo imaginas diferente?</span></h2><p data-es="Tus colores, tu idea, tu detalle especial. Conversemos y lo hacemos tuyo." data-en="Your colors, your idea, your special little detail. Let’s make it yours." >Tus colores, tu idea, tu detalle especial. Conversemos y lo hacemos tuyo.</p></div><a class="button button-green" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+gustar%C3%ADa+cotizar+una+pieza+personalizada." data-whatsapp-es="¡Hola, Hecho a Mano! Me gustaría cotizar una pieza personalizada." data-whatsapp-en="Hello, Hecho a Mano! I&#x27;d like a quote for a custom crochet piece." target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Personalizar mi pedido" data-en="Personalize my order" >Personalizar mi pedido</span></a></section>
+</main>
 
-<div class="header">
-  <a href="index.html" class="back-btn" id="backBtn">← Volver al menú</a>
-  <button class="lang-btn" onclick="toggleLanguage()">ES / EN</button>
-</div>
+<footer class="site-footer">
+  <div class="wrap footer-top">
+    <div class="footer-brand">
+      <a class="brand" href="index.html"><img src="images/web/logo-small.webp" alt="Hecho a Mano" width="54" height="54"><span class="brand-name">Hecho a Mano</span></a>
+      <p data-es="Un emprendimiento pequeño con grandes ideas y mucho amor por el crochet." data-en="A small business with big ideas and a love for crochet." >Un emprendimiento pequeño con grandes ideas y mucho amor por el crochet.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Enlaces del pie de página" data-aria-es="Enlaces del pie de página" data-aria-en="Footer links">
+      <a href="index.html#colecciones"><span data-es="Colecciones" data-en="Collections" >Colecciones</span></a>
+      <a href="index.html#personaliza"><span data-es="Tu pedido especial" data-en="Your custom order" >Tu pedido especial</span></a>
+      <a href="index.html#preguntas"><span data-es="Preguntas frecuentes" data-en="FAQs" >Preguntas frecuentes</span></a>
+    </nav>
+    <div class="footer-contact"><a href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+gustar%C3%ADa+saber+m%C3%A1s+sobre+sus+piezas+tejidas+y+hacer+un+pedido." target="_blank" rel="noopener noreferrer"><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span>+504 8923-5110</span></a><p data-es="Tu próxima idea empieza con un hola." data-en="Your next idea begins with a hello." >Tu próxima idea empieza con un hola.</p></div>
+  </div>
+  <div class="wrap footer-bottom"><p>© <span data-year>2026</span> Hecho a Mano. <span data-es="Todos los derechos reservados." data-en="All rights reserved." >Todos los derechos reservados.</span></p><p><span data-es="Hecho a mano… es hecho con amor." data-en="Made by hand… made with love." >Hecho a mano… es hecho con amor.</span> ♡</p></div>
+</footer>
+<a class="floating-contact" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+gustar%C3%ADa+saber+m%C3%A1s+sobre+sus+piezas+tejidas+y+hacer+un+pedido." data-whatsapp-es="¡Hola, Hecho a Mano! Me gustaría saber más sobre sus piezas tejidas y hacer un pedido." data-whatsapp-en="Hello, Hecho a Mano! I&#x27;d like to learn more about your crochet pieces and place an order." target="_blank" rel="noopener noreferrer" aria-label="Escribir a Hecho a Mano por WhatsApp" data-aria-es="Escribir a Hecho a Mano por WhatsApp" data-aria-en="Message Hecho a Mano on WhatsApp"><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="¿Te ayudamos?" data-en="Can we help?" >¿Te ayudamos?</span></a>
 
-<h1 id="title">Tulipanes</h1>
 
-<div class="description" id="desc">
-Delicados, elegantes y eternos… nuestros tulipanes tejidos están hechos a mano con amor en cada puntada. A diferencia de las flores naturales, nunca se marchitan, convirtiéndose en un detalle perfecto que simboliza cariño, belleza y durabilidad, ideal para regalar o decorar cualquier espacio con un toque suave y especial.
-</div>
-
-<div class="grid">
-
-<div class="card">
-<img src="images/tulipan-modelo.jpg" onclick="openModal(this.src)">
-<div class="info"><p id="modelText"></p></div>
-</div>
-
-<div class="card">
-<img src="images/ramo-4-tulipanes.jpg" onclick="openModal(this.src)">
-<div class="info">
-<p id="ramo4"></p>
-<p class="price" data-price="500"></p>
-</div>
-</div>
-
-<div class="card">
-<div class="tag" id="popularTag"></div>
-<img src="images/tulip1.jpg" onclick="openModal(this.src)">
-<div class="info">
-<p id="pack3"></p>
-<p class="price" data-price="375"></p>
-</div>
-</div>
-
-<div class="card">
-<img src="images/tulip2.jpg" onclick="openModal(this.src)">
-<div class="info">
-<p id="individual"></p>
-<p class="price" data-price="140" data-unit="true"></p>
-</div>
-</div>
-
-<div class="card">
-<div class="tag special" id="specialTag"></div>
-<img src="images/tulipan-hello-kitty.jpg" onclick="openModal(this.src)">
-<div class="info">
-<p id="hello"></p>
-<p class="price" data-price="150"></p>
-</div>
-</div>
-
-<div class="card">
-<img src="images/llavero-tulipan-1.jpg" onclick="openLlaveroModal()">
-<div class="info">
-<p id="keychain"></p>
-<p class="price" data-price="120" data-unit="true"></p>
-</div>
-</div>
-
-</div>
-</div>
-
-<!-- MODALS (SIN CAMBIOS) -->
-<div id="modal" class="modal" onclick="closeModal()">
-<img id="modalImg">
-</div>
-
-<div id="llaveroModal" class="modal">
-<span class="modal-control close-btn" onclick="closeLlaveroModal()">✕</span>
-<span class="modal-control prev" onclick="prevImage()">❮</span>
-<img id="llaveroModalImg">
-<span class="modal-control next" onclick="nextImage()">❯</span>
-</div>
-
-<script>
-// MODALS (igual)
-function openModal(src){document.getElementById("modal").style.display="block";document.getElementById("modalImg").src=src;}
-function closeModal(){document.getElementById("modal").style.display="none";}
-
-let llaveroImages=["images/llavero-tulipan-1.jpg","images/llavero-tulipan-2.jpg"];
-let currentIndex=0;
-
-function openLlaveroModal(){document.getElementById("llaveroModal").style.display="block";document.getElementById("llaveroModalImg").src=llaveroImages[currentIndex];}
-function closeLlaveroModal(){document.getElementById("llaveroModal").style.display="none";}
-function nextImage(){currentIndex=(currentIndex+1)%llaveroImages.length;document.getElementById("llaveroModalImg").src=llaveroImages[currentIndex];}
-function prevImage(){currentIndex=(currentIndex-1+llaveroImages.length)%llaveroImages.length;document.getElementById("llaveroModalImg").src=llaveroImages[currentIndex];}
-
-// LANGUAGE + PRICES
-let isSpanish=true;
-const rate=26.5;
-
-function updateContent(){
-document.getElementById("modelText").innerText=isSpanish?"Modelo de tulipanes":"Tulip model";
-document.getElementById("ramo4").innerText=isSpanish?"Ramo de 4 tulipanes":"Bouquet of 4 tulips";
-document.getElementById("pack3").innerText=isSpanish?"Pack de 3 tulipanes":"Pack of 3 tulips";
-document.getElementById("individual").innerText=isSpanish?"Tulipanes individuales":"Individual tulips";
-document.getElementById("hello").innerText=isSpanish?"Tulipán Hello Kitty":"Hello Kitty tulip";
-document.getElementById("keychain").innerText=isSpanish?"Llavero de tulipán":"Tulip keychain";
-
-document.getElementById("popularTag").innerText=isSpanish?"Popular":"Popular";
-document.getElementById("specialTag").innerText=isSpanish?"Especial":"Special";
-
-document.querySelectorAll(".price").forEach(el=>{
-let base=parseFloat(el.dataset.price);
-let unit=el.dataset.unit;
-
-if(isSpanish){
-el.innerText=unit?`L. ${base} c/u`:`L. ${base}`;
-}else{
-let usd=(base/rate).toFixed(2);
-el.innerText=unit?`$${usd} each`:`$${usd}`;
-}
-});
-}
-
-function toggleLanguage(){
-isSpanish=!isSpanish;
-
-if(isSpanish){
-document.getElementById("title").innerText="Tulipanes";
-document.getElementById("backBtn").innerText="← Volver al menú";
-document.getElementById("desc").innerText="Delicados, elegantes y eternos… nuestros tulipanes tejidos están hechos a mano con amor en cada puntada. A diferencia de las flores naturales, nunca se marchitan, convirtiéndose en un detalle perfecto que simboliza cariño, belleza y durabilidad, ideal para regalar o decorar cualquier espacio con un toque suave y especial.";
-}else{
-document.getElementById("title").innerText="Tulips";
-document.getElementById("backBtn").innerText="← Back to menu";
-document.getElementById("desc").innerText="Delicate, elegant, and everlasting… our crocheted tulips are handmade with love in every stitch. Unlike natural flowers, they never fade, becoming a perfect detail that symbolizes care, beauty, and durability, ideal for gifting or decorating any space with a soft and special touch.";
-}
-
-updateContent();
-}
-
-updateContent();
-</script>
-
+<dialog class="product-dialog" id="product-dialog" aria-labelledby="dialog-title">
+  <button class="dialog-close" id="dialog-close" type="button" aria-label="Cerrar" data-aria-es="Cerrar" data-aria-en="Close"><svg class="close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button>
+  <div class="dialog-inner">
+    <div class="dialog-media"><img id="dialog-image" alt="" width="500" height="400"><div class="dialog-controls" id="dialog-controls"><button type="button" id="dialog-prev" aria-label="Foto anterior" data-aria-es="Foto anterior" data-aria-en="Previous photo"><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button><span id="dialog-count" aria-live="polite"></span><button type="button" id="dialog-next" aria-label="Foto siguiente" data-aria-es="Foto siguiente" data-aria-en="Next photo"><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button></div></div>
+    <div class="dialog-copy"><p class="eyebrow"><span data-es="Una pieza con historia" data-en="A piece with a story" >Una pieza con historia</span></p><h2 id="dialog-title"></h2><p class="dialog-price" id="dialog-price"></p><p id="dialog-description"></p><a id="dialog-order" class="button button-primary" target="_blank" rel="noopener noreferrer"><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Pedir por WhatsApp" data-en="Order on WhatsApp" >Pedir por WhatsApp</span></a><p data-es="Conversemos sobre colores, detalles y disponibilidad." data-en="Let’s talk about colors, details, and availability." >Conversemos sobre colores, detalles y disponibilidad.</p></div>
+  </div>
+</dialog>
+<script type="application/json" id="catalog-data">[{"id": "pack-tres", "name": {"es": "Pack de 3 tulipanes", "en": "Pack of 3 tulips"}, "images": ["images/web/tulip1.webp"], "price": 375, "photo": true, "tag": {"es": "Popular", "en": "Popular"}, "set_size": 3, "url": "https://hecho-a-mano-0823.vercel.app/tulipanes.html#pack-tres", "message": {"es": "¡Hola, Hecho a Mano! Me interesa: Pack de 3 tulipanes (L. 375). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/tulipanes.html#pack-tres", "en": "Hello, Hecho a Mano! I’m interested in: Pack of 3 tulips (L. 375). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/tulipanes.html#pack-tres"}, "description": {"es": "Set de 3 piezas · Tejido a mano", "en": "Set of 3 · Handmade"}}, {"id": "ramo-cuatro", "name": {"es": "Ramo de 4 tulipanes", "en": "Bouquet of 4 tulips"}, "images": ["images/web/ramo-4-tulipanes.webp"], "price": 500, "photo": true, "set_size": 4, "url": "https://hecho-a-mano-0823.vercel.app/tulipanes.html#ramo-cuatro", "message": {"es": "¡Hola, Hecho a Mano! Me interesa: Ramo de 4 tulipanes (L. 500). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/tulipanes.html#ramo-cuatro", "en": "Hello, Hecho a Mano! I’m interested in: Bouquet of 4 tulips (L. 500). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/tulipanes.html#ramo-cuatro"}, "description": {"es": "Set de 4 piezas · Tejido a mano", "en": "Set of 4 · Handmade"}}, {"id": "tulipan-individual", "name": {"es": "Tulipán individual", "en": "Individual tulip"}, "images": ["images/web/tulip2.webp"], "price": 140, "photo": true, "unit": true, "url": "https://hecho-a-mano-0823.vercel.app/tulipanes.html#tulipan-individual", "message": {"es": "¡Hola, Hecho a Mano! Me interesa: Tulipán individual (L. 140 c/u). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/tulipanes.html#tulipan-individual", "en": "Hello, Hecho a Mano! I’m interested in: Individual tulip (L. 140 each). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/tulipanes.html#tulipan-individual"}, "description": {"es": "Hecho a mano · Consulta colores", "en": "Handmade · Ask about colors"}}, {"id": "hello-kitty", "name": {"es": "Tulipán Hello Kitty", "en": "Hello Kitty tulip"}, "images": ["images/web/tulipan-hello-kitty.webp"], "price": 150, "photo": true, "tag": {"es": "Especial", "en": "Special"}, "url": "https://hecho-a-mano-0823.vercel.app/tulipanes.html#hello-kitty", "message": {"es": "¡Hola, Hecho a Mano! Me interesa: Tulipán Hello Kitty (L. 150). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/tulipanes.html#hello-kitty", "en": "Hello, Hecho a Mano! I’m interested in: Hello Kitty tulip (L. 150). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/tulipanes.html#hello-kitty"}, "description": {"es": "Hecho a mano · Consulta colores", "en": "Handmade · Ask about colors"}}, {"id": "llavero-tulipan", "name": {"es": "Llavero de tulipán", "en": "Tulip keychain"}, "images": ["images/web/llavero-tulipan-1.webp", "images/web/llavero-tulipan-2.webp"], "price": 120, "unit": true, "url": "https://hecho-a-mano-0823.vercel.app/tulipanes.html#llavero-tulipan", "message": {"es": "¡Hola, Hecho a Mano! Me interesa: Llavero de tulipán (L. 120 c/u). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/tulipanes.html#llavero-tulipan", "en": "Hello, Hecho a Mano! I’m interested in: Tulip keychain (L. 120 each). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/tulipanes.html#llavero-tulipan"}, "description": {"es": "Hecho a mano · Consulta colores", "en": "Handmade · Ask about colors"}}, {"id": "tulipanes-inspiracion", "name": {"es": "Un jardín de posibilidades", "en": "A garden of possibilities"}, "images": ["images/web/tulipan-modelo.webp"], "price": null, "reference": true, "photo": true, "url": "https://hecho-a-mano-0823.vercel.app/tulipanes.html#tulipanes-inspiracion", "message": {"es": "¡Hola, Hecho a Mano! Me gustaría cotizar una pieza inspirada en: Un jardín de posibilidades. https://hecho-a-mano-0823.vercel.app/tulipanes.html#tulipanes-inspiracion", "en": "Hello, Hecho a Mano! I’d like a quote for a piece inspired by: A garden of possibilities. https://hecho-a-mano-0823.vercel.app/tulipanes.html#tulipanes-inspiracion"}, "description": {"es": "Modelo de referencia · Consulta tu idea", "en": "Reference model · Ask us about your idea"}}]</script>
 </body>
 </html>
