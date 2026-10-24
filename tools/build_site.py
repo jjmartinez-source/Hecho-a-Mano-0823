@@ -4,7 +4,7 @@ from urllib.parse import urlencode
 import json
 
 ROOT = Path(__file__).resolve().parents[1]
-SITE = 'https://hecho-a-mano-0823.vercel.app'
+SITE = 'https://hecho-mano.com'
 PHONE = '50489235110'
 
 ICONS = {
