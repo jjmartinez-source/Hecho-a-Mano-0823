@@ -1,255 +1,109 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Llaveros</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<style>
-
-body {
-  font-family: 'Poppins', sans-serif;
-  background: #fffafc;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-}
-
-/* CONTAINER */
-.container {
-  width: 100%;
-  max-width: 1200px;
-}
-
-/* HEADER */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-}
-
-.back-btn {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  background: white;
-  padding: 8px 15px;
-  border-radius: 10px;
-}
-
-.lang-btn {
-  background: #ff8fab;
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-/* TITLE */
-h1 {
-  text-align: center;
-  margin: 20px 0 10px;
-}
-
-/* DESCRIPTION */
-.description {
-  max-width: 800px;
-  margin: auto;
-  text-align: center;
-  padding: 0 20px;
-  line-height: 1.7;
-  font-style: italic;
-}
-
-/* GRID */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 25px;
-  padding: 20px;
-}
-
-/* CARD */
-.card {
-  background: #ffffff;
-  border-radius: 18px;
-  padding: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-}
-
-.image-container {
-  width: 100%;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.big .image-container {
-  height: 260px;
-}
-
-.card img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  cursor: pointer;
-}
-
-/* PRICE */
-.price {
-  margin-top: 12px;
-  font-weight: 600;
-  text-align: center;
-}
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fcf9f5">
+  <title>Llaveros · Hecho a Mano</title>
+  <meta name="description" content="Un toque de ternura para llevar a todas partes. Detalles tejidos a mano que alegran tus llaves, tu mochila o el día de alguien especial.">
+  <link rel="canonical" href="https://hecho-a-mano-0823.vercel.app/llaveros.html">
+  <meta property="og:title" content="Llaveros · Hecho a Mano">
+  <meta property="og:description" content="Un toque de ternura para llevar a todas partes. Detalles tejidos a mano que alegran tus llaves, tu mochila o el día de alguien especial.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_HN">
+  <meta property="og:url" content="https://hecho-a-mano-0823.vercel.app/llaveros.html">
+  <meta property="og:image" content="https://hecho-a-mano-0823.vercel.app/images/web/tulipan-modelo.webp">
+  <link rel="icon" href="images/web/logo-small.webp" type="image/webp">
+  <link rel="preload" href="fonts/dm-sans-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/dm-serif-display-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
 </head>
+<body data-page="llaveros">
 
-<body>
+<a class="skip-link" href="#main"><span data-es="Saltar al contenido" data-en="Skip to content" >Saltar al contenido</span></a>
+<div class="announcement"><span data-es="Hecho a mano, elegido con el corazón." data-en="Handmade with care. Chosen with love." >Hecho a mano, elegido con el corazón.</span><span data-es="Piezas únicas · Pedidos personalizados" data-en="Unique pieces · Custom orders" >Piezas únicas · Pedidos personalizados</span></div>
+<header class="site-header" id="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html" aria-label="Hecho a Mano — Inicio">
+      <img src="images/web/logo-small.webp" alt="Logo de Hecho a Mano" width="54" height="54">
+      <span><span class="brand-name">Hecho a Mano</span><span data-es="PUNTADAS QUE CONECTAN" data-en="STITCHES THAT CONNECT" class="brand-note">PUNTADAS QUE CONECTAN</span></span>
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="Navegación principal" data-aria-es="Navegación principal" data-aria-en="Main navigation">
+      <a href="index.html#colecciones"><span data-es="Colecciones" data-en="Collections" >Colecciones</span></a>
+      <a href="index.html#como-pedir"><span data-es="Cómo pedir" data-en="How to order" >Cómo pedir</span></a>
+      <a href="index.html#historia"><span data-es="Nuestra historia" data-en="Our story" >Nuestra historia</span></a>
+    </nav>
+    <div class="header-actions">
+      <button class="language-button" id="language-button" type="button" aria-label="Switch to English"><span class="chosen" lang="es">ES</span><span lang="en">EN</span></button>
+      <a class="button button-outline button-small" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+gustar%C3%ADa+saber+m%C3%A1s+sobre+sus+piezas+tejidas+y+hacer+un+pedido." data-whatsapp-es="¡Hola, Hecho a Mano! Me gustaría saber más sobre sus piezas tejidas y hacer un pedido." data-whatsapp-en="Hello, Hecho a Mano! I&#x27;d like to learn more about your crochet pieces and place an order." target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Hablemos" data-en="Let’s talk" >Hablemos</span></a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menú" data-aria-es="Abrir o cerrar menú" data-aria-en="Open or close menu" aria-expanded="false" aria-controls="main-nav"><svg class="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
 
-<div class="container">
+<main id="main" class="wrap">
+  <nav class="breadcrumb" aria-label="Ubicación" data-aria-es="Ubicación" data-aria-en="Breadcrumb"><a href="index.html"><span data-es="Inicio" data-en="Home" >Inicio</span></a><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg><a href="index.html#colecciones"><span data-es="Colecciones" data-en="Collections" >Colecciones</span></a><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg><span data-es="Llaveros" data-en="Keychains" >Llaveros</span></nav>
+  <header class="catalog-heading"><p class="eyebrow"><span data-es="Pequeños detalles, grandes sonrisas" data-en="Little details, big smiles" >Pequeños detalles, grandes sonrisas</span></p><h1><span data-es="Llaveros" data-en="Keychains" >Llaveros</span></h1><p data-es="Un toque de ternura para llevar a todas partes. Detalles tejidos a mano que alegran tus llaves, tu mochila o el día de alguien especial." data-en="A little charm to take everywhere. Handmade details to brighten your keys, your bag, or someone special’s day." >Un toque de ternura para llevar a todas partes. Detalles tejidos a mano que alegran tus llaves, tu mochila o el día de alguien especial.</p></header>
+  <nav class="collection-tabs" aria-label="Colecciones" data-aria-es="Colecciones" data-aria-en="Collections"><a href="tulipanes.html" ><span data-es="Tulipanes" data-en="Tulips" >Tulipanes</span></a><a href="llaveros.html" aria-current=page><span data-es="Llaveros" data-en="Keychains" >Llaveros</span></a><a href="munecas.html" ><span data-es="Muñecas" data-en="Dolls" >Muñecas</span></a><a href="cupcakes.html" ><span data-es="Cupcakes" data-en="Cupcakes" >Cupcakes</span></a></nav>
+  <div class="catalog-toolbar"><p data-es="7 diseños · Precios en lempiras" data-en="7 designs · Prices in HNL" >7 diseños · Precios en lempiras</p><label class="sort-label" for="catalog-sort"><span data-es="Ordenar:" data-en="Sort:" >Ordenar:</span><select id="catalog-sort"><option value="featured" data-es="Selección del taller" data-en="Workshop selection">Selección del taller</option><option value="price-asc" data-es="Precio: menor a mayor" data-en="Price: low to high">Precio: menor a mayor</option><option value="price-desc" data-es="Precio: mayor a menor" data-en="Price: high to low">Precio: mayor a menor</option></select></label></div>
+  <div class="product-grid" id="product-grid">
+      <article class="product-card" id="gatito-corazon" data-price="220" data-original-order="0">
+        <button class="product-image-button " type="button" data-product="gatito-corazon" aria-label="Ver detalles de Gatito y corazón" data-aria-es="Ver detalles de Gatito y corazón" data-aria-en="View details of Kitten &amp; heart"><img class="" src="images/web/llavero1.webp" srcset="images/web/llavero1-small.webp 480w, images/web/llavero1.webp 1000w" sizes="(max-width: 640px) 44vw, 30vw" alt="Gatito y corazón tejido a mano" data-alt-es="Gatito y corazón tejido a mano" data-alt-en="Kitten &amp; heart crocheted by hand" fetchpriority="high" decoding="async"><span class="view-pill"><svg class="zoom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5M7 10h6m-3-3v6"/></svg><span data-es="Ver detalles" data-en="View details" >Ver detalles</span></span></button>
+        <div class="product-info"><div class="product-title-row"><h2 data-es="Gatito y corazón" data-en="Kitten &amp; heart" >Gatito y corazón</h2><p class="product-price">L. 220</p></div><p data-es="Hecho a mano · Consulta colores" data-en="Handmade · Ask about colors" class="product-meta">Hecho a mano · Consulta colores</p><a class="text-link" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+interesa%3A+Gatito+y+coraz%C3%B3n+%28L.+220%29.+%C2%BFPodr%C3%ADan+confirmarme+disponibilidad+y+detalles%3F+https%3A%2F%2Fhecho-a-mano-0823.vercel.app%2Fllaveros.html%23gatito-corazon" data-whatsapp-es="¡Hola, Hecho a Mano! Me interesa: Gatito y corazón (L. 220). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/llaveros.html#gatito-corazon" data-whatsapp-en="Hello, Hecho a Mano! I’m interested in: Kitten &amp; heart (L. 220). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/llaveros.html#gatito-corazon" target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Pedir por WhatsApp" data-en="Order on WhatsApp" >Pedir por WhatsApp</span></a></div>
+      </article>
+      <article class="product-card" id="conejito" data-price="150" data-original-order="1">
+        <button class="product-image-button " type="button" data-product="conejito" aria-label="Ver detalles de Conejito con flor" data-aria-es="Ver detalles de Conejito con flor" data-aria-en="View details of Bunny with a flower"><img class="" src="images/web/llavero2.webp" srcset="images/web/llavero2-small.webp 480w, images/web/llavero2.webp 1000w" sizes="(max-width: 640px) 44vw, 30vw" alt="Conejito con flor tejido a mano" data-alt-es="Conejito con flor tejido a mano" data-alt-en="Bunny with a flower crocheted by hand" fetchpriority="high" decoding="async"><span class="view-pill"><svg class="zoom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5M7 10h6m-3-3v6"/></svg><span data-es="Ver detalles" data-en="View details" >Ver detalles</span></span></button>
+        <div class="product-info"><div class="product-title-row"><h2 data-es="Conejito con flor" data-en="Bunny with a flower" >Conejito con flor</h2><p class="product-price">L. 150</p></div><p data-es="Hecho a mano · Consulta colores" data-en="Handmade · Ask about colors" class="product-meta">Hecho a mano · Consulta colores</p><a class="text-link" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+interesa%3A+Conejito+con+flor+%28L.+150%29.+%C2%BFPodr%C3%ADan+confirmarme+disponibilidad+y+detalles%3F+https%3A%2F%2Fhecho-a-mano-0823.vercel.app%2Fllaveros.html%23conejito" data-whatsapp-es="¡Hola, Hecho a Mano! Me interesa: Conejito con flor (L. 150). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/llaveros.html#conejito" data-whatsapp-en="Hello, Hecho a Mano! I’m interested in: Bunny with a flower (L. 150). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/llaveros.html#conejito" target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Pedir por WhatsApp" data-en="Order on WhatsApp" >Pedir por WhatsApp</span></a></div>
+      </article>
+      <article class="product-card" id="sombreritos-pastel" data-price="150" data-original-order="2">
+        <button class="product-image-button " type="button" data-product="sombreritos-pastel" aria-label="Ver detalles de Sombreritos pastel" data-aria-es="Ver detalles de Sombreritos pastel" data-aria-en="View details of Pastel little hats"><img class="" src="images/web/llavero3.webp" srcset="images/web/llavero3-small.webp 480w, images/web/llavero3.webp 1000w" sizes="(max-width: 640px) 44vw, 30vw" alt="Sombreritos pastel tejido a mano" data-alt-es="Sombreritos pastel tejido a mano" data-alt-en="Pastel little hats crocheted by hand" fetchpriority="high" decoding="async"><span class="view-pill"><svg class="zoom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5M7 10h6m-3-3v6"/></svg><span data-es="Ver detalles" data-en="View details" >Ver detalles</span></span></button>
+        <div class="product-info"><div class="product-title-row"><h2 data-es="Sombreritos pastel" data-en="Pastel little hats" >Sombreritos pastel</h2><p class="product-price">L. 150</p></div><p data-es="Hecho a mano · Consulta colores" data-en="Handmade · Ask about colors" class="product-meta">Hecho a mano · Consulta colores</p><a class="text-link" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+interesa%3A+Sombreritos+pastel+%28L.+150%29.+%C2%BFPodr%C3%ADan+confirmarme+disponibilidad+y+detalles%3F+https%3A%2F%2Fhecho-a-mano-0823.vercel.app%2Fllaveros.html%23sombreritos-pastel" data-whatsapp-es="¡Hola, Hecho a Mano! Me interesa: Sombreritos pastel (L. 150). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/llaveros.html#sombreritos-pastel" data-whatsapp-en="Hello, Hecho a Mano! I’m interested in: Pastel little hats (L. 150). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/llaveros.html#sombreritos-pastel" target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Pedir por WhatsApp" data-en="Order on WhatsApp" >Pedir por WhatsApp</span></a></div>
+      </article>
+      <article class="product-card" id="sombreritos-flor" data-price="150" data-original-order="3">
+        <button class="product-image-button " type="button" data-product="sombreritos-flor" aria-label="Ver detalles de Sombreritos con flor" data-aria-es="Ver detalles de Sombreritos con flor" data-aria-en="View details of Flower little hats"><img class="" src="images/web/llavero4.webp" srcset="images/web/llavero4-small.webp 480w, images/web/llavero4.webp 1000w" sizes="(max-width: 640px) 44vw, 30vw" alt="Sombreritos con flor tejido a mano" data-alt-es="Sombreritos con flor tejido a mano" data-alt-en="Flower little hats crocheted by hand" loading="lazy" decoding="async"><span class="view-pill"><svg class="zoom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5M7 10h6m-3-3v6"/></svg><span data-es="Ver detalles" data-en="View details" >Ver detalles</span></span></button>
+        <div class="product-info"><div class="product-title-row"><h2 data-es="Sombreritos con flor" data-en="Flower little hats" >Sombreritos con flor</h2><p class="product-price">L. 150</p></div><p data-es="Hecho a mano · Consulta colores" data-en="Handmade · Ask about colors" class="product-meta">Hecho a mano · Consulta colores</p><a class="text-link" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+interesa%3A+Sombreritos+con+flor+%28L.+150%29.+%C2%BFPodr%C3%ADan+confirmarme+disponibilidad+y+detalles%3F+https%3A%2F%2Fhecho-a-mano-0823.vercel.app%2Fllaveros.html%23sombreritos-flor" data-whatsapp-es="¡Hola, Hecho a Mano! Me interesa: Sombreritos con flor (L. 150). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/llaveros.html#sombreritos-flor" data-whatsapp-en="Hello, Hecho a Mano! I’m interested in: Flower little hats (L. 150). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/llaveros.html#sombreritos-flor" target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Pedir por WhatsApp" data-en="Order on WhatsApp" >Pedir por WhatsApp</span></a></div>
+      </article>
+      <article class="product-card" id="bolsitos" data-price="150" data-original-order="4">
+        <button class="product-image-button " type="button" data-product="bolsitos" aria-label="Ver detalles de Bolsitos de flores" data-aria-es="Ver detalles de Bolsitos de flores" data-aria-en="View details of Little flower bags"><img class="" src="images/web/llavero5.webp" srcset="images/web/llavero5-small.webp 480w, images/web/llavero5.webp 1000w" sizes="(max-width: 640px) 44vw, 30vw" alt="Bolsitos de flores tejido a mano" data-alt-es="Bolsitos de flores tejido a mano" data-alt-en="Little flower bags crocheted by hand" loading="lazy" decoding="async"><span class="view-pill"><svg class="zoom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5M7 10h6m-3-3v6"/></svg><span data-es="Ver detalles" data-en="View details" >Ver detalles</span></span></button>
+        <div class="product-info"><div class="product-title-row"><h2 data-es="Bolsitos de flores" data-en="Little flower bags" >Bolsitos de flores</h2><p class="product-price">L. 150</p></div><p data-es="Hecho a mano · Consulta colores" data-en="Handmade · Ask about colors" class="product-meta">Hecho a mano · Consulta colores</p><a class="text-link" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+interesa%3A+Bolsitos+de+flores+%28L.+150%29.+%C2%BFPodr%C3%ADan+confirmarme+disponibilidad+y+detalles%3F+https%3A%2F%2Fhecho-a-mano-0823.vercel.app%2Fllaveros.html%23bolsitos" data-whatsapp-es="¡Hola, Hecho a Mano! Me interesa: Bolsitos de flores (L. 150). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/llaveros.html#bolsitos" data-whatsapp-en="Hello, Hecho a Mano! I’m interested in: Little flower bags (L. 150). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/llaveros.html#bolsitos" target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Pedir por WhatsApp" data-en="Order on WhatsApp" >Pedir por WhatsApp</span></a></div>
+      </article>
+      <article class="product-card" id="sombreritos-color" data-price="150" data-original-order="5">
+        <button class="product-image-button " type="button" data-product="sombreritos-color" aria-label="Ver detalles de Sombreritos de colores" data-aria-es="Ver detalles de Sombreritos de colores" data-aria-en="View details of Colorful little hats"><img class="" src="images/web/llavero6.webp" srcset="images/web/llavero6-small.webp 480w, images/web/llavero6.webp 1000w" sizes="(max-width: 640px) 44vw, 30vw" alt="Sombreritos de colores tejido a mano" data-alt-es="Sombreritos de colores tejido a mano" data-alt-en="Colorful little hats crocheted by hand" loading="lazy" decoding="async"><span class="view-pill"><svg class="zoom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5M7 10h6m-3-3v6"/></svg><span data-es="Ver detalles" data-en="View details" >Ver detalles</span></span></button>
+        <div class="product-info"><div class="product-title-row"><h2 data-es="Sombreritos de colores" data-en="Colorful little hats" >Sombreritos de colores</h2><p class="product-price">L. 150</p></div><p data-es="Hecho a mano · Consulta colores" data-en="Handmade · Ask about colors" class="product-meta">Hecho a mano · Consulta colores</p><a class="text-link" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+interesa%3A+Sombreritos+de+colores+%28L.+150%29.+%C2%BFPodr%C3%ADan+confirmarme+disponibilidad+y+detalles%3F+https%3A%2F%2Fhecho-a-mano-0823.vercel.app%2Fllaveros.html%23sombreritos-color" data-whatsapp-es="¡Hola, Hecho a Mano! Me interesa: Sombreritos de colores (L. 150). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/llaveros.html#sombreritos-color" data-whatsapp-en="Hello, Hecho a Mano! I’m interested in: Colorful little hats (L. 150). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/llaveros.html#sombreritos-color" target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Pedir por WhatsApp" data-en="Order on WhatsApp" >Pedir por WhatsApp</span></a></div>
+      </article>
+      <article class="product-card" id="sombreritos-sol" data-price="150" data-original-order="6">
+        <button class="product-image-button " type="button" data-product="sombreritos-sol" aria-label="Ver detalles de Sombreritos de sol" data-aria-es="Ver detalles de Sombreritos de sol" data-aria-en="View details of Sunny little hats"><img class="" src="images/web/llavero7.webp" srcset="images/web/llavero7-small.webp 480w, images/web/llavero7.webp 1000w" sizes="(max-width: 640px) 44vw, 30vw" alt="Sombreritos de sol tejido a mano" data-alt-es="Sombreritos de sol tejido a mano" data-alt-en="Sunny little hats crocheted by hand" loading="lazy" decoding="async"><span class="view-pill"><svg class="zoom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5M7 10h6m-3-3v6"/></svg><span data-es="Ver detalles" data-en="View details" >Ver detalles</span></span></button>
+        <div class="product-info"><div class="product-title-row"><h2 data-es="Sombreritos de sol" data-en="Sunny little hats" >Sombreritos de sol</h2><p class="product-price">L. 150</p></div><p data-es="Hecho a mano · Consulta colores" data-en="Handmade · Ask about colors" class="product-meta">Hecho a mano · Consulta colores</p><a class="text-link" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+interesa%3A+Sombreritos+de+sol+%28L.+150%29.+%C2%BFPodr%C3%ADan+confirmarme+disponibilidad+y+detalles%3F+https%3A%2F%2Fhecho-a-mano-0823.vercel.app%2Fllaveros.html%23sombreritos-sol" data-whatsapp-es="¡Hola, Hecho a Mano! Me interesa: Sombreritos de sol (L. 150). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/llaveros.html#sombreritos-sol" data-whatsapp-en="Hello, Hecho a Mano! I’m interested in: Sunny little hats (L. 150). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/llaveros.html#sombreritos-sol" target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Pedir por WhatsApp" data-en="Order on WhatsApp" >Pedir por WhatsApp</span></a></div>
+      </article></div>
+  <section class="catalog-note"><div><h2><span data-es="¿Lo imaginas diferente?" data-en="Imagining something different?" >¿Lo imaginas diferente?</span></h2><p data-es="Tus colores, tu idea, tu detalle especial. Conversemos y lo hacemos tuyo." data-en="Your colors, your idea, your special little detail. Let’s make it yours." >Tus colores, tu idea, tu detalle especial. Conversemos y lo hacemos tuyo.</p></div><a class="button button-green" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+gustar%C3%ADa+cotizar+una+pieza+personalizada." data-whatsapp-es="¡Hola, Hecho a Mano! Me gustaría cotizar una pieza personalizada." data-whatsapp-en="Hello, Hecho a Mano! I&#x27;d like a quote for a custom crochet piece." target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Personalizar mi pedido" data-en="Personalize my order" >Personalizar mi pedido</span></a></section>
+</main>
 
-<div class="header">
-  <a href="index.html" class="back-btn" id="backBtn">← Volver al menú</a>
-  <button class="lang-btn" onclick="toggleLanguage()">ES / EN</button>
-</div>
+<footer class="site-footer">
+  <div class="wrap footer-top">
+    <div class="footer-brand">
+      <a class="brand" href="index.html"><img src="images/web/logo-small.webp" alt="Hecho a Mano" width="54" height="54"><span class="brand-name">Hecho a Mano</span></a>
+      <p data-es="Un emprendimiento pequeño con grandes ideas y mucho amor por el crochet." data-en="A small business with big ideas and a love for crochet." >Un emprendimiento pequeño con grandes ideas y mucho amor por el crochet.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Enlaces del pie de página" data-aria-es="Enlaces del pie de página" data-aria-en="Footer links">
+      <a href="index.html#colecciones"><span data-es="Colecciones" data-en="Collections" >Colecciones</span></a>
+      <a href="index.html#personaliza"><span data-es="Tu pedido especial" data-en="Your custom order" >Tu pedido especial</span></a>
+      <a href="index.html#preguntas"><span data-es="Preguntas frecuentes" data-en="FAQs" >Preguntas frecuentes</span></a>
+    </nav>
+    <div class="footer-contact"><a href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+gustar%C3%ADa+saber+m%C3%A1s+sobre+sus+piezas+tejidas+y+hacer+un+pedido." target="_blank" rel="noopener noreferrer"><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span>+504 8923-5110</span></a><p data-es="Tu próxima idea empieza con un hola." data-en="Your next idea begins with a hello." >Tu próxima idea empieza con un hola.</p></div>
+  </div>
+  <div class="wrap footer-bottom"><p>© <span data-year>2026</span> Hecho a Mano. <span data-es="Todos los derechos reservados." data-en="All rights reserved." >Todos los derechos reservados.</span></p><p><span data-es="Hecho a mano… es hecho con amor." data-en="Made by hand… made with love." >Hecho a mano… es hecho con amor.</span> ♡</p></div>
+</footer>
+<a class="floating-contact" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+gustar%C3%ADa+saber+m%C3%A1s+sobre+sus+piezas+tejidas+y+hacer+un+pedido." data-whatsapp-es="¡Hola, Hecho a Mano! Me gustaría saber más sobre sus piezas tejidas y hacer un pedido." data-whatsapp-en="Hello, Hecho a Mano! I&#x27;d like to learn more about your crochet pieces and place an order." target="_blank" rel="noopener noreferrer" aria-label="Escribir a Hecho a Mano por WhatsApp" data-aria-es="Escribir a Hecho a Mano por WhatsApp" data-aria-en="Message Hecho a Mano on WhatsApp"><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="¿Te ayudamos?" data-en="Can we help?" >¿Te ayudamos?</span></a>
 
-<h1 id="title">Llaveros</h1>
 
-<div class="description" id="desc">
-Pequeños, coloridos y llenos de vida… nuestros llaveros tejidos están hechos a mano con amor y atención a cada detalle. Perfectos para darle un toque único a tus llaves, mochilas o regalos, combinan ternura y creatividad en piezas irresistibles que alegran tu día a donde vayan.
-</div>
-
-<div class="gallery">
-
-<div class="card big">
-<div class="image-container">
-<img src="images/llavero1.png" onclick="openLightbox(this.src)">
-</div>
-<div class="price" data-price="220"></div>
-</div>
-
-<div class="card">
-<div class="image-container">
-<img src="images/llavero2.png" onclick="openLightbox(this.src)">
-</div>
-<div class="price" data-price="150"></div>
-</div>
-
-<div class="card">
-<div class="image-container">
-<img src="images/llavero3.png" onclick="openLightbox(this.src)">
-</div>
-<div class="price" data-price="150"></div>
-</div>
-
-<div class="card">
-<div class="image-container">
-<img src="images/llavero4.png" onclick="openLightbox(this.src)">
-</div>
-<div class="price" data-price="150"></div>
-</div>
-
-<div class="card">
-<div class="image-container">
-<img src="images/llavero5.png" onclick="openLightbox(this.src)">
-</div>
-<div class="price" data-price="150"></div>
-</div>
-
-<div class="card">
-<div class="image-container">
-<img src="images/llavero6.png" onclick="openLightbox(this.src)">
-</div>
-<div class="price" data-price="150"></div>
-</div>
-
-<div class="card">
-<div class="image-container">
-<img src="images/llavero7.png" onclick="openLightbox(this.src)">
-</div>
-<div class="price" data-price="150"></div>
-</div>
-
-</div>
-
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()" style="
-position: fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background: rgba(0,0,0,0.85);
-display:none;
-justify-content:center;
-align-items:center;
-padding:20px;
-">
-<img id="lightbox-img" style="
-max-width:95%;
-max-height:95%;
-border-radius:12px;
-">
-</div>
-
-</div>
-
-<script>
-// LIGHTBOX
-function openLightbox(src) {
-  document.getElementById("lightbox").style.display = "flex";
-  document.getElementById("lightbox-img").src = src;
-}
-
-function closeLightbox() {
-  document.getElementById("lightbox").style.display = "none";
-}
-
-// LANGUAGE + PRICES
-let isSpanish = true;
-const rate = 26.5;
-
-function updatePrices() {
-  document.querySelectorAll(".price").forEach(el => {
-    let base = parseFloat(el.dataset.price);
-
-    if (isSpanish) {
-      el.innerText = `L. ${base}`;
-    } else {
-      let usd = (base / rate).toFixed(2);
-      el.innerText = `$${usd}`;
-    }
-  });
-}
-
-function toggleLanguage() {
-  isSpanish = !isSpanish;
-
-  if (isSpanish) {
-    document.getElementById("title").innerText = "Llaveros";
-    document.getElementById("backBtn").innerText = "← Volver al menú";
-    document.getElementById("desc").innerText =
-    "Pequeños, coloridos y llenos de vida… nuestros llaveros tejidos están hechos a mano con amor y atención a cada detalle. Perfectos para darle un toque único a tus llaves, mochilas o regalos, combinan ternura y creatividad en piezas irresistibles que alegran tu día a donde vayan.";
-  } else {
-    document.getElementById("title").innerText = "Keychains";
-    document.getElementById("backBtn").innerText = "← Back to menu";
-    document.getElementById("desc").innerText =
-    "Small, colorful, and full of life… our crocheted keychains are handmade with love and attention to every detail. Perfect for adding a unique touch to your keys, backpacks, or gifts, they combine charm and creativity in irresistible pieces that brighten your day wherever they go.";
-  }
-
-  updatePrices();
-}
-
-// INIT
-updatePrices();
-</script>
-
+<dialog class="product-dialog" id="product-dialog" aria-labelledby="dialog-title">
+  <button class="dialog-close" id="dialog-close" type="button" aria-label="Cerrar" data-aria-es="Cerrar" data-aria-en="Close"><svg class="close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button>
+  <div class="dialog-inner">
+    <div class="dialog-media"><img id="dialog-image" alt="" width="500" height="400"><div class="dialog-controls" id="dialog-controls"><button type="button" id="dialog-prev" aria-label="Foto anterior" data-aria-es="Foto anterior" data-aria-en="Previous photo"><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button><span id="dialog-count" aria-live="polite"></span><button type="button" id="dialog-next" aria-label="Foto siguiente" data-aria-es="Foto siguiente" data-aria-en="Next photo"><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button></div></div>
+    <div class="dialog-copy"><p class="eyebrow"><span data-es="Una pieza con historia" data-en="A piece with a story" >Una pieza con historia</span></p><h2 id="dialog-title"></h2><p class="dialog-price" id="dialog-price"></p><p id="dialog-description"></p><a id="dialog-order" class="button button-primary" target="_blank" rel="noopener noreferrer"><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Pedir por WhatsApp" data-en="Order on WhatsApp" >Pedir por WhatsApp</span></a><p data-es="Conversemos sobre colores, detalles y disponibilidad." data-en="Let’s talk about colors, details, and availability." >Conversemos sobre colores, detalles y disponibilidad.</p></div>
+  </div>
+</dialog>
+<script type="application/json" id="catalog-data">[{"id": "gatito-corazon", "name": {"es": "Gatito y corazón", "en": "Kitten & heart"}, "images": ["images/web/llavero1.webp"], "price": 220, "url": "https://hecho-a-mano-0823.vercel.app/llaveros.html#gatito-corazon", "message": {"es": "¡Hola, Hecho a Mano! Me interesa: Gatito y corazón (L. 220). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/llaveros.html#gatito-corazon", "en": "Hello, Hecho a Mano! I’m interested in: Kitten & heart (L. 220). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/llaveros.html#gatito-corazon"}, "description": {"es": "Hecho a mano · Consulta colores", "en": "Handmade · Ask about colors"}}, {"id": "conejito", "name": {"es": "Conejito con flor", "en": "Bunny with a flower"}, "images": ["images/web/llavero2.webp"], "price": 150, "url": "https://hecho-a-mano-0823.vercel.app/llaveros.html#conejito", "message": {"es": "¡Hola, Hecho a Mano! Me interesa: Conejito con flor (L. 150). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/llaveros.html#conejito", "en": "Hello, Hecho a Mano! I’m interested in: Bunny with a flower (L. 150). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/llaveros.html#conejito"}, "description": {"es": "Hecho a mano · Consulta colores", "en": "Handmade · Ask about colors"}}, {"id": "sombreritos-pastel", "name": {"es": "Sombreritos pastel", "en": "Pastel little hats"}, "images": ["images/web/llavero3.webp"], "price": 150, "url": "https://hecho-a-mano-0823.vercel.app/llaveros.html#sombreritos-pastel", "message": {"es": "¡Hola, Hecho a Mano! Me interesa: Sombreritos pastel (L. 150). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/llaveros.html#sombreritos-pastel", "en": "Hello, Hecho a Mano! I’m interested in: Pastel little hats (L. 150). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/llaveros.html#sombreritos-pastel"}, "description": {"es": "Hecho a mano · Consulta colores", "en": "Handmade · Ask about colors"}}, {"id": "sombreritos-flor", "name": {"es": "Sombreritos con flor", "en": "Flower little hats"}, "images": ["images/web/llavero4.webp"], "price": 150, "url": "https://hecho-a-mano-0823.vercel.app/llaveros.html#sombreritos-flor", "message": {"es": "¡Hola, Hecho a Mano! Me interesa: Sombreritos con flor (L. 150). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/llaveros.html#sombreritos-flor", "en": "Hello, Hecho a Mano! I’m interested in: Flower little hats (L. 150). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/llaveros.html#sombreritos-flor"}, "description": {"es": "Hecho a mano · Consulta colores", "en": "Handmade · Ask about colors"}}, {"id": "bolsitos", "name": {"es": "Bolsitos de flores", "en": "Little flower bags"}, "images": ["images/web/llavero5.webp"], "price": 150, "url": "https://hecho-a-mano-0823.vercel.app/llaveros.html#bolsitos", "message": {"es": "¡Hola, Hecho a Mano! Me interesa: Bolsitos de flores (L. 150). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/llaveros.html#bolsitos", "en": "Hello, Hecho a Mano! I’m interested in: Little flower bags (L. 150). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/llaveros.html#bolsitos"}, "description": {"es": "Hecho a mano · Consulta colores", "en": "Handmade · Ask about colors"}}, {"id": "sombreritos-color", "name": {"es": "Sombreritos de colores", "en": "Colorful little hats"}, "images": ["images/web/llavero6.webp"], "price": 150, "url": "https://hecho-a-mano-0823.vercel.app/llaveros.html#sombreritos-color", "message": {"es": "¡Hola, Hecho a Mano! Me interesa: Sombreritos de colores (L. 150). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/llaveros.html#sombreritos-color", "en": "Hello, Hecho a Mano! I’m interested in: Colorful little hats (L. 150). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/llaveros.html#sombreritos-color"}, "description": {"es": "Hecho a mano · Consulta colores", "en": "Handmade · Ask about colors"}}, {"id": "sombreritos-sol", "name": {"es": "Sombreritos de sol", "en": "Sunny little hats"}, "images": ["images/web/llavero7.webp"], "price": 150, "url": "https://hecho-a-mano-0823.vercel.app/llaveros.html#sombreritos-sol", "message": {"es": "¡Hola, Hecho a Mano! Me interesa: Sombreritos de sol (L. 150). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/llaveros.html#sombreritos-sol", "en": "Hello, Hecho a Mano! I’m interested in: Sunny little hats (L. 150). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/llaveros.html#sombreritos-sol"}, "description": {"es": "Hecho a mano · Consulta colores", "en": "Handmade · Ask about colors"}}]</script>
 </body>
 </html>

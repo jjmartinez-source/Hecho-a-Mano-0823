@@ -1,302 +1,113 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Muñecas</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-<style>
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: #fffafc;
-  display: flex;
-  justify-content: center;
-}
-
-/* CONTAINER */
-.container {
-  width: 100%;
-  max-width: 1200px;
-}
-
-/* HEADER */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-}
-
-.back-btn {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  background: white;
-  padding: 8px 15px;
-  border-radius: 10px;
-}
-
-.lang-btn {
-  background: #ff8fab;
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-/* TITLE */
-h1 {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-/* DESCRIPTION */
-.description {
-  max-width: 800px;
-  margin: auto;
-  text-align: center;
-  padding: 0 20px;
-  line-height: 1.7;
-  font-style: italic;
-}
-
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-  padding: 20px;
-}
-
-/* CARD */
-.card {
-  background: white;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-  cursor: pointer;
-}
-
-.card img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-}
-
-.info {
-  padding: 15px;
-  text-align: center;
-}
-
-.name {
-  font-weight: 600;
-}
-
-.price {
-  margin-top: 5px;
-}
-
-/* MODAL */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.85);
-  overflow-y: auto;
-  padding: 40px 20px;
-}
-
-.modal-content {
-  max-width: 600px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.modal-content img {
-  width: 100%;
-  max-height: 500px;
-  object-fit: contain;
-  border-radius: 10px;
-  background: white;
-}
-
-.close {
-  position: fixed;
-  top: 20px;
-  right: 30px;
-  color: white;
-  font-size: 35px;
-  cursor: pointer;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fcf9f5">
+  <title>Muñecas · Hecho a Mano</title>
+  <meta name="description" content="Personajes que cobran vida, puntada a puntada. Pequeñas compañeras llenas de imaginación, detalles y un toque de magia.">
+  <link rel="canonical" href="https://hecho-a-mano-0823.vercel.app/munecas.html">
+  <meta property="og:title" content="Muñecas · Hecho a Mano">
+  <meta property="og:description" content="Personajes que cobran vida, puntada a puntada. Pequeñas compañeras llenas de imaginación, detalles y un toque de magia.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_HN">
+  <meta property="og:url" content="https://hecho-a-mano-0823.vercel.app/munecas.html">
+  <meta property="og:image" content="https://hecho-a-mano-0823.vercel.app/images/web/tulipan-modelo.webp">
+  <link rel="icon" href="images/web/logo-small.webp" type="image/webp">
+  <link rel="preload" href="fonts/dm-sans-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/dm-serif-display-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
 </head>
+<body data-page="munecas">
 
-<body>
+<a class="skip-link" href="#main"><span data-es="Saltar al contenido" data-en="Skip to content" >Saltar al contenido</span></a>
+<div class="announcement"><span data-es="Hecho a mano, elegido con el corazón." data-en="Handmade with care. Chosen with love." >Hecho a mano, elegido con el corazón.</span><span data-es="Piezas únicas · Pedidos personalizados" data-en="Unique pieces · Custom orders" >Piezas únicas · Pedidos personalizados</span></div>
+<header class="site-header" id="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html" aria-label="Hecho a Mano — Inicio">
+      <img src="images/web/logo-small.webp" alt="Logo de Hecho a Mano" width="54" height="54">
+      <span><span class="brand-name">Hecho a Mano</span><span data-es="PUNTADAS QUE CONECTAN" data-en="STITCHES THAT CONNECT" class="brand-note">PUNTADAS QUE CONECTAN</span></span>
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="Navegación principal" data-aria-es="Navegación principal" data-aria-en="Main navigation">
+      <a href="index.html#colecciones"><span data-es="Colecciones" data-en="Collections" >Colecciones</span></a>
+      <a href="index.html#como-pedir"><span data-es="Cómo pedir" data-en="How to order" >Cómo pedir</span></a>
+      <a href="index.html#historia"><span data-es="Nuestra historia" data-en="Our story" >Nuestra historia</span></a>
+    </nav>
+    <div class="header-actions">
+      <button class="language-button" id="language-button" type="button" aria-label="Switch to English"><span class="chosen" lang="es">ES</span><span lang="en">EN</span></button>
+      <a class="button button-outline button-small" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+gustar%C3%ADa+saber+m%C3%A1s+sobre+sus+piezas+tejidas+y+hacer+un+pedido." data-whatsapp-es="¡Hola, Hecho a Mano! Me gustaría saber más sobre sus piezas tejidas y hacer un pedido." data-whatsapp-en="Hello, Hecho a Mano! I&#x27;d like to learn more about your crochet pieces and place an order." target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Hablemos" data-en="Let’s talk" >Hablemos</span></a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menú" data-aria-es="Abrir o cerrar menú" data-aria-en="Open or close menu" aria-expanded="false" aria-controls="main-nav"><svg class="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
 
-<div class="container">
+<main id="main" class="wrap">
+  <nav class="breadcrumb" aria-label="Ubicación" data-aria-es="Ubicación" data-aria-en="Breadcrumb"><a href="index.html"><span data-es="Inicio" data-en="Home" >Inicio</span></a><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg><a href="index.html#colecciones"><span data-es="Colecciones" data-en="Collections" >Colecciones</span></a><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg><span data-es="Muñecas" data-en="Dolls" >Muñecas</span></nav>
+  <header class="catalog-heading"><p class="eyebrow"><span data-es="Pequeños detalles, grandes sonrisas" data-en="Little details, big smiles" >Pequeños detalles, grandes sonrisas</span></p><h1><span data-es="Muñecas" data-en="Dolls" >Muñecas</span></h1><p data-es="Personajes que cobran vida, puntada a puntada. Pequeñas compañeras llenas de imaginación, detalles y un toque de magia." data-en="Characters brought to life, stitch by stitch. Little companions full of imagination, detail, and a touch of magic." >Personajes que cobran vida, puntada a puntada. Pequeñas compañeras llenas de imaginación, detalles y un toque de magia.</p></header>
+  <nav class="collection-tabs" aria-label="Colecciones" data-aria-es="Colecciones" data-aria-en="Collections"><a href="tulipanes.html" ><span data-es="Tulipanes" data-en="Tulips" >Tulipanes</span></a><a href="llaveros.html" ><span data-es="Llaveros" data-en="Keychains" >Llaveros</span></a><a href="munecas.html" aria-current=page><span data-es="Muñecas" data-en="Dolls" >Muñecas</span></a><a href="cupcakes.html" ><span data-es="Cupcakes" data-en="Cupcakes" >Cupcakes</span></a></nav>
+  <div class="catalog-toolbar"><p data-es="8 diseños · Precios en lempiras" data-en="8 designs · Prices in HNL" >8 diseños · Precios en lempiras</p><label class="sort-label" for="catalog-sort"><span data-es="Ordenar:" data-en="Sort:" >Ordenar:</span><select id="catalog-sort"><option value="featured" data-es="Selección del taller" data-en="Workshop selection">Selección del taller</option><option value="price-asc" data-es="Precio: menor a mayor" data-en="Price: low to high">Precio: menor a mayor</option><option value="price-desc" data-es="Precio: mayor a menor" data-en="Price: high to low">Precio: mayor a menor</option></select></label></div>
+  <div class="product-grid" id="product-grid">
+      <article class="product-card" id="rapunzel" data-price="1300" data-original-order="0">
+        <button class="product-image-button " type="button" data-product="rapunzel" aria-label="Ver detalles de Rapunzel" data-aria-es="Ver detalles de Rapunzel" data-aria-en="View details of Rapunzel"><img class="" src="images/web/rapunzel1.webp" srcset="images/web/rapunzel1-small.webp 480w, images/web/rapunzel1.webp 1000w" sizes="(max-width: 640px) 44vw, 30vw" alt="Rapunzel tejido a mano" data-alt-es="Rapunzel tejido a mano" data-alt-en="Rapunzel crocheted by hand" fetchpriority="high" decoding="async"><span class="view-pill"><svg class="zoom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5M7 10h6m-3-3v6"/></svg><span data-es="Ver detalles" data-en="View details" >Ver detalles</span></span></button>
+        <div class="product-info"><div class="product-title-row"><h2 data-es="Rapunzel" data-en="Rapunzel" >Rapunzel</h2><p class="product-price">L. 1,300</p></div><p data-es="Hecho a mano · Consulta colores" data-en="Handmade · Ask about colors" class="product-meta">Hecho a mano · Consulta colores</p><a class="text-link" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+interesa%3A+Rapunzel+%28L.+1%2C300%29.+%C2%BFPodr%C3%ADan+confirmarme+disponibilidad+y+detalles%3F+https%3A%2F%2Fhecho-a-mano-0823.vercel.app%2Fmunecas.html%23rapunzel" data-whatsapp-es="¡Hola, Hecho a Mano! Me interesa: Rapunzel (L. 1,300). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/munecas.html#rapunzel" data-whatsapp-en="Hello, Hecho a Mano! I’m interested in: Rapunzel (L. 1,300). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/munecas.html#rapunzel" target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Pedir por WhatsApp" data-en="Order on WhatsApp" >Pedir por WhatsApp</span></a></div>
+      </article>
+      <article class="product-card" id="jasmine" data-price="1300" data-original-order="1">
+        <button class="product-image-button " type="button" data-product="jasmine" aria-label="Ver detalles de Princesa Jasmine" data-aria-es="Ver detalles de Princesa Jasmine" data-aria-en="View details of Princess Jasmine"><img class="" src="images/web/jasmine1.webp" srcset="images/web/jasmine1-small.webp 480w, images/web/jasmine1.webp 1000w" sizes="(max-width: 640px) 44vw, 30vw" alt="Princesa Jasmine tejido a mano" data-alt-es="Princesa Jasmine tejido a mano" data-alt-en="Princess Jasmine crocheted by hand" fetchpriority="high" decoding="async"><span class="view-pill"><svg class="zoom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5M7 10h6m-3-3v6"/></svg><span data-es="Ver detalles" data-en="View details" >Ver detalles</span></span></button>
+        <div class="product-info"><div class="product-title-row"><h2 data-es="Princesa Jasmine" data-en="Princess Jasmine" >Princesa Jasmine</h2><p class="product-price">L. 1,300</p></div><p data-es="Hecho a mano · Consulta colores" data-en="Handmade · Ask about colors" class="product-meta">Hecho a mano · Consulta colores</p><a class="text-link" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+interesa%3A+Princesa+Jasmine+%28L.+1%2C300%29.+%C2%BFPodr%C3%ADan+confirmarme+disponibilidad+y+detalles%3F+https%3A%2F%2Fhecho-a-mano-0823.vercel.app%2Fmunecas.html%23jasmine" data-whatsapp-es="¡Hola, Hecho a Mano! Me interesa: Princesa Jasmine (L. 1,300). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/munecas.html#jasmine" data-whatsapp-en="Hello, Hecho a Mano! I’m interested in: Princess Jasmine (L. 1,300). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/munecas.html#jasmine" target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Pedir por WhatsApp" data-en="Order on WhatsApp" >Pedir por WhatsApp</span></a></div>
+      </article>
+      <article class="product-card" id="bella-bestia" data-price="2400" data-original-order="2">
+        <button class="product-image-button " type="button" data-product="bella-bestia" aria-label="Ver detalles de Bella y Bestia" data-aria-es="Ver detalles de Bella y Bestia" data-aria-en="View details of Beauty and the Beast"><img class="" src="images/web/bella1.webp" srcset="images/web/bella1-small.webp 480w, images/web/bella1.webp 1000w" sizes="(max-width: 640px) 44vw, 30vw" alt="Bella y Bestia tejido a mano" data-alt-es="Bella y Bestia tejido a mano" data-alt-en="Beauty and the Beast crocheted by hand" fetchpriority="high" decoding="async"><span class="view-pill"><svg class="zoom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5M7 10h6m-3-3v6"/></svg><span data-es="Ver detalles" data-en="View details" >Ver detalles</span></span></button>
+        <div class="product-info"><div class="product-title-row"><h2 data-es="Bella y Bestia" data-en="Beauty and the Beast" >Bella y Bestia</h2><p class="product-price">L. 2,400</p></div><p data-es="Hecho a mano · Consulta colores" data-en="Handmade · Ask about colors" class="product-meta">Hecho a mano · Consulta colores</p><a class="text-link" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+interesa%3A+Bella+y+Bestia+%28L.+2%2C400%29.+%C2%BFPodr%C3%ADan+confirmarme+disponibilidad+y+detalles%3F+https%3A%2F%2Fhecho-a-mano-0823.vercel.app%2Fmunecas.html%23bella-bestia" data-whatsapp-es="¡Hola, Hecho a Mano! Me interesa: Bella y Bestia (L. 2,400). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/munecas.html#bella-bestia" data-whatsapp-en="Hello, Hecho a Mano! I’m interested in: Beauty and the Beast (L. 2,400). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/munecas.html#bella-bestia" target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Pedir por WhatsApp" data-en="Order on WhatsApp" >Pedir por WhatsApp</span></a></div>
+      </article>
+      <article class="product-card" id="gatita" data-price="1300" data-original-order="3">
+        <button class="product-image-button " type="button" data-product="gatita" aria-label="Ver detalles de Gatita" data-aria-es="Ver detalles de Gatita" data-aria-en="View details of Kitten"><img class="" src="images/web/gatita1.webp" srcset="images/web/gatita1-small.webp 480w, images/web/gatita1.webp 1000w" sizes="(max-width: 640px) 44vw, 30vw" alt="Gatita tejido a mano" data-alt-es="Gatita tejido a mano" data-alt-en="Kitten crocheted by hand" loading="lazy" decoding="async"><span class="view-pill"><svg class="zoom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5M7 10h6m-3-3v6"/></svg><span data-es="Ver detalles" data-en="View details" >Ver detalles</span></span></button>
+        <div class="product-info"><div class="product-title-row"><h2 data-es="Gatita" data-en="Kitten" >Gatita</h2><p class="product-price">L. 1,300</p></div><p data-es="Hecho a mano · Consulta colores" data-en="Handmade · Ask about colors" class="product-meta">Hecho a mano · Consulta colores</p><a class="text-link" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+interesa%3A+Gatita+%28L.+1%2C300%29.+%C2%BFPodr%C3%ADan+confirmarme+disponibilidad+y+detalles%3F+https%3A%2F%2Fhecho-a-mano-0823.vercel.app%2Fmunecas.html%23gatita" data-whatsapp-es="¡Hola, Hecho a Mano! Me interesa: Gatita (L. 1,300). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/munecas.html#gatita" data-whatsapp-en="Hello, Hecho a Mano! I’m interested in: Kitten (L. 1,300). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/munecas.html#gatita" target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Pedir por WhatsApp" data-en="Order on WhatsApp" >Pedir por WhatsApp</span></a></div>
+      </article>
+      <article class="product-card" id="closet" data-price="1500" data-original-order="4">
+        <button class="product-image-button " type="button" data-product="closet" aria-label="Ver detalles de Muñequita con clóset" data-aria-es="Ver detalles de Muñequita con clóset" data-aria-en="View details of Doll with a closet"><img class="" src="images/web/closet1.webp" srcset="images/web/closet1-small.webp 480w, images/web/closet1.webp 1000w" sizes="(max-width: 640px) 44vw, 30vw" alt="Muñequita con clóset tejido a mano" data-alt-es="Muñequita con clóset tejido a mano" data-alt-en="Doll with a closet crocheted by hand" loading="lazy" decoding="async"><span class="view-pill"><svg class="zoom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5M7 10h6m-3-3v6"/></svg><span data-es="Ver detalles" data-en="View details" >Ver detalles</span></span></button>
+        <div class="product-info"><div class="product-title-row"><h2 data-es="Muñequita con clóset" data-en="Doll with a closet" >Muñequita con clóset</h2><p class="product-price">L. 1,500</p></div><p data-es="Hecho a mano · Consulta colores" data-en="Handmade · Ask about colors" class="product-meta">Hecho a mano · Consulta colores</p><a class="text-link" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+interesa%3A+Mu%C3%B1equita+con+cl%C3%B3set+%28L.+1%2C500%29.+%C2%BFPodr%C3%ADan+confirmarme+disponibilidad+y+detalles%3F+https%3A%2F%2Fhecho-a-mano-0823.vercel.app%2Fmunecas.html%23closet" data-whatsapp-es="¡Hola, Hecho a Mano! Me interesa: Muñequita con clóset (L. 1,500). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/munecas.html#closet" data-whatsapp-en="Hello, Hecho a Mano! I’m interested in: Doll with a closet (L. 1,500). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/munecas.html#closet" target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Pedir por WhatsApp" data-en="Order on WhatsApp" >Pedir por WhatsApp</span></a></div>
+      </article>
+      <article class="product-card" id="campanita" data-price="1300" data-original-order="5">
+        <button class="product-image-button " type="button" data-product="campanita" aria-label="Ver detalles de Campanita" data-aria-es="Ver detalles de Campanita" data-aria-en="View details of Tinker Bell"><img class="" src="images/web/tinkerbell1.webp" srcset="images/web/tinkerbell1-small.webp 480w, images/web/tinkerbell1.webp 1000w" sizes="(max-width: 640px) 44vw, 30vw" alt="Campanita tejido a mano" data-alt-es="Campanita tejido a mano" data-alt-en="Tinker Bell crocheted by hand" loading="lazy" decoding="async"><span class="view-pill"><svg class="zoom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5M7 10h6m-3-3v6"/></svg><span data-es="Ver detalles" data-en="View details" >Ver detalles</span></span></button>
+        <div class="product-info"><div class="product-title-row"><h2 data-es="Campanita" data-en="Tinker Bell" >Campanita</h2><p class="product-price">L. 1,300</p></div><p data-es="Hecho a mano · Consulta colores" data-en="Handmade · Ask about colors" class="product-meta">Hecho a mano · Consulta colores</p><a class="text-link" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+interesa%3A+Campanita+%28L.+1%2C300%29.+%C2%BFPodr%C3%ADan+confirmarme+disponibilidad+y+detalles%3F+https%3A%2F%2Fhecho-a-mano-0823.vercel.app%2Fmunecas.html%23campanita" data-whatsapp-es="¡Hola, Hecho a Mano! Me interesa: Campanita (L. 1,300). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/munecas.html#campanita" data-whatsapp-en="Hello, Hecho a Mano! I’m interested in: Tinker Bell (L. 1,300). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/munecas.html#campanita" target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Pedir por WhatsApp" data-en="Order on WhatsApp" >Pedir por WhatsApp</span></a></div>
+      </article>
+      <article class="product-card" id="bailarina" data-price="350" data-original-order="6">
+        <button class="product-image-button " type="button" data-product="bailarina" aria-label="Ver detalles de Bailarina" data-aria-es="Ver detalles de Bailarina" data-aria-en="View details of Ballerina"><img class="" src="images/web/bailarina1.webp" srcset="images/web/bailarina1-small.webp 480w, images/web/bailarina1.webp 1000w" sizes="(max-width: 640px) 44vw, 30vw" alt="Bailarina tejido a mano" data-alt-es="Bailarina tejido a mano" data-alt-en="Ballerina crocheted by hand" loading="lazy" decoding="async"><span class="view-pill"><svg class="zoom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5M7 10h6m-3-3v6"/></svg><span data-es="Ver detalles" data-en="View details" >Ver detalles</span></span></button>
+        <div class="product-info"><div class="product-title-row"><h2 data-es="Bailarina" data-en="Ballerina" >Bailarina</h2><p class="product-price">L. 350</p></div><p data-es="Hecho a mano · Consulta colores" data-en="Handmade · Ask about colors" class="product-meta">Hecho a mano · Consulta colores</p><a class="text-link" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+interesa%3A+Bailarina+%28L.+350%29.+%C2%BFPodr%C3%ADan+confirmarme+disponibilidad+y+detalles%3F+https%3A%2F%2Fhecho-a-mano-0823.vercel.app%2Fmunecas.html%23bailarina" data-whatsapp-es="¡Hola, Hecho a Mano! Me interesa: Bailarina (L. 350). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/munecas.html#bailarina" data-whatsapp-en="Hello, Hecho a Mano! I’m interested in: Ballerina (L. 350). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/munecas.html#bailarina" target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Pedir por WhatsApp" data-en="Order on WhatsApp" >Pedir por WhatsApp</span></a></div>
+      </article>
+      <article class="product-card" id="tomato" data-price="350" data-original-order="7">
+        <button class="product-image-button " type="button" data-product="tomato" aria-label="Ver detalles de Mr. Tomato" data-aria-es="Ver detalles de Mr. Tomato" data-aria-en="View details of Mr. Tomato"><img class="" src="images/web/tomato1.webp" srcset="images/web/tomato1-small.webp 480w, images/web/tomato1.webp 1000w" sizes="(max-width: 640px) 44vw, 30vw" alt="Mr. Tomato tejido a mano" data-alt-es="Mr. Tomato tejido a mano" data-alt-en="Mr. Tomato crocheted by hand" loading="lazy" decoding="async"><span class="view-pill"><svg class="zoom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5M7 10h6m-3-3v6"/></svg><span data-es="Ver detalles" data-en="View details" >Ver detalles</span></span></button>
+        <div class="product-info"><div class="product-title-row"><h2 data-es="Mr. Tomato" data-en="Mr. Tomato" >Mr. Tomato</h2><p class="product-price">L. 350</p></div><p data-es="Hecho a mano · Consulta colores" data-en="Handmade · Ask about colors" class="product-meta">Hecho a mano · Consulta colores</p><a class="text-link" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+interesa%3A+Mr.+Tomato+%28L.+350%29.+%C2%BFPodr%C3%ADan+confirmarme+disponibilidad+y+detalles%3F+https%3A%2F%2Fhecho-a-mano-0823.vercel.app%2Fmunecas.html%23tomato" data-whatsapp-es="¡Hola, Hecho a Mano! Me interesa: Mr. Tomato (L. 350). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/munecas.html#tomato" data-whatsapp-en="Hello, Hecho a Mano! I’m interested in: Mr. Tomato (L. 350). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/munecas.html#tomato" target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Pedir por WhatsApp" data-en="Order on WhatsApp" >Pedir por WhatsApp</span></a></div>
+      </article></div>
+  <section class="catalog-note"><div><h2><span data-es="¿Lo imaginas diferente?" data-en="Imagining something different?" >¿Lo imaginas diferente?</span></h2><p data-es="Tus colores, tu idea, tu detalle especial. Conversemos y lo hacemos tuyo." data-en="Your colors, your idea, your special little detail. Let’s make it yours." >Tus colores, tu idea, tu detalle especial. Conversemos y lo hacemos tuyo.</p></div><a class="button button-green" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+gustar%C3%ADa+cotizar+una+pieza+personalizada." data-whatsapp-es="¡Hola, Hecho a Mano! Me gustaría cotizar una pieza personalizada." data-whatsapp-en="Hello, Hecho a Mano! I&#x27;d like a quote for a custom crochet piece." target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Personalizar mi pedido" data-en="Personalize my order" >Personalizar mi pedido</span></a></section>
+</main>
 
-<div class="header">
-  <a href="index.html" class="back-btn" id="backBtn">← Volver al menú</a>
-  <button class="lang-btn" onclick="toggleLanguage()">ES / EN</button>
-</div>
+<footer class="site-footer">
+  <div class="wrap footer-top">
+    <div class="footer-brand">
+      <a class="brand" href="index.html"><img src="images/web/logo-small.webp" alt="Hecho a Mano" width="54" height="54"><span class="brand-name">Hecho a Mano</span></a>
+      <p data-es="Un emprendimiento pequeño con grandes ideas y mucho amor por el crochet." data-en="A small business with big ideas and a love for crochet." >Un emprendimiento pequeño con grandes ideas y mucho amor por el crochet.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Enlaces del pie de página" data-aria-es="Enlaces del pie de página" data-aria-en="Footer links">
+      <a href="index.html#colecciones"><span data-es="Colecciones" data-en="Collections" >Colecciones</span></a>
+      <a href="index.html#personaliza"><span data-es="Tu pedido especial" data-en="Your custom order" >Tu pedido especial</span></a>
+      <a href="index.html#preguntas"><span data-es="Preguntas frecuentes" data-en="FAQs" >Preguntas frecuentes</span></a>
+    </nav>
+    <div class="footer-contact"><a href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+gustar%C3%ADa+saber+m%C3%A1s+sobre+sus+piezas+tejidas+y+hacer+un+pedido." target="_blank" rel="noopener noreferrer"><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span>+504 8923-5110</span></a><p data-es="Tu próxima idea empieza con un hola." data-en="Your next idea begins with a hello." >Tu próxima idea empieza con un hola.</p></div>
+  </div>
+  <div class="wrap footer-bottom"><p>© <span data-year>2026</span> Hecho a Mano. <span data-es="Todos los derechos reservados." data-en="All rights reserved." >Todos los derechos reservados.</span></p><p><span data-es="Hecho a mano… es hecho con amor." data-en="Made by hand… made with love." >Hecho a mano… es hecho con amor.</span> ♡</p></div>
+</footer>
+<a class="floating-contact" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+gustar%C3%ADa+saber+m%C3%A1s+sobre+sus+piezas+tejidas+y+hacer+un+pedido." data-whatsapp-es="¡Hola, Hecho a Mano! Me gustaría saber más sobre sus piezas tejidas y hacer un pedido." data-whatsapp-en="Hello, Hecho a Mano! I&#x27;d like to learn more about your crochet pieces and place an order." target="_blank" rel="noopener noreferrer" aria-label="Escribir a Hecho a Mano por WhatsApp" data-aria-es="Escribir a Hecho a Mano por WhatsApp" data-aria-en="Message Hecho a Mano on WhatsApp"><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="¿Te ayudamos?" data-en="Can we help?" >¿Te ayudamos?</span></a>
 
-<h1 id="title">Muñecas</h1>
 
-<div class="description" id="desc">
-Elegantes, delicadas y llenas de imaginación… nuestras muñecas princesas tejidas están hechas a mano con dedicación y un toque de magia en cada detalle. Cada pieza es única, combinando creatividad y ternura para dar vida a pequeñas reinas que encantan, decoran y se convierten en el regalo perfecto para soñar despierto.
-</div>
-
-<div class="grid">
-
-<div class="card" onclick="openModal(['images/rapunzel1.png','images/rapunzel2.png','images/rapunzel3.png'])">
-<img src="images/rapunzel1.png">
-<div class="info">
-<div class="name" data-name="Rapunzel"></div>
-<div class="price" data-price="1300"></div>
-</div>
-</div>
-
-<div class="card" onclick="openModal(['images/jasmine1.png','images/jasmine2.png'])">
-<img src="images/jasmine1.png">
-<div class="info">
-<div class="name" data-name="Princesa Jasmine"></div>
-<div class="price" data-price="1300"></div>
-</div>
-</div>
-
-<div class="card" onclick="openModal(['images/bella1.png','images/bella2new.png','images/bella3.png','images/bella4.png'])">
-<img src="images/bella1.png">
-<div class="info">
-<div class="name" data-name="Bella y Bestia"></div>
-<div class="price" data-price="2400"></div>
-</div>
-</div>
-
-<div class="card" onclick="openModal(['images/gatita1.png'])">
-<img src="images/gatita1.png">
-<div class="info">
-<div class="name" data-name="Gatita"></div>
-<div class="price" data-price="1300"></div>
-</div>
-</div>
-
-<div class="card" onclick="openModal(['images/closet1.png','images/closet2.png'])">
-<img src="images/closet1.png">
-<div class="info">
-<div class="name" data-name="Muñequita con Closet"></div>
-<div class="price" data-price="1500"></div>
-</div>
-</div>
-
-<div class="card" onclick="openModal(['images/tinkerbell1.png'])">
-<img src="images/tinkerbell1.png">
-<div class="info">
-<div class="name" data-name="Campanita"></div>
-<div class="price" data-price="1300"></div>
-</div>
-</div>
-
-<div class="card" onclick="openModal(['images/bailarina1.png'])">
-<img src="images/bailarina1.png">
-<div class="info">
-<div class="name" data-name="Bailarina"></div>
-<div class="price" data-price="350"></div>
-</div>
-</div>
-
-<div class="card" onclick="openModal(['images/tomato1.png'])">
-<img src="images/tomato1.png">
-<div class="info">
-<div class="name" data-name="Mr. Tomato"></div>
-<div class="price" data-price="350"></div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div id="modal" class="modal">
-<span class="close" onclick="closeModal()">&times;</span>
-<div id="modalContent" class="modal-content"></div>
-</div>
-
-<script>
-function openModal(images) {
-  const modal = document.getElementById("modal");
-  const content = document.getElementById("modalContent");
-  content.innerHTML = "";
-  images.forEach(src => {
-    const img = document.createElement("img");
-    img.src = src;
-    content.appendChild(img);
-  });
-  modal.style.display = "block";
-}
-
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
-}
-
-let isSpanish = true;
-const rate = 26.5;
-
-const names = {
-  "Rapunzel": "Rapunzel",
-  "Princesa Jasmine": "Princess Jasmine",
-  "Bella y Bestia": "Beauty and the Beast",
-  "Gatita": "Kitten",
-  "Muñequita con Closet": "Doll with Closet",
-  "Campanita": "Tinker Bell",
-  "Bailarina": "Ballerina",
-  "Mr. Tomato": "Mr. Tomato"
-};
-
-function updateContent() {
-  document.querySelectorAll(".name").forEach(el => {
-    let name = el.dataset.name;
-    el.innerText = isSpanish ? name : names[name];
-  });
-
-  document.querySelectorAll(".price").forEach(el => {
-    let base = parseFloat(el.dataset.price);
-    if (isSpanish) {
-      el.innerText = `L. ${base}`;
-    } else {
-      el.innerText = `$${(base / rate).toFixed(2)}`;
-    }
-  });
-}
-
-function toggleLanguage() {
-  isSpanish = !isSpanish;
-
-  if (isSpanish) {
-    document.getElementById("title").innerText = "Muñecas";
-    document.getElementById("backBtn").innerText = "← Volver al menú";
-    document.getElementById("desc").innerText =
-    "Elegantes, delicadas y llenas de imaginación… nuestras muñecas princesas tejidas están hechas a mano con dedicación y un toque de magia en cada detalle. Cada pieza es única, combinando creatividad y ternura para dar vida a pequeñas reinas que encantan, decoran y se convierten en el regalo perfecto para soñar despierto.";
-  } else {
-    document.getElementById("title").innerText = "Dolls";
-    document.getElementById("backBtn").innerText = "← Back to menu";
-    document.getElementById("desc").innerText =
-    "Elegant, delicate, and full of imagination… our crocheted princess dolls are handmade with dedication and a touch of magic in every detail. Each piece is unique, combining creativity and tenderness to bring to life little queens that charm, decorate, and become the perfect gift for dreaming awake.";
-  }
-
-  updateContent();
-}
-
-updateContent();
-</script>
-
+<dialog class="product-dialog" id="product-dialog" aria-labelledby="dialog-title">
+  <button class="dialog-close" id="dialog-close" type="button" aria-label="Cerrar" data-aria-es="Cerrar" data-aria-en="Close"><svg class="close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button>
+  <div class="dialog-inner">
+    <div class="dialog-media"><img id="dialog-image" alt="" width="500" height="400"><div class="dialog-controls" id="dialog-controls"><button type="button" id="dialog-prev" aria-label="Foto anterior" data-aria-es="Foto anterior" data-aria-en="Previous photo"><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button><span id="dialog-count" aria-live="polite"></span><button type="button" id="dialog-next" aria-label="Foto siguiente" data-aria-es="Foto siguiente" data-aria-en="Next photo"><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button></div></div>
+    <div class="dialog-copy"><p class="eyebrow"><span data-es="Una pieza con historia" data-en="A piece with a story" >Una pieza con historia</span></p><h2 id="dialog-title"></h2><p class="dialog-price" id="dialog-price"></p><p id="dialog-description"></p><a id="dialog-order" class="button button-primary" target="_blank" rel="noopener noreferrer"><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Pedir por WhatsApp" data-en="Order on WhatsApp" >Pedir por WhatsApp</span></a><p data-es="Conversemos sobre colores, detalles y disponibilidad." data-en="Let’s talk about colors, details, and availability." >Conversemos sobre colores, detalles y disponibilidad.</p></div>
+  </div>
+</dialog>
+<script type="application/json" id="catalog-data">[{"id": "rapunzel", "name": {"es": "Rapunzel", "en": "Rapunzel"}, "images": ["images/web/rapunzel1.webp", "images/web/rapunzel2.webp", "images/web/rapunzel3.webp"], "price": 1300, "url": "https://hecho-a-mano-0823.vercel.app/munecas.html#rapunzel", "message": {"es": "¡Hola, Hecho a Mano! Me interesa: Rapunzel (L. 1,300). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/munecas.html#rapunzel", "en": "Hello, Hecho a Mano! I’m interested in: Rapunzel (L. 1,300). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/munecas.html#rapunzel"}, "description": {"es": "Hecho a mano · Consulta colores", "en": "Handmade · Ask about colors"}}, {"id": "jasmine", "name": {"es": "Princesa Jasmine", "en": "Princess Jasmine"}, "images": ["images/web/jasmine1.webp", "images/web/jasmine2.webp"], "price": 1300, "url": "https://hecho-a-mano-0823.vercel.app/munecas.html#jasmine", "message": {"es": "¡Hola, Hecho a Mano! Me interesa: Princesa Jasmine (L. 1,300). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/munecas.html#jasmine", "en": "Hello, Hecho a Mano! I’m interested in: Princess Jasmine (L. 1,300). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/munecas.html#jasmine"}, "description": {"es": "Hecho a mano · Consulta colores", "en": "Handmade · Ask about colors"}}, {"id": "bella-bestia", "name": {"es": "Bella y Bestia", "en": "Beauty and the Beast"}, "images": ["images/web/bella1.webp", "images/web/bella2.webp", "images/web/bella3.webp", "images/web/bella4.webp"], "price": 2400, "url": "https://hecho-a-mano-0823.vercel.app/munecas.html#bella-bestia", "message": {"es": "¡Hola, Hecho a Mano! Me interesa: Bella y Bestia (L. 2,400). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/munecas.html#bella-bestia", "en": "Hello, Hecho a Mano! I’m interested in: Beauty and the Beast (L. 2,400). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/munecas.html#bella-bestia"}, "description": {"es": "Hecho a mano · Consulta colores", "en": "Handmade · Ask about colors"}}, {"id": "gatita", "name": {"es": "Gatita", "en": "Kitten"}, "images": ["images/web/gatita1.webp"], "price": 1300, "url": "https://hecho-a-mano-0823.vercel.app/munecas.html#gatita", "message": {"es": "¡Hola, Hecho a Mano! Me interesa: Gatita (L. 1,300). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/munecas.html#gatita", "en": "Hello, Hecho a Mano! I’m interested in: Kitten (L. 1,300). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/munecas.html#gatita"}, "description": {"es": "Hecho a mano · Consulta colores", "en": "Handmade · Ask about colors"}}, {"id": "closet", "name": {"es": "Muñequita con clóset", "en": "Doll with a closet"}, "images": ["images/web/closet1.webp", "images/web/closet2.webp"], "price": 1500, "url": "https://hecho-a-mano-0823.vercel.app/munecas.html#closet", "message": {"es": "¡Hola, Hecho a Mano! Me interesa: Muñequita con clóset (L. 1,500). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/munecas.html#closet", "en": "Hello, Hecho a Mano! I’m interested in: Doll with a closet (L. 1,500). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/munecas.html#closet"}, "description": {"es": "Hecho a mano · Consulta colores", "en": "Handmade · Ask about colors"}}, {"id": "campanita", "name": {"es": "Campanita", "en": "Tinker Bell"}, "images": ["images/web/tinkerbell1.webp"], "price": 1300, "url": "https://hecho-a-mano-0823.vercel.app/munecas.html#campanita", "message": {"es": "¡Hola, Hecho a Mano! Me interesa: Campanita (L. 1,300). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/munecas.html#campanita", "en": "Hello, Hecho a Mano! I’m interested in: Tinker Bell (L. 1,300). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/munecas.html#campanita"}, "description": {"es": "Hecho a mano · Consulta colores", "en": "Handmade · Ask about colors"}}, {"id": "bailarina", "name": {"es": "Bailarina", "en": "Ballerina"}, "images": ["images/web/bailarina1.webp"], "price": 350, "url": "https://hecho-a-mano-0823.vercel.app/munecas.html#bailarina", "message": {"es": "¡Hola, Hecho a Mano! Me interesa: Bailarina (L. 350). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/munecas.html#bailarina", "en": "Hello, Hecho a Mano! I’m interested in: Ballerina (L. 350). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/munecas.html#bailarina"}, "description": {"es": "Hecho a mano · Consulta colores", "en": "Handmade · Ask about colors"}}, {"id": "tomato", "name": {"es": "Mr. Tomato", "en": "Mr. Tomato"}, "images": ["images/web/tomato1.webp"], "price": 350, "url": "https://hecho-a-mano-0823.vercel.app/munecas.html#tomato", "message": {"es": "¡Hola, Hecho a Mano! Me interesa: Mr. Tomato (L. 350). ¿Podrían confirmarme disponibilidad y detalles? https://hecho-a-mano-0823.vercel.app/munecas.html#tomato", "en": "Hello, Hecho a Mano! I’m interested in: Mr. Tomato (L. 350). Could you confirm availability and details? https://hecho-a-mano-0823.vercel.app/munecas.html#tomato"}, "description": {"es": "Hecho a mano · Consulta colores", "en": "Handmade · Ask about colors"}}]</script>
 </body>
 </html>

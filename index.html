@@ -1,289 +1,122 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Hecho a Mano</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
-
-<style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: #fffafc;
-  color: #333;
-}
-
-/* CONTAINER */
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 15px;
-  text-align: center;
-}
-
-/* HEADER */
-header {
-  background: linear-gradient(135deg, #ffd6e0, #ffe5b4, #d6f5ff);
-  padding: 40px 15px;
-}
-
-h1 {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  color: #e07a9d;
-  font-size: clamp(28px, 5vw, 42px);
-}
-
-header p {
-  font-size: clamp(14px, 2.5vw, 18px);
-}
-
-/* SLIDER */
-.slider {
-  position: relative;
-  width: 100%;
-  height: clamp(180px, 40vw, 260px);
-  overflow: hidden;
-  border-radius: 20px;
-  margin: 20px 0;
-}
-
-.slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  cursor: pointer;
-}
-
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.slide.active {
-  opacity: 1;
-}
-
-/* OVERLAY */
-.slide::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.2), transparent);
-}
-
-/* DOTS */
-.dots {
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
-  text-align: center;
-}
-
-.dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  margin: 4px;
-  background: #ffffffaa;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.dot.active {
-  background: #ff5c8a;
-  transform: scale(1.3);
-}
-
-/* NAV */
-nav {
-  background: #ffc8dd;
-  padding: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
-
-nav a {
-  padding: 10px 16px;
-  border-radius: 20px;
-  background: linear-gradient(135deg, #ff8fab, #ffc8dd);
-  color: #5a3e36;
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.3s;
-  font-size: clamp(13px, 2vw, 16px);
-}
-
-nav a:hover {
-  background: linear-gradient(135deg, #ff5c8a, #ffafcc);
-  color: white;
-  transform: scale(1.05);
-}
-
-/* ABOUT */
-.about {
-  max-width: 800px;
-  margin: 40px auto;
-}
-
-.about-logo {
-  width: clamp(100px, 30%, 160px);
-  margin-bottom: 20px;
-}
-
-.about h2 {
-  font-size: clamp(22px, 4vw, 30px);
-}
-
-.about p {
-  text-align: justify;
-  line-height: 1.7;
-  font-style: italic;
-  font-size: clamp(14px, 2.5vw, 16px);
-}
-
-/* WHATSAPP */
-.whatsapp-float {
-  position: fixed;
-  bottom: 15px;
-  right: 15px;
-  background: #25D366;
-  color: white;
-  padding: 12px 16px;
-  border-radius: 50px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-/* FOOTER */
-footer {
-  margin-top: 30px;
-  padding: 15px;
-  background: #e0f7fa;
-  font-size: 14px;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fcf9f5">
+  <title>Crochet con corazón · Hecho a Mano</title>
+  <meta name="description" content="Piezas únicas tejidas a mano en Honduras. Descubre tulipanes, llaveros, muñecas y cupcakes de crochet. Personaliza tu pedido por WhatsApp.">
+  <link rel="canonical" href="https://hecho-a-mano-0823.vercel.app/">
+  <meta property="og:title" content="Crochet con corazón · Hecho a Mano">
+  <meta property="og:description" content="Piezas únicas tejidas a mano en Honduras. Descubre tulipanes, llaveros, muñecas y cupcakes de crochet. Personaliza tu pedido por WhatsApp.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_HN">
+  <meta property="og:url" content="https://hecho-a-mano-0823.vercel.app/">
+  <meta property="og:image" content="https://hecho-a-mano-0823.vercel.app/images/web/tulipan-modelo.webp">
+  <link rel="icon" href="images/web/logo-small.webp" type="image/webp">
+  <link rel="preload" href="fonts/dm-sans-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/dm-serif-display-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
 </head>
+<body data-page="home">
 
-<body>
-
-<div class="container">
-
-<header>
-  <h1>Hecho a Mano</h1>
-  <p>Hecho a mano… es hecho con amor</p>
+<a class="skip-link" href="#main"><span data-es="Saltar al contenido" data-en="Skip to content" >Saltar al contenido</span></a>
+<div class="announcement"><span data-es="Hecho a mano, elegido con el corazón." data-en="Handmade with care. Chosen with love." >Hecho a mano, elegido con el corazón.</span><span data-es="Piezas únicas · Pedidos personalizados" data-en="Unique pieces · Custom orders" >Piezas únicas · Pedidos personalizados</span></div>
+<header class="site-header" id="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html" aria-label="Hecho a Mano — Inicio">
+      <img src="images/web/logo-small.webp" alt="Logo de Hecho a Mano" width="54" height="54">
+      <span><span class="brand-name">Hecho a Mano</span><span data-es="PUNTADAS QUE CONECTAN" data-en="STITCHES THAT CONNECT" class="brand-note">PUNTADAS QUE CONECTAN</span></span>
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="Navegación principal" data-aria-es="Navegación principal" data-aria-en="Main navigation">
+      <a href="#colecciones"><span data-es="Colecciones" data-en="Collections" >Colecciones</span></a>
+      <a href="#como-pedir"><span data-es="Cómo pedir" data-en="How to order" >Cómo pedir</span></a>
+      <a href="#historia"><span data-es="Nuestra historia" data-en="Our story" >Nuestra historia</span></a>
+    </nav>
+    <div class="header-actions">
+      <button class="language-button" id="language-button" type="button" aria-label="Switch to English"><span class="chosen" lang="es">ES</span><span lang="en">EN</span></button>
+      <a class="button button-outline button-small" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+gustar%C3%ADa+saber+m%C3%A1s+sobre+sus+piezas+tejidas+y+hacer+un+pedido." data-whatsapp-es="¡Hola, Hecho a Mano! Me gustaría saber más sobre sus piezas tejidas y hacer un pedido." data-whatsapp-en="Hello, Hecho a Mano! I&#x27;d like to learn more about your crochet pieces and place an order." target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Hablemos" data-en="Let’s talk" >Hablemos</span></a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menú" data-aria-es="Abrir o cerrar menú" data-aria-en="Open or close menu" aria-expanded="false" aria-controls="main-nav"><svg class="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
 </header>
 
-<div class="slider" id="slider">
-  <div class="dots" id="dots"></div>
-</div>
+<main id="main">
+  <section class="hero wrap" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="little-flower" aria-hidden="true">✳</span><span data-es="Crochet con corazón · Honduras" data-en="Crochet with heart · Honduras" >Crochet con corazón · Honduras</span></p>
+      <h1 id="hero-title"><span data-es="Un poquito de hilo." data-en="A little yarn." >Un poquito de hilo.</span><em data-es="Mucho amor." data-en="A lot of love." >Mucho amor.</em></h1>
+      <p data-es="Tejemos detalles que abrazan: flores que no se marchitan, personajes que enamoran y regalos tan únicos como tú." data-en="We crochet little things that feel like a hug: flowers that never fade, lovable characters, and gifts as unique as you." class="hero-description">Tejemos detalles que abrazan: flores que no se marchitan, personajes que enamoran y regalos tan únicos como tú.</p>
+      <div class="hero-buttons"><a class="button button-primary" href="#colecciones"><span data-es="Explorar colecciones" data-en="Explore collections" >Explorar colecciones</span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a><a class="text-link" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+gustar%C3%ADa+cotizar+una+pieza+personalizada." data-whatsapp-es="¡Hola, Hecho a Mano! Me gustaría cotizar una pieza personalizada." data-whatsapp-en="Hello, Hecho a Mano! I&#x27;d like a quote for a custom crochet piece." target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Tengo una idea" data-en="I have an idea" >Tengo una idea</span></a></div>
+      <p class="hero-note"><svg class="heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg><span data-es="Hecho con calma. Pensado para alguien especial." data-en="Made with care. Meant for someone special." >Hecho con calma. Pensado para alguien especial.</span></p>
+    </div>
+    <div class="hero-art">
+      <div class="hero-photo"><img class="" src="images/web/tulip1.webp" srcset="images/web/tulip1-small.webp 480w, images/web/tulip1.webp 1000w" sizes="(max-width: 640px) 85vw, 42vw" alt="Tres tulipanes tejidos en tonos rosa, rojo y crema" data-alt-es="Tres tulipanes tejidos en tonos rosa, rojo y crema" data-alt-en="Three crocheted tulips in pink, red, and cream" fetchpriority="high" decoding="async"></div>
+      <div class="hero-stamp"><b>100%</b><span data-es="hecho a mano" data-en="handmade" >hecho a mano</span></div>
+      <span class="hero-spark" aria-hidden="true">✳</span>
+      <div class="hero-label"><svg class="gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v9h14v-9M12 8v13M12 8H7.5A2.5 2.5 0 1 1 10 5.5L12 8Zm0 0h4.5A2.5 2.5 0 1 0 14 5.5L12 8Z"/></svg><div><strong data-es="Para regalar. O regalarte." data-en="To give. Or to keep." >Para regalar. O regalarte.</strong><small data-es="Un detalle que dura." data-en="A little joy that lasts." >Un detalle que dura.</small></div></div>
+    </div>
+  </section>
+  <div class="values-strip"><div class="wrap values-inner">
+    <div class="value-item"><svg class="heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg><span data-es="Tejido a mano con amor" data-en="Crocheted by hand with love" >Tejido a mano con amor</span></div><span class="value-separator" aria-hidden="true"></span>
+    <div class="value-item"><svg class="spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3Z"/></svg><span data-es="Tan único como tú" data-en="As unique as you" >Tan único como tú</span></div><span class="value-separator" aria-hidden="true"></span>
+    <div class="value-item"><svg class="gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v9h14v-9M12 8v13M12 8H7.5A2.5 2.5 0 1 1 10 5.5L12 8Zm0 0h4.5A2.5 2.5 0 1 0 14 5.5L12 8Z"/></svg><span data-es="Detalles para regalar" data-en="Thoughtful little gifts" >Detalles para regalar</span></div><span class="value-separator" aria-hidden="true"></span>
+    <div class="value-item"><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Pedidos por WhatsApp" data-en="Order on WhatsApp" >Pedidos por WhatsApp</span></div>
+  </div></div>
+  <section class="wrap section" id="colecciones" aria-labelledby="collections-title">
+    <div class="section-heading reveal"><div><p class="eyebrow"><span data-es="Encuentra tu próximo favorito" data-en="Find your next favorite" >Encuentra tu próximo favorito</span></p><h2 id="collections-title"><span data-es="Un mundo de" data-en="A world of" >Un mundo de</span> <em><span data-es="pequeños detalles." data-en="little wonders." >pequeños detalles.</span></em></h2></div><p data-es="Cada pieza tiene su encanto. ¿Cuál cuenta tu historia?" data-en="Every piece has its own charm. Which one tells your story?" >Cada pieza tiene su encanto. ¿Cuál cuenta tu historia?</p></div>
+    <div class="collection-grid"><a class="collection-card reveal" href="tulipanes.html"><div class="collection-image photo"><img class="" src="images/web/tulip1.webp" srcset="images/web/tulip1-small.webp 480w, images/web/tulip1.webp 1000w" sizes="(max-width: 640px) 45vw, (max-width: 900px) 45vw, 24vw" alt="Tulipanes tejidos a mano" data-alt-es="Tulipanes tejidos a mano" data-alt-en="Tulips crocheted by hand" loading="lazy" decoding="async"><span class="collection-arrow"><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></span></div><div class="collection-info"><h3 data-es="Tulipanes" data-en="Tulips" >Tulipanes</h3><p data-es="Flores que se quedan contigo." data-en="Flowers to keep forever." >Flores que se quedan contigo.</p><span data-es="Desde L. 120" data-en="From L. 120" class="from-price">Desde L. 120</span></div></a><a class="collection-card reveal" href="llaveros.html"><div class="collection-image "><img class="" src="images/web/llavero1.webp" srcset="images/web/llavero1-small.webp 480w, images/web/llavero1.webp 1000w" sizes="(max-width: 640px) 45vw, (max-width: 900px) 45vw, 24vw" alt="Llaveros tejidos a mano" data-alt-es="Llaveros tejidos a mano" data-alt-en="Keychains crocheted by hand" loading="lazy" decoding="async"><span class="collection-arrow"><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></span></div><div class="collection-info"><h3 data-es="Llaveros" data-en="Keychains" >Llaveros</h3><p data-es="Pequeños detalles, mucha ternura." data-en="Little details, lots of charm." >Pequeños detalles, mucha ternura.</p><span data-es="Desde L. 150" data-en="From L. 150" class="from-price">Desde L. 150</span></div></a><a class="collection-card reveal" href="munecas.html"><div class="collection-image "><img class="" src="images/web/rapunzel1.webp" srcset="images/web/rapunzel1-small.webp 480w, images/web/rapunzel1.webp 1000w" sizes="(max-width: 640px) 45vw, (max-width: 900px) 45vw, 24vw" alt="Muñecas tejidos a mano" data-alt-es="Muñecas tejidos a mano" data-alt-en="Dolls crocheted by hand" loading="lazy" decoding="async"><span class="collection-arrow"><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></span></div><div class="collection-info"><h3 data-es="Muñecas" data-en="Dolls" >Muñecas</h3><p data-es="Personajes llenos de magia." data-en="Characters with a little magic." >Personajes llenos de magia.</p><span data-es="Desde L. 350" data-en="From L. 350" class="from-price">Desde L. 350</span></div></a><a class="collection-card reveal" href="cupcakes.html"><div class="collection-image "><img class="" src="images/web/cupcake1.webp" srcset="images/web/cupcake1-small.webp 480w, images/web/cupcake1.webp 1000w" sizes="(max-width: 640px) 45vw, (max-width: 900px) 45vw, 24vw" alt="Cupcakes tejidos a mano" data-alt-es="Cupcakes tejidos a mano" data-alt-en="Cupcakes crocheted by hand" loading="lazy" decoding="async"><span class="collection-arrow"><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></span></div><div class="collection-info"><h3 data-es="Cupcakes" data-en="Cupcakes" >Cupcakes</h3><p data-es="Un antojo de lo más especial." data-en="A little treat, a lot of joy." >Un antojo de lo más especial.</p><span data-es="Desde L. 150" data-en="From L. 150" class="from-price">Desde L. 150</span></div></a></div>
+  </section>
+  <section class="custom-section wrap" id="personaliza" aria-labelledby="custom-title">
+    <div class="custom-copy"><p class="eyebrow"><span data-es="Imagina. Nosotros lo tejemos." data-en="Imagine it. We’ll crochet it." >Imagina. Nosotros lo tejemos.</span></p><h2 id="custom-title"><span data-es="Tu idea, nuestra" data-en="Your idea, our" >Tu idea, nuestra</span> <em><span data-es="próxima puntada." data-en="next stitch." >próxima puntada.</span></em></h2><p data-es="¿Un personaje favorito, tu mascota o un regalo con tus colores? Nos encanta convertir tus ideas en algo que puedas abrazar." data-en="A favorite character, your pet, or a gift in your colors? We love turning your ideas into something you can hold." >¿Un personaje favorito, tu mascota o un regalo con tus colores? Nos encanta convertir tus ideas en algo que puedas abrazar.</p></div>
+    <div class="custom-form">
+      <label for="custom-type"><span data-es="¿Qué te gustaría crear?" data-en="What would you like to create?" >¿Qué te gustaría crear?</span></label>
+      <select id="custom-type"><option value="especial" data-es="Una idea especial" data-en="Something special">Una idea especial</option><option value="tulipanes" data-es="Tulipanes" data-en="Tulips">Tulipanes</option><option value="llaveros" data-es="Llaveros" data-en="Keychains">Llaveros</option><option value="munecas" data-es="Muñecas o personajes" data-en="Dolls or characters">Muñecas o personajes</option><option value="cupcakes" data-es="Cupcakes" data-en="Cupcakes">Cupcakes</option></select>
+      <label for="custom-idea"><span data-es="Cuéntanos un poquito" data-en="Tell us a little more" >Cuéntanos un poquito</span></label>
+      <textarea id="custom-idea" maxlength="600" placeholder="Colores, ocasión o esa idea que tienes en mente…" data-placeholder-es="Colores, ocasión o esa idea que tienes en mente…" data-placeholder-en="Colors, the occasion, or that idea you have in mind…" rows="2"></textarea>
+      <a class="button button-primary" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+gustar%C3%ADa+cotizar+una+pieza+personalizada." data-whatsapp-es="¡Hola, Hecho a Mano! Me gustaría cotizar una pieza personalizada." data-whatsapp-en="Hello, Hecho a Mano! I&#x27;d like a quote for a custom crochet piece." target="_blank" rel="noopener noreferrer" id="custom-order"><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Conversemos por WhatsApp" data-en="Let’s chat on WhatsApp" >Conversemos por WhatsApp</span></a>
+      <p data-es="Se abrirá WhatsApp con tu idea lista para compartir." data-en="WhatsApp will open with your idea ready to share." class="form-note">Se abrirá WhatsApp con tu idea lista para compartir.</p>
+    </div>
+  </section>
+  <section class="wrap section" id="como-pedir" aria-labelledby="steps-title">
+    <div class="section-heading reveal"><div><p class="eyebrow"><span data-es="De nuestras manos a las tuyas" data-en="From our hands to yours" >De nuestras manos a las tuyas</span></p><h2 id="steps-title"><span data-es="Algo bonito empieza" data-en="Something lovely starts" >Algo bonito empieza</span> <em><span data-es="con un hola." data-en="with a hello." >con un hola.</span></em></h2></div><p data-es="Pedir tu pieza es sencillo. Te acompañamos en cada detalle." data-en="Ordering your piece is easy. We’ll help with every little detail." >Pedir tu pieza es sencillo. Te acompañamos en cada detalle.</p></div>
+    <div class="steps-grid">
+      <article class="step reveal"><span class="step-number">01</span><h3 data-es="Elige lo que te enamora" data-en="Find something you love" >Elige lo que te enamora</h3><p data-es="Explora las colecciones o comparte una idea que quieras hacer realidad." data-en="Browse our collections or share an idea you’d love to bring to life." >Explora las colecciones o comparte una idea que quieras hacer realidad.</p><a class="text-link" href="#colecciones"><span data-es="Ver colecciones" data-en="Browse collections" >Ver colecciones</span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></article>
+      <article class="step reveal"><span class="step-number">02</span><h3 data-es="Hablemos de los detalles" data-en="Let’s talk about the details" >Hablemos de los detalles</h3><p data-es="Escríbenos por WhatsApp para consultar colores, personalización y disponibilidad." data-en="Message us on WhatsApp to discuss colors, personalization, and availability." >Escríbenos por WhatsApp para consultar colores, personalización y disponibilidad.</p><a class="text-link" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+gustar%C3%ADa+saber+m%C3%A1s+sobre+sus+piezas+tejidas+y+hacer+un+pedido." data-whatsapp-es="¡Hola, Hecho a Mano! Me gustaría saber más sobre sus piezas tejidas y hacer un pedido." data-whatsapp-en="Hello, Hecho a Mano! I&#x27;d like to learn more about your crochet pieces and place an order." target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Escríbenos" data-en="Send us a hello" >Escríbenos</span></a></article>
+      <article class="step reveal"><span class="step-number">03</span><h3 data-es="Lo hacemos especial para ti" data-en="We make it special for you" >Lo hacemos especial para ti</h3><p data-es="Confirmamos contigo el precio, el tiempo de elaboración y la forma de entrega antes de empezar." data-en="We’ll confirm the price, creation time, and delivery arrangements with you before we begin." >Confirmamos contigo el precio, el tiempo de elaboración y la forma de entrega antes de empezar.</p></article>
+    </div>
+  </section>
+  <section class="story-section section" id="historia" aria-labelledby="story-title"><div class="wrap story-grid">
+    <div class="story-art reveal"><img src="images/web/logo.webp" alt="Hecho a Mano — Hecho a mano es hecho con amor" width="300" height="300" loading="lazy"><span data-es="Con cariño, Hecho a Mano" data-en="With love, Hecho a Mano" class="story-signature">Con cariño, Hecho a Mano</span></div>
+    <div class="story-copy reveal"><p class="eyebrow"><span data-es="Un poquito sobre nosotros" data-en="A little about us" >Un poquito sobre nosotros</span></p><h2 id="story-title"><span data-es="Un emprendimiento pequeño." data-en="A small business." >Un emprendimiento pequeño.</span> <em><span data-es="Un corazón enorme." data-en="A whole lot of heart." >Un corazón enorme.</span></em></h2><p data-es="Damos vida a la creatividad con el arte de tejer. Cada puntada lleva tiempo, dedicación y la ilusión de crear algo que signifique mucho para alguien." data-en="We bring creativity to life through crochet. Every stitch carries time, care, and the hope of creating something that means a lot to someone." >Damos vida a la creatividad con el arte de tejer. Cada puntada lleva tiempo, dedicación y la ilusión de crear algo que signifique mucho para alguien.</p><p data-es="Desde amigurumis hasta tus propias ideas o mascotas, nos encanta crear piezas únicas por encargo. También compartimos este arte en nuestras clases de crochet." data-en="From amigurumi to your own ideas or pets, we love creating unique pieces to order. We also share this craft through our crochet classes." >Desde amigurumis hasta tus propias ideas o mascotas, nos encanta crear piezas únicas por encargo. También compartimos este arte en nuestras clases de crochet.</p><a class="text-link" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+gustar%C3%ADa+recibir+informaci%C3%B3n+sobre+sus+clases+de+crochet." data-whatsapp-es="¡Hola, Hecho a Mano! Me gustaría recibir información sobre sus clases de crochet." data-whatsapp-en="Hello, Hecho a Mano! I’d like more information about your crochet classes." target="_blank" rel="noopener noreferrer" ><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="Quiero saber de las clases" data-en="Tell me about the classes" >Quiero saber de las clases</span></a></div>
+  </div></section>
+  <section class="wrap section faq-grid" id="preguntas" aria-labelledby="faq-title"><div class="reveal"><p class="eyebrow"><span data-es="Antes de decir hola" data-en="Before you say hello" >Antes de decir hola</span></p><h2 id="faq-title"><span data-es="Por si te lo" data-en="Just in case you’re" >Por si te lo</span> <em><span data-es="preguntabas." data-en="wondering." >preguntabas.</span></em></h2><p data-es="Y si tienes otra duda, estamos a un mensaje de distancia." data-en="And if you have another question, we’re just a message away." >Y si tienes otra duda, estamos a un mensaje de distancia.</p></div><div class="faq-list">
+    <details><summary><span data-es="¿Puedo personalizar mi pedido?" data-en="Can I personalize my order?" >¿Puedo personalizar mi pedido?</span></summary><p data-es="¡Sí! Cuéntanos tu idea, colores favoritos o personaje por WhatsApp. Revisaremos los detalles contigo y te compartiremos una cotización." data-en="Yes! Share your idea, favorite colors, or character on WhatsApp. We’ll go over the details with you and prepare a quote." >¡Sí! Cuéntanos tu idea, colores favoritos o personaje por WhatsApp. Revisaremos los detalles contigo y te compartiremos una cotización.</p></details>
+    <details><summary><span data-es="¿Cómo puedo hacer un pedido?" data-en="How do I place an order?" >¿Cómo puedo hacer un pedido?</span></summary><p data-es="Entra a una colección y elige “Pedir por WhatsApp” en la pieza que te guste. Se abrirá un chat con el producto en el mensaje. Tú lo revisas y lo envías." data-en="Open a collection and choose “Order on WhatsApp” on the piece you like. A chat will open with the product in the message. You can review and send it." >Entra a una colección y elige “Pedir por WhatsApp” en la pieza que te guste. Se abrirá un chat con el producto en el mensaje. Tú lo revisas y lo envías.</p></details>
+    <details><summary><span data-es="¿Cuánto tarda y cómo recibo mi pieza?" data-en="How long does it take, and how will I receive it?" >¿Cuánto tarda y cómo recibo mi pieza?</span></summary><p data-es="El tiempo de elaboración depende de la pieza y de la personalización. Escríbenos para confirmar disponibilidad, tiempo y opciones de entrega antes de realizar tu pedido." data-en="Creation time depends on the piece and personalization. Message us to confirm availability, timing, and delivery options before placing your order." >El tiempo de elaboración depende de la pieza y de la personalización. Escríbenos para confirmar disponibilidad, tiempo y opciones de entrega antes de realizar tu pedido.</p></details>
+    <details><summary><span data-es="¿También dan clases de crochet?" data-en="Do you also offer crochet classes?" >¿También dan clases de crochet?</span></summary><p data-es="Sí, ofrecemos clases para aprender y desarrollar tu creatividad. Consulta por WhatsApp los horarios, requisitos y disponibilidad." data-en="Yes, we offer classes to help you learn and explore your creativity. Ask us on WhatsApp about schedules, requirements, and availability." >Sí, ofrecemos clases para aprender y desarrollar tu creatividad. Consulta por WhatsApp los horarios, requisitos y disponibilidad.</p></details>
+  </div></section>
+</main>
 
-<nav>
-  <a href="llaveros.html">Llaveros</a>
-  <a href="cupcakes.html">Cupcakes</a>
-  <a href="munecas.html">Muñecas</a>
-  <a href="tulipanes.html">Tulipanes</a>
-</nav>
 
-<section class="about">
-  <h2>Sobre Nosotros</h2>
-  <img src="images/logo.png" class="about-logo">
-
-  <p>
-    Creamos piezas únicas tejidas a mano, donde cada puntada refleja dedicación, creatividad y amor por el detalle.
-    También realizamos pedidos personalizados por encargo, adaptándonos a ideas especiales para cada cliente.
-  </p>
-
-  <p>
-    Además, ofrecemos clases de crochet para quienes desean aprender y desarrollar su creatividad,
-    compartiendo la belleza de este arte en un ambiente cercano e inspirador.
-  </p>
-</section>
-
-<footer>
-  © 2026 Hecho a Mano
+<footer class="site-footer">
+  <div class="wrap footer-top">
+    <div class="footer-brand">
+      <a class="brand" href="index.html"><img src="images/web/logo-small.webp" alt="Hecho a Mano" width="54" height="54"><span class="brand-name">Hecho a Mano</span></a>
+      <p data-es="Un emprendimiento pequeño con grandes ideas y mucho amor por el crochet." data-en="A small business with big ideas and a love for crochet." >Un emprendimiento pequeño con grandes ideas y mucho amor por el crochet.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Enlaces del pie de página" data-aria-es="Enlaces del pie de página" data-aria-en="Footer links">
+      <a href="#colecciones"><span data-es="Colecciones" data-en="Collections" >Colecciones</span></a>
+      <a href="#personaliza"><span data-es="Tu pedido especial" data-en="Your custom order" >Tu pedido especial</span></a>
+      <a href="#preguntas"><span data-es="Preguntas frecuentes" data-en="FAQs" >Preguntas frecuentes</span></a>
+    </nav>
+    <div class="footer-contact"><a href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+gustar%C3%ADa+saber+m%C3%A1s+sobre+sus+piezas+tejidas+y+hacer+un+pedido." target="_blank" rel="noopener noreferrer"><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span>+504 8923-5110</span></a><p data-es="Tu próxima idea empieza con un hola." data-en="Your next idea begins with a hello." >Tu próxima idea empieza con un hola.</p></div>
+  </div>
+  <div class="wrap footer-bottom"><p>© <span data-year>2026</span> Hecho a Mano. <span data-es="Todos los derechos reservados." data-en="All rights reserved." >Todos los derechos reservados.</span></p><p><span data-es="Hecho a mano… es hecho con amor." data-en="Made by hand… made with love." >Hecho a mano… es hecho con amor.</span> ♡</p></div>
 </footer>
+<a class="floating-contact" href="https://wa.me/50489235110?text=%C2%A1Hola%2C+Hecho+a+Mano%21+Me+gustar%C3%ADa+saber+m%C3%A1s+sobre+sus+piezas+tejidas+y+hacer+un+pedido." data-whatsapp-es="¡Hola, Hecho a Mano! Me gustaría saber más sobre sus piezas tejidas y hacer un pedido." data-whatsapp-en="Hello, Hecho a Mano! I&#x27;d like to learn more about your crochet pieces and place an order." target="_blank" rel="noopener noreferrer" aria-label="Escribir a Hecho a Mano por WhatsApp" data-aria-es="Escribir a Hecho a Mano por WhatsApp" data-aria-en="Message Hecho a Mano on WhatsApp"><svg class="whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c-.5 0-1 .5-1 1.3 0 2.9 3.4 6.2 6.5 6.2.8 0 1.6-.7 1.6-1.3l-2-1-1 1c-1.5-.6-2.7-1.8-3.3-3.2l1-1-1-2Z"/></svg><span data-es="¿Te ayudamos?" data-en="Can we help?" >¿Te ayudamos?</span></a>
 
-</div>
-
-<div class="whatsapp-float" onclick="sendWhatsApp()">
-  WhatsApp
-</div>
-
-<script>
-const slidesData = [
-  { img: "llavero1.png", link: "llaveros.html" },
-  { img: "cupcake1.png", link: "cupcakes.html" },
-  { img: "bella1.png", link: "munecas.html" },
-  { img: "tulip1.jpg", link: "tulipanes.html" }
-];
-
-const slider = document.getElementById("slider");
-const dotsContainer = document.getElementById("dots");
-
-slidesData.forEach((item, i) => {
-  let slide = document.createElement("div");
-  slide.className = "slide";
-  if(i === 0) slide.classList.add("active");
-
-  slide.innerHTML = `<img src="images/${item.img}">`;
-
-  slide.addEventListener("click", () => {
-    window.location.href = item.link;
-  });
-
-  slider.appendChild(slide);
-
-  let dot = document.createElement("span");
-  dot.className = "dot";
-  if(i === 0) dot.classList.add("active");
-
-  dot.addEventListener("click", () => showSlide(i));
-  dotsContainer.appendChild(dot);
-});
-
-const slides = document.querySelectorAll(".slide");
-const dots = document.querySelectorAll(".dot");
-
-let index = 0;
-
-function showSlide(i){
-  slides.forEach((s, idx)=>{
-    s.classList.remove("active");
-    dots[idx].classList.remove("active");
-  });
-
-  slides[i].classList.add("active");
-  dots[i].classList.add("active");
-  index = i;
-}
-
-function autoSlide(){
-  index = (index + 1) % slides.length;
-  showSlide(index);
-}
-
-setInterval(autoSlide, 3000);
-
-function sendWhatsApp() {
-  window.open("https://wa.link/31vzqd", "_blank");
-}
-</script>
 
 </body>
 </html>
